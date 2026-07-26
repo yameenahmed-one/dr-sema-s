@@ -275,6 +275,16 @@ window.addToCart = addToCart;
 
 // ── INIT ──────────────────────────────────────────────────────────────────
 document.addEventListener("DOMContentLoaded", () => {
+  // ── Hide loader & show page (new botanical loader) ──
+  const loader = document.getElementById("luxury-loader");
+  const app    = document.getElementById("app-content");
+  if (loader && app) {
+    setTimeout(() => {
+      loader.classList.add("hidden-loader");
+      app.style.opacity = "1";
+    }, 1800);
+  }
+
   initConcernTabs();
   initBeforeAfterSliders();
   initFAQs();
