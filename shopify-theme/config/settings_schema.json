@@ -1,0 +1,18 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Dr. Seema's Clinical Skincare",
+    "theme_version": "1.0.0",
+    "theme_author": "Nova Fuxion",
+    "theme_documentation_url": "https://novafuxion.com",
+    "theme_support_url": "https://novafuxion.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      { "type": "color", "id": "primary_sage", "label": "Primary Sage", "default": "#2F6B66" },
+      { "type": "color", "id": "dark_forest", "label": "Dark Forest", "default": "#152221" },
+      { "type": "color", "id": "accent_mint", "label": "Accent Mint", "default": "#C8E6D5" }
+    ]
+  }
+]

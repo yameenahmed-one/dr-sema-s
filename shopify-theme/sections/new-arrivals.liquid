@@ -1,0 +1,30 @@
+<section id="new-arrivals" class="new-arrivals-section">
+  <div class="container-fluid px-3 px-md-5 mb-4">
+    <div class="section-header-center reveal-on-scroll">
+      <span class="section-tagline">Freshly Formulated</span>
+      <h2 class="section-main-title">New Clinical Arrivals</h2>
+      <p class="section-description">Discover our latest breakthrough bio-active additions crafted for radiant skin health.</p>
+    </div>
+  </div>
+  <div class="product-marquee-viewport">
+    <div class="product-marquee-track">
+      {% assign new_col = collections[section.settings.collection] %}
+      {% assign products_to_show = new_col.products | default: collections.all.products %}
+      {% for product in products_to_show limit: 5 %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+      {% for product in products_to_show limit: 5 %}
+        {% render 'product-card', product: product %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New Arrivals",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Collection to display" }
+  ]
+}
+{% endschema %}

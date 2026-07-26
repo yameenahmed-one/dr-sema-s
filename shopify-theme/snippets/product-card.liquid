@@ -1,0 +1,38 @@
+<div class="product-card-luxury">
+  <div class="product-image-box">
+    {% if product.compare_at_price > product.price %}
+      <span class="product-badge bestseller">SALE</span>
+    {% elsif product.tags contains 'new' %}
+      <span class="product-badge">NEW</span>
+    {% endif %}
+    <button class="wishlist-btn-corner" aria-label="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+    <a href="{{ product.url }}">
+      <img src="{{ product.featured_image | img_url: '400x' }}" class="product-img-primary" alt="{{ product.title | escape }}" loading="lazy">
+      {% if product.images[1] %}
+        <img src="{{ product.images[1] | img_url: '400x' }}" class="product-img-secondary" alt="{{ product.title | escape }}" loading="lazy">
+      {% endif %}
+    </a>
+    <a href="{{ product.url }}" class="quickview-hover-btn">View Product <i class="bi bi-eye"></i></a>
+  </div>
+  <div class="product-info-box">
+    <span class="product-category-sub">{{ product.type }}</span>
+    <h3 class="product-title-text">{{ product.title }}</h3>
+    <div class="product-rating-line">
+      <div class="stars-sage"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+      <span class="rating-count">({{ product.metafields.reviews.rating_count | default: '0' }} reviews)</span>
+    </div>
+    <div class="product-price-row">
+      <div class="product-price-tag">
+        {{ product.price | money }}
+        {% if product.compare_at_price > product.price %}
+          <span class="old-price">{{ product.compare_at_price | money }}</span>
+        {% endif %}
+      </div>
+      <form action="{{ routes.cart_add_url }}" method="post">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+        <input type="hidden" name="quantity" value="1">
+        <button type="submit" class="add-cart-icon-btn"><i class="bi bi-bag-plus"></i> Add</button>
+      </form>
+    </div>
+  </div>
+</div>

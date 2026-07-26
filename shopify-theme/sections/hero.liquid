@@ -1,0 +1,75 @@
+<section id="hero" class="hero-section">
+  <div class="hero-bg-carousel">
+    <div class="hero-bg-slide active" style="background-image:url('{{ section.settings.hero_image_1 | img_url: "master" }}');">
+      <div class="hero-overlay-dark"></div>
+    </div>
+    <div class="hero-bg-slide" style="background-image:url('{{ section.settings.hero_image_2 | img_url: "master" }}');">
+      <div class="hero-overlay-dark"></div>
+    </div>
+    <div class="hero-bg-slide" style="background-image:url('{{ section.settings.hero_image_3 | img_url: "master" }}');">
+      <div class="hero-overlay-dark"></div>
+    </div>
+  </div>
+
+  <div class="container relative-z2">
+    <div class="row align-items-center py-4 py-md-5">
+      <div class="col-lg-8 col-xl-7 mx-auto text-center">
+        <div class="hero-content-slider">
+          <div class="hero-text-item active">
+            <span class="hero-pill-tag"><i class="bi bi-patch-check-fill text-mint me-1"></i> DERMATOLOGIST FORMULATED</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_1 }}<br><span class="text-italic-mint">{{ section.settings.subheading_1 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_1 }}</p>
+            <div class="hero-btn-group">
+              <a href="{{ routes.collections_url }}" class="btn-hero-primary">Shop Formulations <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+          <div class="hero-text-item">
+            <span class="hero-pill-tag"><i class="bi bi-stars text-mint me-1"></i> BIO-RETINOL INNOVATION</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_2 }}<br><span class="text-italic-mint">{{ section.settings.subheading_2 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_2 }}</p>
+            <div class="hero-btn-group">
+              <a href="/collections/anti-aging" class="btn-hero-primary">Explore Bio-Retinol <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+          <div class="hero-text-item">
+            <span class="hero-pill-tag"><i class="bi bi-droplet-fill text-mint me-1"></i> 72-HOUR BARRIER MOISTURE</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_3 }}<br><span class="text-italic-mint">{{ section.settings.subheading_3 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_3 }}</p>
+            <div class="hero-btn-group">
+              <a href="/collections/hydration" class="btn-hero-primary">Shop Moisture Creams <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bottom-controls">
+    <div class="hero-dots-container">
+      <button class="hero-dot active" data-index="0"></button>
+      <button class="hero-dot" data-index="1"></button>
+      <button class="hero-dot" data-index="2"></button>
+    </div>
+  </div>
+  <div class="hero-progress-line"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero",
+  "settings": [
+    { "type": "image_picker", "id": "hero_image_1", "label": "Slide 1 Image" },
+    { "type": "image_picker", "id": "hero_image_2", "label": "Slide 2 Image" },
+    { "type": "image_picker", "id": "hero_image_3", "label": "Slide 3 Image" },
+    { "type": "text", "id": "heading_1", "label": "Slide 1 Heading", "default": "Pure Clinical Science." },
+    { "type": "text", "id": "subheading_1", "label": "Slide 1 Subheading", "default": "Uncompromising Radiance." },
+    { "type": "textarea", "id": "text_1", "label": "Slide 1 Text", "default": "Engineered by Dr. Seema with cold-pressed organic botanicals." },
+    { "type": "text", "id": "heading_2", "label": "Slide 2 Heading", "default": "Cellular Renewal." },
+    { "type": "text", "id": "subheading_2", "label": "Slide 2 Subheading", "default": "Without Irritation." },
+    { "type": "textarea", "id": "text_2", "label": "Slide 2 Text", "default": "Natural botanical retinol alternatives that smooth fine lines gently." },
+    { "type": "text", "id": "heading_3", "label": "Slide 3 Heading", "default": "Deep Ceramide Hydration." },
+    { "type": "text", "id": "subheading_3", "label": "Slide 3 Subheading", "default": "Intensive Repair." },
+    { "type": "textarea", "id": "text_3", "label": "Slide 3 Text", "default": "Ceramide-3 and Sacred Lotus Extract lock in deep hydration." }
+  ]
+}
+{% endschema %}

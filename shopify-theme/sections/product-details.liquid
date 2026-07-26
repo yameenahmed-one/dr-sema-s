@@ -1,0 +1,82 @@
+<section style="padding-top:130px;padding-bottom:80px;background:#fff;">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Gallery -->
+      <div class="col-lg-6">
+        <div class="gallery-main-box mb-3" id="main-gallery-img">
+          <img src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title | escape }}" id="active-product-img" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div class="gallery-thumbs-row">
+          {% for image in product.images %}
+            <div class="gallery-thumb-item {% if forloop.first %}active{% endif %}" onclick="document.getElementById('active-product-img').src='{{ image | img_url: "800x" }}'">
+              <img src="{{ image | img_url: '150x' }}" alt="{{ image.alt | escape }}">
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="col-lg-6">
+        <nav aria-label="breadcrumb" style="font-size:.82rem;margin-bottom:16px;">
+          <a href="{{ routes.root_url }}" style="color:var(--text-muted);">Home</a>
+          <span class="mx-2" style="color:var(--text-muted);">/</span>
+          <a href="{{ product.collections.first.url }}" style="color:var(--text-muted);">{{ product.type }}</a>
+          <span class="mx-2" style="color:var(--text-muted);">/</span>
+          <span style="color:var(--primary-sage);">{{ product.title }}</span>
+        </nav>
+        <span class="product-category-sub">{{ product.type }}</span>
+        <h1 class="font-serif" style="font-size:clamp(1.8rem,3vw,2.6rem);color:var(--text-dark);margin-bottom:12px;">{{ product.title }}</h1>
+        <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i> <span style="font-size:.8rem;color:var(--text-muted);">(Verified)</span></div>
+        <div style="margin-bottom:20px;">
+          <span class="price-large">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="price-old-large ms-2">{{ product.compare_at_price | money }}</span>
+            <span class="discount-badge-pill ms-2">SALE</span>
+          {% endif %}
+        </div>
+        <p style="color:var(--text-muted);font-size:.9rem;line-height:1.7;margin-bottom:24px;">{{ product.description | strip_html | truncate: 200 }}</p>
+
+        <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data">
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div class="mb-3">
+                <label style="font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--text-muted);display:block;margin-bottom:6px;text-transform:uppercase;">{{ option.name }}</label>
+                <select name="id" style="width:100%;border:1px solid var(--border-light);border-radius:12px;padding:10px 14px;font-size:.9rem;font-family:inherit;outline:none;">
+                  {% for variant in product.variants %}
+                    <option value="{{ variant.id }}" {% unless variant.available %}disabled{% endunless %}>{{ variant.title }} — {{ variant.price | money }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+            {% endfor %}
+          {% else %}
+            <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          {% endunless %}
+          <div class="d-flex gap-3 mb-3">
+            <div class="qty-control-box">
+              <button type="button" class="qty-btn-action" onclick="let i=document.getElementById('qty');i.value=Math.max(1,parseInt(i.value)-1)">-</button>
+              <input type="number" name="quantity" id="qty" value="1" min="1" class="qty-val-input">
+              <button type="button" class="qty-btn-action" onclick="let i=document.getElementById('qty');i.value=parseInt(i.value)+1">+</button>
+            </div>
+          </div>
+          <button type="submit" class="btn-hero-primary w-100 mb-3">Add To Bag <i class="bi bi-bag-plus ms-2"></i></button>
+        </form>
+        <a href="{{ routes.checkout_url }}" class="btn-hero-outline w-100 d-flex align-items-center justify-content-center gap-2">Buy Now <i class="bi bi-lock-fill"></i></a>
+
+        <!-- Trust -->
+        <div class="trust-perks-box mt-4">
+          <div class="d-flex flex-wrap gap-3">
+            <div class="trust-perk-item"><i class="bi bi-patch-check-fill text-sage"></i> Dermatologist Certified</div>
+            <div class="trust-perk-item"><i class="bi bi-truck text-sage"></i> Fast Delivery</div>
+            <div class="trust-perk-item"><i class="bi bi-arrow-return-left text-sage"></i> 7-Day Returns</div>
+            <div class="trust-perk-item"><i class="bi bi-shield-lock text-sage"></i> Secure Payment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Product Details", "settings": [] }
+{% endschema %}

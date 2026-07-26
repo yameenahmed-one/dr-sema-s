@@ -1,0 +1,51 @@
+<section id="why-us" class="why-us-section">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+      <div class="col-lg-5 reveal-fade-left">
+        <div class="why-us-image-card">
+          {% if section.settings.why_image %}
+            <img src="{{ section.settings.why_image | img_url: 'master' }}" class="why-main-img" alt="Clinical Botanical Formulations">
+          {% endif %}
+          <div class="why-card-badge">
+            <div class="why-badge-text"><i class="bi bi-shield-check text-mint fs-5"></i><span>Dermatologist Formulated</span></div>
+            <span class="badge bg-sage text-white rounded-pill px-2 py-1 small">18+ Yrs Clinical</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 reveal-fade-right">
+        <span class="section-tagline">WHY CHOOSE DR. SEEMA'S</span>
+        <h2 class="section-main-title">The Art &amp; Science of Botanical Elegance</h2>
+        <p class="section-description mb-3">For over 18 years, Dr. Seema has fused board-certified clinical dermatology with cold-pressed organic botanicals to craft clean, high-performance skincare rituals.</p>
+        <div class="why-feature-list">
+          <div class="why-feature-item">
+            <div class="why-icon-box"><i class="bi bi-shield-check"></i></div>
+            <div><h4 class="why-item-title">Patented Micro-Encapsulation</h4><p class="why-item-desc">Delivers active vitamins deep into skin layers for slow, sustained release without surface irritation.</p></div>
+          </div>
+          <div class="why-feature-item">
+            <div class="why-icon-box"><i class="bi bi-flower1"></i></div>
+            <div><h4 class="why-item-title">Ethically Harvested Botanicals</h4><p class="why-item-desc">Pure wildcrafted extracts sourced directly from organic sustainable fair-trade farms across Asia and Europe.</p></div>
+          </div>
+          <div class="why-feature-item">
+            <div class="why-icon-box"><i class="bi bi-heart-pulse"></i></div>
+            <div><h4 class="why-item-title">Clinical Barrier Restoration</h4><p class="why-item-desc">Rebuilds lipid barriers and restores healthy skin biome balance for long-term luminous resilience.</p></div>
+          </div>
+        </div>
+        <div class="counters-grid">
+          <div class="counter-card"><div class="counter-number" data-target="50000" data-suffix="+">0</div><div class="counter-label">Satisfied Clients</div></div>
+          <div class="counter-card"><div class="counter-number" data-target="48" data-suffix="+">0</div><div class="counter-label">Formulations</div></div>
+          <div class="counter-card"><div class="counter-number" data-target="98" data-suffix="%">0</div><div class="counter-label">Clinical Satisfaction</div></div>
+          <div class="counter-card"><div class="counter-number" data-target="18" data-suffix="+">0</div><div class="counter-label">Years Experience</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Us",
+  "settings": [
+    { "type": "image_picker", "id": "why_image", "label": "Section Image" }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,80 @@
+<section style="background:var(--bg-light-mint);padding:60px 0;">
+  <div class="container px-3 px-md-4">
+
+    <!-- Progress Bar -->
+    <div class="checkout-progress mb-4">
+      <div class="progress-step active" id="step-1"><div class="progress-step-circle">1</div><div class="progress-step-label">Your Bag</div></div>
+      <div class="progress-connector"></div>
+      <div class="progress-step" id="step-2"><div class="progress-step-circle">2</div><div class="progress-step-label">Checkout</div></div>
+      <div class="progress-connector"></div>
+      <div class="progress-step" id="step-3"><div class="progress-step-circle"><i class="bi bi-check-lg" style="font-size:.9rem;"></i></div><div class="progress-step-label">Confirmed</div></div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Cart Items -->
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h2 class="section-page-title mb-0">Your Items</h2>
+          <a href="{{ routes.collections_url }}" style="color:var(--primary-sage);font-size:.85rem;font-weight:600;"><i class="bi bi-arrow-left me-1"></i> Continue Shopping</a>
+        </div>
+
+        {% if cart.item_count == 0 %}
+          <div class="checkout-section text-center py-5">
+            <i class="bi bi-bag-x display-4 mb-3 d-block" style="color:var(--text-muted);"></i>
+            <h3 class="font-serif">Your bag is empty</h3>
+            <p class="text-muted mb-4">Discover our clinical skincare formulations.</p>
+            <a href="{{ routes.collections_url }}" class="btn-secure-checkout" style="width:auto;display:inline-flex;padding:14px 36px;">Start Shopping</a>
+          </div>
+        {% else %}
+          <form action="{{ routes.cart_url }}" method="post" id="cart-form">
+            {% for item in cart.items %}
+              <div class="cart-item-card mb-3">
+                <img src="{{ item.image | img_url: '150x' }}" alt="{{ item.title | escape }}" class="cart-item-img">
+                <div class="cart-item-body flex-grow-1">
+                  <div class="cart-item-name">{{ item.product.title }}</div>
+                  {% unless item.variant.title == 'Default Title' %}
+                    <div class="cart-item-variant">{{ item.variant.title }}</div>
+                  {% endunless %}
+                  <div class="cart-item-price">{{ item.price | money }}</div>
+                  <div class="d-flex align-items-center gap-3 mt-2 flex-wrap">
+                    <div class="qty-control">
+                      <input type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" class="qty-input" style="width:50px;border:1px solid var(--border-light);border-radius:6px;padding:4px 8px;text-align:center;">
+                    </div>
+                    <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity=0" class="remove-btn"><i class="bi bi-trash3"></i> Remove</a>
+                  </div>
+                </div>
+                <div class="text-end" style="flex-shrink:0;"><span style="font-size:1.05rem;font-weight:700;color:var(--primary-sage);">{{ item.line_price | money }}</span></div>
+              </div>
+            {% endfor %}
+            <div class="d-flex gap-3 mt-3">
+              <input type="text" name="note" placeholder="Order notes, gift message..." class="form-control" value="{{ cart.note }}">
+              <button type="submit" name="update" class="btn btn-outline-secondary px-4" style="white-space:nowrap;">Update Cart</button>
+            </div>
+          </form>
+        {% endif %}
+      </div>
+
+      <!-- Order Summary -->
+      <div class="col-lg-4">
+        <div class="order-summary">
+          <div class="order-summary-title"><i class="bi bi-receipt me-2" style="color:var(--primary-sage);"></i>Order Summary</div>
+          <div class="summary-row"><span class="summary-row-label">Subtotal ({{ cart.item_count }} items)</span><span class="summary-row-val">{{ cart.total_price | money }}</span></div>
+          <div class="summary-row"><span class="summary-row-label">Shipping</span><span class="summary-row-val">Calculated at checkout</span></div>
+          <div class="summary-total-row"><span>Total</span><span class="summary-total-price">{{ cart.total_price | money }}</span></div>
+          <a href="{{ routes.checkout_url }}" class="btn-secure-checkout mt-4 d-flex align-items-center justify-content-center gap-2">
+            <i class="bi bi-lock-fill"></i> Proceed to Secure Checkout
+          </a>
+          <div class="trust-badge-row">
+            <div class="trust-badge"><i class="bi bi-shield-lock-fill"></i> SSL Encrypted</div>
+            <div class="trust-badge"><i class="bi bi-patch-check-fill"></i> 100% Authentic</div>
+            <div class="trust-badge"><i class="bi bi-cash-coin"></i> Cash on Delivery</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Cart Page", "settings": [] }
+{% endschema %}

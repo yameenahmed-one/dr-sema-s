@@ -1,0 +1,27 @@
+<div id="search-overlay" class="modal-overlay-custom">
+  <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width:680px;">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h4 class="font-serif mb-0">Search Formulations</h4>
+      <button class="btn-close search-close-btn"></button>
+    </div>
+    <form action="{{ routes.search_url }}" method="get">
+      <input type="hidden" name="type" value="product">
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+        <input id="search-input" type="text" name="q" class="form-control border-start-0 py-3"
+          placeholder="Search by skin concern, ingredient or formulation...">
+      </div>
+      <button type="submit" class="btn-hero-primary w-100">Search</button>
+    </form>
+    <div class="small text-muted mt-3">
+      Trending:
+      <a href="{{ routes.search_url }}?q=retinol&type=product" class="badge bg-light text-dark me-1">Bio-Retinol</a>
+      <a href="{{ routes.search_url }}?q=vitamin+c&type=product" class="badge bg-light text-dark me-1">Vitamin C</a>
+      <a href="{{ routes.search_url }}?q=moisturizer&type=product" class="badge bg-light text-dark">Moisturizer</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{ "name": "Search Overlay", "settings": [] }
+{% endschema %}

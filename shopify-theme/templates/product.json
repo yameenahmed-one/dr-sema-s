@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "product-details": { "type": "product-details", "settings": {} },
+    "related-products": { "type": "related-products", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["product-details","related-products","newsletter"]
+}

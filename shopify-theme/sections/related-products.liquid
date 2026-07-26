@@ -1,0 +1,24 @@
+<section class="py-5" style="background:var(--bg-light-mint);">
+  <div class="container">
+    <div class="section-header-center reveal-on-scroll mb-5">
+      <span class="section-tagline">COMPLETE YOUR RITUAL</span>
+      <h2 class="section-main-title">You May Also Like</h2>
+    </div>
+    <div class="row g-4">
+      {% assign related_col = product.collections.first %}
+      {% if related_col %}
+        {% for p in related_col.products limit: 4 %}
+          {% unless p.id == product.id %}
+            <div class="col-lg-3 col-md-6 reveal-on-scroll">
+              {% render 'product-card', product: p %}
+            </div>
+          {% endunless %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Related Products", "settings": [] }
+{% endschema %}

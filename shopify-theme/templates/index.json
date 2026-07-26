@@ -1,0 +1,14 @@
+{
+  "sections": {
+    "hero": { "type": "hero", "settings": {} },
+    "features": { "type": "features", "settings": {} },
+    "new-arrivals": { "type": "new-arrivals", "settings": {} },
+    "collections-grid": { "type": "collections-grid", "settings": {} },
+    "bestsellers": { "type": "bestsellers", "settings": {} },
+    "why-us": { "type": "why-us", "settings": {} },
+    "before-after": { "type": "before-after", "settings": {} },
+    "testimonials": { "type": "testimonials", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["hero","features","new-arrivals","collections-grid","bestsellers","why-us","before-after","testimonials","newsletter"]
+}

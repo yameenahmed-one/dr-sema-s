@@ -1,0 +1,36 @@
+<section id="collections" class="collections-section">
+  <div class="container">
+    <div class="section-header-center reveal-on-scroll">
+      <span class="section-tagline">Curated Rituals</span>
+      <h2 class="section-main-title">Explore Our Collections</h2>
+      <p class="section-description">Targeted skincare regimens designed for specific dermatological concerns.</p>
+    </div>
+    <div class="row g-4">
+      {% assign collection_handles = "serums,creams,treatment-oils,cleansers" | split: "," %}
+      {% assign collection_titles = "Cellular Serums,Barrier Creams,Treatment Oils,Gentle Cleansers" | split: "," %}
+      {% assign collection_counts = "12,8,6,9" | split: "," %}
+      {% for i in (0..3) %}
+        {% assign handle = collection_handles[i] %}
+        {% assign col = collections[handle] %}
+        <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+          <div class="collection-card-luxury cursor-pointer" onclick="window.location.href='/collections/{{ handle }}'">
+            {% if col.image %}
+              <img src="{{ col.image | img_url: '600x' }}" class="collection-bg-img" alt="{{ collection_titles[i] }}">
+            {% else %}
+              <img src="{{ 'placeholder-collection.jpg' | asset_url }}" class="collection-bg-img" alt="{{ collection_titles[i] }}">
+            {% endif %}
+            <div class="collection-overlay-glass">
+              <span class="collection-item-count">{{ collection_counts[i] }} Formulations</span>
+              <h3 class="collection-title-text">{{ collection_titles[i] }}</h3>
+              <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collections Grid", "settings": [] }
+{% endschema %}

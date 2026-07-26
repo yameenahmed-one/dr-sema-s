@@ -1,0 +1,25 @@
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-card-wrapper reveal-scale">
+      <span class="section-tagline">Club Seema Inner Circle</span>
+      <h2 class="section-main-title">Receive 15% Off Your First Order</h2>
+      <p class="section-description mb-4" style="max-width:540px;margin:0 auto;">Join our VIP circle for dermatologist skincare guides and early access to new releases.</p>
+      {% form 'customer', id: 'newsletter-form' %}
+        {{ form.errors | default_errors }}
+        {% if form.posted_successfully? %}
+          <p class="text-success fw-bold">Thank you for subscribing! Check your inbox for your 15% discount code.</p>
+        {% else %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="newsletter-input-group">
+            <input type="email" name="contact[email]" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email address">
+            <button type="submit" class="btn-hero-primary px-4">Subscribe &amp; Claim 15%</button>
+          </div>
+        {% endif %}
+      {% endform %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Newsletter", "settings": [] }
+{% endschema %}

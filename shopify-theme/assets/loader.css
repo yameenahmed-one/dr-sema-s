@@ -1,0 +1,166 @@
+/* ============================================================
+   DR. SEEMA'S — PREMIUM BOTANICAL LOADER
+   ============================================================ */
+
+#luxury-loader {
+  position: fixed; inset: 0; z-index: 99999;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1),
+              visibility 0.9s cubic-bezier(.16,1,.3,1);
+}
+#luxury-loader.hidden-loader {
+  opacity: 0; visibility: hidden; pointer-events: none;
+}
+
+/* ── Dark background with radial glow ── */
+.ldr-bg {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 40%,
+    #1a3532 0%, #0f1a19 60%, #080f0e 100%);
+}
+.ldr-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%,
+    rgba(47,107,102,0.22) 0%, transparent 65%);
+  animation: ldr-pulse-bg 2.8s ease-in-out infinite alternate;
+}
+@keyframes ldr-pulse-bg {
+  from { opacity: 0.4; transform: scale(0.95); }
+  to   { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ── Floating botanical leaves ── */
+.ldr-leaves {
+  position: absolute; inset: 0; pointer-events: none;
+}
+.ldr-leaf {
+  position: absolute;
+  width: 10px; height: 24px;
+  border-radius: 50% 50% 50% 0;
+  background: linear-gradient(135deg,
+    rgba(47,107,102,0.5), rgba(200,230,213,0.2));
+  animation: ldr-float 6s ease-in-out infinite;
+  opacity: 0;
+}
+.ldr-leaf-1 { top:15%; left:12%;  width:8px;  height:20px; animation-delay:0s;    animation-duration:5.5s; transform:rotate(-30deg); }
+.ldr-leaf-2 { top:20%; right:14%; width:12px; height:28px; animation-delay:0.8s;  animation-duration:6.2s; transform:rotate(25deg);  }
+.ldr-leaf-3 { top:65%; left:8%;   width:7px;  height:18px; animation-delay:1.6s;  animation-duration:5.8s; transform:rotate(-50deg); }
+.ldr-leaf-4 { top:70%; right:10%; width:10px; height:24px; animation-delay:2.4s;  animation-duration:6.5s; transform:rotate(40deg);  }
+.ldr-leaf-5 { top:40%; left:4%;   width:6px;  height:16px; animation-delay:0.4s;  animation-duration:7s;   transform:rotate(-20deg); }
+.ldr-leaf-6 { top:35%; right:5%;  width:9px;  height:22px; animation-delay:1.2s;  animation-duration:5.2s; transform:rotate(60deg);  }
+
+@keyframes ldr-float {
+  0%   { opacity:0;   transform: translateY(20px) rotate(-30deg); }
+  20%  { opacity:0.7; }
+  80%  { opacity:0.5; }
+  100% { opacity:0;   transform: translateY(-60px) rotate(20deg); }
+}
+
+/* ── Rotating rings ── */
+.ldr-center {
+  position: relative; z-index: 2;
+  width: 120px; height: 120px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 36px;
+}
+.ldr-ring {
+  position: absolute; border-radius: 50%;
+  border: 2px solid transparent;
+}
+.ldr-ring-outer {
+  width: 120px; height: 120px;
+  border-top-color:  rgba(200,230,213,0.7);
+  border-right-color: rgba(47,107,102,0.4);
+  animation: ldr-spin-cw 2s linear infinite;
+}
+.ldr-ring-inner {
+  width: 88px; height: 88px;
+  border-bottom-color: rgba(200,230,213,0.5);
+  border-left-color:   rgba(47,107,102,0.6);
+  animation: ldr-spin-ccw 1.4s linear infinite;
+}
+@keyframes ldr-spin-cw  { to { transform: rotate(360deg);  } }
+@keyframes ldr-spin-ccw { to { transform: rotate(-360deg); } }
+
+/* ── Centre seal ── */
+.ldr-seal {
+  width: 64px; height: 64px; border-radius: 50%;
+  background: linear-gradient(135deg, #2F6B66, #214F4B);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 6px rgba(47,107,102,0.15),
+              0 0 30px rgba(47,107,102,0.4);
+  animation: ldr-seal-pulse 2.2s ease-in-out infinite alternate;
+  position: relative; z-index: 3;
+}
+@keyframes ldr-seal-pulse {
+  from { box-shadow: 0 0 0 6px rgba(47,107,102,0.15), 0 0 20px rgba(47,107,102,0.3); }
+  to   { box-shadow: 0 0 0 10px rgba(47,107,102,0.25), 0 0 40px rgba(47,107,102,0.55); }
+}
+.ldr-ds {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.5rem; font-weight: 700; color: #fff;
+  letter-spacing: 0.04em;
+}
+
+/* ── Brand text ── */
+.ldr-text {
+  position: relative; z-index: 2;
+  text-align: center;
+  animation: ldr-fade-up 0.8s ease forwards;
+}
+@keyframes ldr-fade-up {
+  from { opacity:0; transform:translateY(14px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.ldr-brand {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 500; color: #fff;
+  letter-spacing: -0.01em; margin: 0 0 6px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
+.ldr-sub {
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  font-size: 0.72rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: #C8E6D5; margin: 0 0 20px;
+  opacity: 0.85;
+}
+
+/* ── Three bouncing dots ── */
+.ldr-dots {
+  display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+}
+.ldr-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #2F6B66;
+  box-shadow: 0 0 8px rgba(47,107,102,0.6);
+  animation: ldr-bounce 1.1s ease-in-out infinite;
+  display: inline-block;
+}
+.ldr-dot:nth-child(1) { animation-delay: 0s;    background: #C8E6D5; }
+.ldr-dot:nth-child(2) { animation-delay: 0.18s; background: #5E8B7E; }
+.ldr-dot:nth-child(3) { animation-delay: 0.36s; background: #2F6B66; }
+@keyframes ldr-bounce {
+  0%,60%,100% { transform: translateY(0)    scale(1);    opacity:0.7; }
+  30%          { transform: translateY(-10px) scale(1.2); opacity:1;   }
+}
+
+/* ── Shimmer line at very bottom ── */
+#luxury-loader::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg,
+    transparent, #2F6B66, #C8E6D5, #2F6B66, transparent);
+  background-size: 200% 100%;
+  animation: ldr-shimmer 1.8s linear infinite;
+}
+@keyframes ldr-shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}

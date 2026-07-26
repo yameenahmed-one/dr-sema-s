@@ -1,0 +1,14 @@
+<section style="background:linear-gradient(135deg,rgba(21,34,33,0.92),rgba(47,107,102,0.75)),{{ collection.image | img_url: 'master' | prepend: 'url(' | append: ')' }} center/cover;min-height:38vh;display:flex;align-items:center;padding-top:110px;">
+  <div class="container relative-z2 text-center text-white py-5">
+    <span style="font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--accent-mint);display:block;margin-bottom:14px;">COLLECTION</span>
+    <h1 class="font-serif" style="font-size:clamp(2.2rem,4vw,3.5rem);color:#fff;margin-bottom:14px;">{{ collection.title }}</h1>
+    {% if collection.description != blank %}
+      <p style="color:rgba(255,255,255,0.75);max-width:580px;margin:0 auto;font-size:1rem;line-height:1.65;">{{ collection.description }}</p>
+    {% endif %}
+    <p style="color:var(--accent-mint);margin-top:12px;font-size:.85rem;font-weight:600;">{{ collection.products_count }} Formulations</p>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collection Hero", "settings": [] }
+{% endschema %}

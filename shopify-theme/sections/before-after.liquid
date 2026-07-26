@@ -1,0 +1,42 @@
+<section id="clinical-results" class="before-after-section">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-5 reveal-fade-left">
+        <span class="section-tagline">CLINICALLY PROVEN RESULTS</span>
+        <h2 class="section-main-title mb-3">Visible Skin Transformation In 4 Weeks</h2>
+        <p class="section-description mb-4">In independent 28-day double-blind clinical trials, Dr. Seema's Cellular Renewal Ritual demonstrated dramatic skin barrier repair.</p>
+        <div class="ba-metrics-list mb-4">
+          <div class="ba-metric-item"><span class="ba-metric-num">98%</span><span class="ba-metric-text">Noticed visible reduction in hyperpigmentation and dark spots</span></div>
+          <div class="ba-metric-item"><span class="ba-metric-num">96%</span><span class="ba-metric-text">Reported enhanced skin firmness and collagen bounce</span></div>
+          <div class="ba-metric-item"><span class="ba-metric-num">100%</span><span class="ba-metric-text">Experienced deep 72-hour moisture barrier hydration</span></div>
+        </div>
+        <a href="{{ routes.collections_url }}" class="btn-hero-primary">Shop Trial Ritual <i class="bi bi-arrow-right ms-2"></i></a>
+      </div>
+      <div class="col-lg-7 reveal-fade-right">
+        <div class="before-after-wrapper">
+          {% if section.settings.after_image %}
+            <img src="{{ section.settings.after_image | img_url: 'master' }}" class="ba-image" alt="After Treatment">
+          {% endif %}
+          <div class="ba-before-container">
+            {% if section.settings.before_image %}
+              <img src="{{ section.settings.before_image | img_url: 'master' }}" class="ba-before-img" alt="Before Treatment">
+            {% endif %}
+          </div>
+          <span class="ba-label ba-label-before">BEFORE</span>
+          <span class="ba-label ba-label-after"><i class="bi bi-check-circle-fill text-mint me-1"></i> AFTER 4 WEEKS</span>
+          <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-collapse"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Before After",
+  "settings": [
+    { "type": "image_picker", "id": "before_image", "label": "Before Image" },
+    { "type": "image_picker", "id": "after_image", "label": "After Image" }
+  ]
+}
+{% endschema %}

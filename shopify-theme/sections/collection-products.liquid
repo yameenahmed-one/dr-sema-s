@@ -1,0 +1,22 @@
+<section class="py-5" style="background:var(--bg-light-mint);">
+  <div class="container-fluid px-3 px-md-5">
+    {% paginate collection.products by 12 %}
+      <div class="row g-4">
+        {% for product in collection.products %}
+          <div class="col-xl-3 col-lg-4 col-md-6 reveal-on-scroll">
+            {% render 'product-card', product: product %}
+          </div>
+        {% endfor %}
+      </div>
+      {% if paginate.pages > 1 %}
+        <div class="d-flex justify-content-center gap-2 mt-5">
+          {{ paginate | default_pagination }}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Collection Products", "settings": [] }
+{% endschema %}

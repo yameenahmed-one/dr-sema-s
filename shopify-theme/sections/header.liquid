@@ -1,0 +1,121 @@
+<header class="header-wrapper" id="main-header">
+  <div class="nav-main-bar">
+    <div class="container-fluid px-3 px-md-5">
+      <div class="d-flex align-items-center justify-content-between">
+
+        <!-- Brand Logo -->
+        <a href="{{ routes.root_url }}" class="brand-logo">
+          <div class="logo-icon-seal">DS</div>
+          <div class="brand-name-group">
+            <span class="logo-text-title">{{ shop.name }}</span>
+            <span class="logo-text-tag">Clinical Skincare</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="d-none d-xl-block">
+          <ul class="nav-menu-list">
+            <li><a href="{{ routes.root_url }}" class="nav-link-item {% if request.path == '/' %}active{% endif %}">Home</a></li>
+            <li><a href="{{ routes.collections_url }}" class="nav-link-item {% if request.path contains '/collections' %}active{% endif %}">Shop</a></li>
+            <li><a href="/collections/all" class="nav-link-item {% if request.path == '/collections/all' %}active{% endif %}">Collections</a></li>
+
+            <!-- Skin Concerns Mega Menu -->
+            <li class="has-megamenu">
+              <a href="/pages/skin-concerns" class="nav-link-item {% if request.path contains 'skin-concerns' %}active{% endif %}">
+                Skin Concerns <i class="bi bi-chevron-down ms-1 small"></i>
+              </a>
+              <div class="megamenu-dropdown">
+                <div class="megamenu-grid">
+                  <div>
+                    <h6 class="megamenu-heading">Targeted Clinical Treatments</h6>
+                    <div class="concern-links-grid">
+                      <a class="concern-item-card" href="/collections/pigmentation">
+                        <div class="concern-icon"><i class="bi bi-sparkles"></i></div>
+                        <div><div class="concern-title">Hyperpigmentation &amp; Dark Spots</div><div class="concern-desc">15% Vitamin C &amp; Niacinamide radiance boost</div></div>
+                      </a>
+                      <a class="concern-item-card" href="/collections/hydration">
+                        <div class="concern-icon"><i class="bi bi-droplet-half"></i></div>
+                        <div><div class="concern-title">Dehydration &amp; Barrier Loss</div><div class="concern-desc">72-Hour Ceramide NP moisture restoration</div></div>
+                      </a>
+                      <a class="concern-item-card" href="/collections/anti-aging">
+                        <div class="concern-icon"><i class="bi bi-hourglass-split"></i></div>
+                        <div><div class="concern-title">Anti-Aging &amp; Fine Lines</div><div class="concern-desc">Bio-Retinol &amp; Quad-Peptide renewal</div></div>
+                      </a>
+                      <a class="concern-item-card" href="/collections/sensitive">
+                        <div class="concern-icon"><i class="bi bi-shield-plus"></i></div>
+                        <div><div class="concern-title">Sensitivities &amp; Rosacea</div><div class="concern-desc">Botanical calming oat barrier defense</div></div>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="megamenu-featured">
+                    <span class="badge-clinical mb-2">DERMATOLOGIST PICK</span>
+                    {% assign featured = collections['serums'].products.first %}
+                    {% if featured %}
+                      <h5 class="font-serif mb-2 fs-4 text-dark">{{ featured.title }}</h5>
+                      <p class="small text-muted mb-3">{{ featured.description | strip_html | truncate: 80 }}</p>
+                      <a href="{{ featured.url }}" class="btn-luxury-sm">Discover Formulation</a>
+                    {% else %}
+                      <h5 class="font-serif mb-2 fs-4 text-dark">Cellular Renewal Serum</h5>
+                      <p class="small text-muted mb-3">Bio-Retinol formulation designed for overnight barrier repair.</p>
+                      <a href="/collections/serums" class="btn-luxury-sm">Discover Formulation</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li><a href="/pages/about" class="nav-link-item {% if request.path contains 'about' %}active{% endif %}">About Dr. Seema</a></li>
+            <li><a href="{{ routes.cart_url }}" class="nav-link-item {% if request.path == '/cart' %}active{% endif %}">
+              Cart
+              {% if cart.item_count > 0 %}
+                <span class="badge-count" style="position:relative;top:-2px;right:auto;margin-left:2px;">{{ cart.item_count }}</span>
+              {% endif %}
+            </a></li>
+            <li><a href="#footer" class="nav-link-item">Contact</a></li>
+          </ul>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          <button class="action-btn search-trigger-btn" title="Search"><i class="bi bi-search"></i></button>
+
+          <a href="/wishlist" class="action-btn" title="Wishlist">
+            <i class="bi bi-heart"></i>
+          </a>
+
+          <button class="action-btn cart-trigger-btn" title="Shopping Bag">
+            <i class="bi bi-bag"></i>
+            <span class="badge-count cart-badge-count">{{ cart.item_count }}</span>
+          </button>
+
+          {% if customer %}
+            <a href="{{ routes.account_url }}" class="action-btn d-none d-sm-flex" title="My Account">
+              <i class="bi bi-person-fill"></i>
+            </a>
+          {% else %}
+            <a href="{{ routes.account_login_url }}" class="action-btn d-none d-sm-flex" title="Login">
+              <i class="bi bi-person"></i>
+            </a>
+          {% endif %}
+
+          <a href="{{ routes.collections_url }}" class="btn-header-cta d-none d-md-inline-flex">
+            Shop Now <i class="bi bi-arrow-right-short ms-1"></i>
+          </a>
+
+          <button class="action-btn mobile-nav-toggle d-xl-none" title="Menu"
+            onclick="document.getElementById('mobile-drawer').classList.add('active')">
+            <i class="bi bi-list fs-2"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": []
+}
+{% endschema %}

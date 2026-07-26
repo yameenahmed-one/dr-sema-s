@@ -1,0 +1,34 @@
+<section id="bestsellers" class="bestsellers-section">
+  <div class="container">
+    <div class="section-header-center reveal-on-scroll">
+      <span class="section-tagline">Clinical Favorites</span>
+      <h2 class="section-main-title">Best Selling Formulations</h2>
+      <p class="section-description">Our most revered dermatologist-approved solutions.</p>
+    </div>
+    <div class="filter-tabs-luxury reveal-on-scroll">
+      <button class="filter-tab-btn active" data-filter="all">All Formulations</button>
+      <button class="filter-tab-btn" data-filter="serums">Serums</button>
+      <button class="filter-tab-btn" data-filter="creams">Moisturizers</button>
+      <button class="filter-tab-btn" data-filter="cleansers">Cleansers</button>
+      <button class="filter-tab-btn" data-filter="oils">Treatment Oils</button>
+    </div>
+    <div class="row g-4 bestsellers-grid">
+      {% assign bs_col = collections[section.settings.collection] %}
+      {% assign products_list = bs_col.products | default: collections.all.products %}
+      {% for product in products_list limit: 6 %}
+        <div class="col-12 col-md-6 col-lg-4" data-category="{{ product.type | downcase }}">
+          {% render 'product-card', product: product %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Bestsellers",
+  "settings": [
+    { "type": "collection", "id": "collection", "label": "Best Sellers Collection" }
+  ]
+}
+{% endschema %}

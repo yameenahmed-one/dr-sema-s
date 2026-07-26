@@ -1,0 +1,79 @@
+<footer id="footer" class="footer-luxury">
+  <div class="container">
+    <div class="row g-4 justify-content-between">
+
+      <div class="col-lg-4 col-md-6">
+        <a href="{{ routes.root_url }}" class="brand-logo mb-2">
+          <div class="logo-icon-seal">DS</div>
+          <div class="brand-name-group">
+            <span class="logo-text-title" style="color:#fff;">{{ shop.name }}</span>
+            <span class="logo-text-tag">Clinical Skincare</span>
+          </div>
+        </a>
+        <p class="small mb-3 mt-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;line-height:1.5;max-width:300px;">
+          Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type.
+        </p>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-2 col-6">
+        <h5 class="footer-title">Quick Links</h5>
+        <ul class="footer-links-list">
+          <li><a href="{{ routes.root_url }}">Home</a></li>
+          <li><a href="{{ routes.collections_url }}">Shop All</a></li>
+          <li><a href="/collections/all">Collections</a></li>
+          <li><a href="/pages/about">About Dr. Seema</a></li>
+          <li><a href="{{ routes.cart_url }}">Cart</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-2 col-6">
+        <h5 class="footer-title">Collections</h5>
+        <ul class="footer-links-list">
+          <li><a href="/collections/serums">Cellular Serums</a></li>
+          <li><a href="/collections/creams">Barrier Creams</a></li>
+          <li><a href="/collections/cleansers">Gentle Cleansers</a></li>
+          <li><a href="/collections/eye-care">Eye Essences</a></li>
+          <li><a href="/collections/sunscreen">Sun Protection</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">Customer Care</h5>
+        <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i>{{ shop.email }}</div>
+        <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i>+92 (042) 3555-SEEMA</div>
+        <div class="small mb-3" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i>Gulberg III, Lahore</div>
+        <a href="/pages/contact" class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" style="font-size:0.78rem;">Virtual Derm Consult</a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</div>
+      <div class="d-flex align-items-center gap-2">
+        <a href="/policies/privacy-policy" style="color:rgba(255,255,255,0.5);">Privacy Policy</a>
+        <span>•</span>
+        <a href="/policies/terms-of-service" style="color:rgba(255,255,255,0.5);">Terms</a>
+        <span>•</span>
+        <a href="/policies/refund-policy" style="color:rgba(255,255,255,0.5);">Returns</a>
+      </div>
+      <div class="d-flex align-items-center gap-2 fs-6" style="color:rgba(255,255,255,0.5);">
+        <i class="bi bi-credit-card-2-front"></i>
+        <i class="bi bi-cash-coin"></i>
+        <i class="bi bi-shield-check"></i>
+      </div>
+    </div>
+    <div class="footer-credits-bar">
+      <span class="footer-credits-text">Prepared by Nova Fuxion</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{ "name": "Footer", "settings": [] }
+{% endschema %}
