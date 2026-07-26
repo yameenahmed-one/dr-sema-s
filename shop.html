@@ -1,0 +1,840 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Clinical Skincare | Dr. Seema's Products</title>
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Global Application Stylesheet -->
+  <link rel="stylesheet" href="/assets/index-B1ShAhzr.css">
+  <script src="/assets/index-Db8R-LCH.js" defer></script>
+
+  <style>
+    /* Custom Shop Page Extensions */
+    .shop-hero-section {
+      position: relative;
+      background: linear-gradient(135deg, rgba(21, 34, 33, 0.85), rgba(15, 26, 25, 0.92)), url('/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg') center/cover no-repeat;
+      padding: 130px 0 70px 0;
+      color: #fff;
+      text-align: center;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .shop-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.15;
+    }
+    .shop-hero-subtitle {
+      font-size: clamp(0.92rem, 1.4vw, 1.1rem);
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 620px;
+      margin: 0 auto 20px;
+      line-height: 1.6;
+    }
+    .shop-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .shop-breadcrumb a {
+      color: var(--accent-mint);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .shop-breadcrumb a:hover {
+      color: #fff;
+    }
+    .shop-filter-sticky-bar {
+      position: sticky;
+      top: 56px;
+      z-index: 99;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 14px 0;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    .shop-filter-pills {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .shop-filter-pills::-webkit-scrollbar {
+      display: none;
+    }
+    .shop-filter-pill-btn {
+      background: var(--bg-light-mint);
+      color: var(--text-dark);
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-light);
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .shop-filter-pill-btn:hover,
+    .shop-filter-pill-btn.active {
+      background: var(--primary-sage);
+      color: #fff;
+      border-color: var(--primary-sage);
+      box-shadow: 0 4px 12px rgba(47, 107, 102, 0.25);
+    }
+    .shop-controls-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .shop-search-input-box {
+      position: relative;
+      flex-grow: 1;
+      max-width: 300px;
+    }
+    .shop-search-input-box input {
+      width: 100%;
+      border-radius: var(--radius-full);
+      padding: 8px 16px 8px 38px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-light);
+      background: var(--bg-cream);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .shop-search-input-box input:focus {
+      border-color: var(--primary-sage);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(47, 107, 102, 0.1);
+    }
+    .shop-search-input-box i {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .shop-sort-select {
+      border-radius: var(--radius-full);
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      border: 1px solid var(--border-light);
+      background: var(--bg-cream);
+      color: var(--text-dark);
+      cursor: pointer;
+      font-weight: 500;
+      outline: none;
+    }
+    .shop-sort-select:focus {
+      border-color: var(--primary-sage);
+    }
+    .product-grid-section {
+      padding: 50px 0 80px 0;
+      background-color: var(--bg-white);
+    }
+    .product-grid-section .product-card-luxury {
+      width: 100%;
+      height: 100%;
+    }
+    .btn-buy-now {
+      background: var(--dark-forest);
+      color: var(--accent-mint);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .btn-buy-now:hover {
+      background: var(--primary-sage);
+      color: #fff;
+    }
+    .pagination-luxury {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 50px;
+    }
+    .page-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.88rem;
+      font-weight: 600;
+      background: var(--bg-light-mint);
+      color: var(--text-dark);
+      border: 1px solid var(--border-light);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .page-btn:hover, .page-btn.active {
+      background: var(--primary-sage);
+      color: #fff;
+      border-color: var(--primary-sage);
+      box-shadow: 0 4px 12px rgba(47, 107, 102, 0.25);
+    }
+    .page-btn.disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+    .why-us-grid-6 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 992px) {
+      .why-us-grid-6 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 576px) {
+      .why-us-grid-6 {
+        grid-template-columns: 1fr;
+      }
+      .shop-controls-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .shop-search-input-box {
+        max-width: 100%;
+      }
+      .shop-sort-select {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. LUXURY LOADING EXPERIENCE
+       ========================================================================== -->
+  <div id="luxury-loader">
+    <div class="loader-bg-particles">
+      <div class="loader-particle p-1"></div>
+      <div class="loader-particle p-2"></div>
+      <div class="loader-particle p-3"></div>
+    </div>
+    
+    <div class="loader-brand-content">
+      <div class="loader-seal-sage">DS</div>
+      <h1 class="loader-title">Dr. Seema's Products</h1>
+      <p class="loader-subtitle">Dermatologist Formulated â€¢ Clinical Botanical Science</p>
+      <div class="loader-spinner-bar">
+        <div class="loader-spinner-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website Wrapper -->
+  <div id="app-content" style="opacity: 0; transition: opacity 0.8s ease;">
+
+    <!-- ==========================================================================
+         2. ULTRA-PREMIUM STICKY NAVIGATION
+         ========================================================================== -->
+    <header class="header-wrapper" id="main-header">
+      <div class="nav-main-bar">
+        <div class="container-fluid px-3 px-md-5">
+          <div class="d-flex align-items-center justify-content-between">
+            
+            <!-- Brand Logo -->
+            <a href="/" class="brand-logo">
+              <div class="logo-icon-seal">DS</div>
+              <div class="brand-name-group">
+                <span class="logo-text-title">Dr. Seema's</span>
+                <span class="logo-text-tag">Clinical Skincare</span>
+              </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="d-none d-xl-block">
+              <ul class="nav-menu-list">
+                <li><a href="/" class="nav-link-item">Home</a></li>
+                <li><a href="/shop" class="nav-link-item active">Shop</a></li>
+                <li><a href="/collections" class="nav-link-item">Collections</a></li>
+                <li><a href="/shop?filter=new" class="nav-link-item">New Arrivals</a></li>
+                <li><a href="/shop?filter=bestseller" class="nav-link-item">Best Sellers</a></li>
+                
+                <!-- Skin Concerns Mega Menu -->
+                <li class="has-megamenu">
+                  <a href="/#why-us" class="nav-link-item">Skin Concerns <i class="bi bi-chevron-down ms-1 small"></i></a>
+                  <div class="megamenu-dropdown">
+                    <div class="megamenu-grid">
+                      <div>
+                        <h6 class="megamenu-heading">Targeted Clinical Treatments</h6>
+                        <div class="concern-links-grid">
+                          <div class="concern-item-card cursor-pointer" onclick="filterShopCategory('pigmentation')">
+                            <div class="concern-icon"><i class="bi bi-sparkles"></i></div>
+                            <div>
+                              <div class="concern-title">Hyperpigmentation & Dark Spots</div>
+                              <div class="concern-desc">15% Vitamin C & Niacinamide radiance boost</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="filterShopCategory('hydration')">
+                            <div class="concern-icon"><i class="bi bi-droplet-half"></i></div>
+                            <div>
+                              <div class="concern-title">Dehydration & Barrier Loss</div>
+                              <div class="concern-desc">72-Hour Ceramide NP moisture restoration</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="filterShopCategory('antiaging')">
+                            <div class="concern-icon"><i class="bi bi-hourglass-split"></i></div>
+                            <div>
+                              <div class="concern-title">Anti-Aging & Fine Lines</div>
+                              <div class="concern-desc">Bio-Retinol & Quad-Peptide renewal</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="filterShopCategory('sensitive')">
+                            <div class="concern-icon"><i class="bi bi-shield-plus"></i></div>
+                            <div>
+                              <div class="concern-title">Sensitivities & Rosacea</div>
+                              <div class="concern-desc">Botanical calming oat barrier defense</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="megamenu-featured">
+                        <span class="badge-clinical mb-2">DERMATOLOGIST PICK</span>
+                        <h5 class="font-serif mb-2 fs-4 text-dark">Cellular Renewal Serum</h5>
+                        <p class="small text-muted mb-3">Bio-Retinol formulation designed for overnight barrier repair and texture refinement.</p>
+                        <button class="btn-luxury-sm" onclick="openQuickView('p1')">Discover Formulation</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li><a href="/#why-us" class="nav-link-item">About Dr. Seema</a></li>
+                <li><a href="#footer" class="nav-link-item">Contact</a></li>
+              </ul>
+            </nav>
+
+            <!-- Header Action Icons & CTA Button -->
+            <div class="header-actions">
+              <!-- Search Icon -->
+              <button class="action-btn search-trigger-btn" title="Search Formulations">
+                <i class="bi bi-search"></i>
+              </button>
+
+              <!-- Wishlist Icon -->
+              <button class="action-btn wishlist-trigger-btn" title="Saved Wishlist" onclick="showToast('Your saved wishlist: ' + (window.wishlistState ? window.wishlistState.size : 0) + ' items')">
+                <i class="bi bi-heart"></i>
+                <span class="badge-count wishlist-badge-count">2</span>
+              </button>
+
+              <!-- Shopping Cart -->
+              <button class="action-btn cart-trigger-btn" title="Shopping Bag">
+                <i class="bi bi-bag"></i>
+                <span class="badge-count cart-badge-count">2</span>
+              </button>
+
+              <!-- Account Profile -->
+              <button class="action-btn d-none d-sm-flex" title="VIP Account" onclick="showToast('Dr. Seema VIP Client Portal')">
+                <i class="bi bi-person"></i>
+              </button>
+
+              <!-- CTA Button -->
+              <a href="#shop-grid" class="btn-header-cta d-none d-md-inline-flex">
+                Shop Now <i class="bi bi-arrow-right-short ms-1"></i>
+              </a>
+
+              <!-- Mobile Hamburger Toggle -->
+              <button class="action-btn mobile-nav-toggle d-xl-none" title="Open Menu" onclick="document.getElementById('mobile-drawer').classList.add('active')">
+                <i class="bi bi-list fs-2"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         3. PREMIUM HERO BANNER
+         ========================================================================== -->
+    <section class="shop-hero-section">
+      <div class="container">
+        <div class="reveal-on-scroll">
+          <div class="mb-3">
+            <span class="shop-breadcrumb">
+              <a href="/">Home</a> <i class="bi bi-chevron-right small text-white-50"></i> <span>Shop Clinical Skincare</span>
+            </span>
+          </div>
+          <h1 class="shop-hero-title">Shop Clinical Skincare</h1>
+          <p class="shop-hero-subtitle">Discover dermatologist-formulated skincare solutions designed for healthy, radiant skin. Scientifically balanced bio-actives engineered in clinical laboratories.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. STICKY PRODUCT FILTER SECTION
+         ========================================================================== -->
+    <section class="shop-filter-sticky-bar">
+      <div class="container-fluid px-3 px-md-5">
+        <div class="shop-controls-row">
+          
+          <!-- Category Filter Pills Bar -->
+          <div class="shop-filter-pills flex-grow-1" id="shop-filter-pills">
+            <button class="shop-filter-pill-btn active" data-filter="all">All Products</button>
+            <button class="shop-filter-pill-btn" data-filter="new">New Arrivals</button>
+            <button class="shop-filter-pill-btn" data-filter="bestseller">Best Sellers</button>
+            <button class="shop-filter-pill-btn" data-filter="cleansers">Cleanser</button>
+            <button class="shop-filter-pill-btn" data-filter="serums">Serums</button>
+            <button class="shop-filter-pill-btn" data-filter="creams">Moisturizers</button>
+            <button class="shop-filter-pill-btn" data-filter="sunscreen">Sun Protection</button>
+            <button class="shop-filter-pill-btn" data-filter="acne">Acne Care</button>
+            <button class="shop-filter-pill-btn" data-filter="antiaging">Anti Aging</button>
+            <button class="shop-filter-pill-btn" data-filter="pigmentation">Pigmentation</button>
+            <button class="shop-filter-pill-btn" data-filter="sensitive">Sensitive Skin</button>
+            <button class="shop-filter-pill-btn" data-filter="hydration">Hydration</button>
+          </div>
+
+          <!-- Search Input & Sort Dropdown -->
+          <div class="d-flex align-items-center gap-2">
+            <div class="shop-search-input-box">
+              <i class="bi bi-search"></i>
+              <input type="text" id="shop-search-input" placeholder="Search products...">
+            </div>
+            <div>
+              <select id="shop-sort-select" class="shop-sort-select">
+                <option value="newest">Sort By: Newest</option>
+                <option value="bestselling">Sort By: Best Selling</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="a-z">Name: A to Z</option>
+              </select>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. PREMIUM PRODUCT GRID
+         ========================================================================== -->
+    <section id="shop-grid" class="product-grid-section">
+      <div class="container-fluid px-3 px-md-5">
+        
+        <!-- Results Count Header -->
+        <div class="d-flex align-items-center justify-content-between mb-4 pb-2 border-bottom">
+          <div class="small text-muted fw-semibold" id="shop-results-count">Showing all products</div>
+          <div class="small text-sage fw-bold"><i class="bi bi-shield-check me-1"></i> 100% Authentic Dermatologist Formulations</div>
+        </div>
+
+        <!-- Product Cards Responsive Grid -->
+        <div class="row g-4" id="shop-products-container">
+          <!-- Populated by JavaScript -->
+        </div>
+
+        <!-- Pagination Bar -->
+        <div id="shop-pagination" class="pagination-luxury">
+          <!-- Populated by JavaScript -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. WHY CHOOSE DR. SEEMA'S PRODUCTS
+         ========================================================================== -->
+    <section class="why-us-section">
+      <div class="container">
+        <div class="section-header-center reveal-on-scroll">
+          <span class="section-tagline">Clinical Distinction</span>
+          <h2 class="section-main-title">Why Choose Dr. Seema's Products</h2>
+          <p class="section-description">Every formulation represents years of clinical research, dermatologist testing, and high-potency botanical synergy.</p>
+        </div>
+
+        <div class="why-us-grid-6">
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-patch-check"></i></div>
+            <div>
+              <h5 class="why-item-title">Dermatologist Approved</h5>
+              <p class="why-item-desc">Formulated and clinically evaluated by Dr. Seema for optimal skin compatibility.</p>
+            </div>
+          </div>
+
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-flower2"></i></div>
+            <div>
+              <h5 class="why-item-title">Premium Ingredients</h5>
+              <p class="why-item-desc">Ethically sourced, cold-pressed organic botanicals combined with lab-pure bio-peptides.</p>
+            </div>
+          </div>
+
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-journal-check"></i></div>
+            <div>
+              <h5 class="why-item-title">Clinically Tested</h5>
+              <p class="why-item-desc">Independent consumer trials confirming 98% visible texture and barrier improvement.</p>
+            </div>
+          </div>
+
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-truck"></i></div>
+            <div>
+              <h5 class="why-item-title">Fast Delivery</h5>
+              <p class="why-item-desc">Rapid express doorstep courier shipping across all cities in Pakistan within 24-48 hours.</p>
+            </div>
+          </div>
+
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-shield-lock"></i></div>
+            <div>
+              <h5 class="why-item-title">Secure Payment</h5>
+              <p class="why-item-desc">Encrypted online checkout, card payments, and Cash on Delivery (COD) supported.</p>
+            </div>
+          </div>
+
+          <div class="why-feature-item reveal-on-scroll">
+            <div class="why-icon-box"><i class="bi bi-award"></i></div>
+            <div>
+              <h5 class="why-item-title">Original Products</h5>
+              <p class="why-item-desc">Guaranteed 100% authentic clinical formulations directly from Dr. Seema's laboratory.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. INSTAGRAM GALLERY
+         ========================================================================== -->
+    <section class="instagram-section">
+      <div class="container-fluid px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4">
+          <span class="section-tagline">@DrSeemasProducts</span>
+          <h2 class="section-main-title">Follow The Radiant Journey</h2>
+          <p class="section-description">Join our community on Instagram for daily skincare protocols, dermatologist advice, and customer results.</p>
+        </div>
+
+        <div class="insta-grid">
+          <div class="insta-item-card">
+            <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Insta Post 1">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Clinical Serum</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Insta Post 2">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Vitamin C Radiance</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Insta Post 3">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">View Glow</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Insta Post 4">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Hydration Barrier</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="Insta Post 5">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Derm Results</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Insta Post 6">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Bio-Retinol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. NEWSLETTER SUBSCRIPTION
+         ========================================================================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card-wrapper reveal-scale">
+          <span class="section-tagline">Club Seema Inner Circle</span>
+          <h2 class="section-main-title">Receive 15% Off Your First Order</h2>
+          <p class="section-description mb-4 me-auto ms-auto" style="max-width: 540px;">Join our VIP circle for dermatologist skincare guides, early access to new releases, and private invitations.</p>
+
+          <form id="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+              <button type="submit" class="btn-hero-primary px-4">Subscribe & Claim 15%</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. PREMIUM FOOTER
+         ========================================================================== -->
+    <footer id="footer" class="footer-luxury">
+      <div class="container">
+        <div class="row g-4 justify-content-between">
+          
+          <!-- Column 1: Brand Info & Social -->
+          <div class="col-lg-4 col-md-6">
+            <a href="/" class="brand-logo mb-2">
+              <div class="logo-icon-seal">DS</div>
+              <div class="brand-name-group">
+                <span class="logo-text-title text-white fs-6 fw-bold">Dr. Seema's</span>
+                <span class="logo-text-tag text-mint">Clinical Skincare</span>
+              </div>
+            </a>
+            <p class="small text-white-50 mb-3 me-lg-3" style="font-size: 0.8rem; line-height: 1.5;">Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type.</p>
+            <div class="d-flex align-items-center gap-2">
+              <a href="#" class="social-icon-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-icon-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
+              <a href="#" class="social-icon-btn" title="TikTok"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="col-lg-2 col-6">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links-list">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop All</a></li>
+              <li><a href="/#collections">Collections</a></li>
+              <li><a href="/shop?filter=bestseller">Best Sellers</a></li>
+              <li><a href="/#why-us">About Dr. Seema</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Collections -->
+          <div class="col-lg-2 col-6">
+            <h5 class="footer-title">Collections</h5>
+            <ul class="footer-links-list">
+              <li><a href="/shop?filter=serums">Cellular Serums</a></li>
+              <li><a href="/shop?filter=creams">Barrier Creams</a></li>
+              <li><a href="/shop?filter=cleansers">Gentle Cleansers</a></li>
+              <li><a href="/shop?filter=serums">Treatment Oils</a></li>
+              <li><a href="/shop?filter=antiaging">Eye Essences</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact & Support -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Customer Care</h5>
+            <div class="small text-white-50 mb-2" style="font-size: 0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i> support@drseemasproducts.pk</div>
+            <div class="small text-white-50 mb-2" style="font-size: 0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i> +92 (042) 3555-SEEMA</div>
+            <div class="small text-white-50 mb-3" style="font-size: 0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i> Gulberg III, Lahore</div>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" style="font-size: 0.78rem;" onclick="showToast('Virtual Dermatology Assistant Active')">Virtual Derm Consult</button>
+          </div>
+
+        </div>
+
+        <!-- Bottom Legal Bar -->
+        <div class="footer-bottom-bar">
+          <div>Â© 2026 Dr. Seema's Products. All rights reserved.</div>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" class="text-white-50">Privacy Policy</a>
+            <span>â€¢</span>
+            <a href="#" class="text-white-50">Terms</a>
+            <span>â€¢</span>
+            <a href="#" class="text-white-50">Returns</a>
+          </div>
+          <div class="d-flex align-items-center gap-2 fs-6 text-white-50">
+            <i class="bi bi-credit-card-2-front" title="Card Payment"></i>
+            <i class="bi bi-cash-coin" title="Cash on Delivery"></i>
+            <i class="bi bi-shield-check" title="Encrypted Checkout"></i>
+          </div>
+        </div>
+
+        <!-- Prepared by Nova Fuxion Credits -->
+        <div class="footer-credits-bar">
+          <span class="footer-credits-text">Prepared by Nova Fuxion</span>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+         10. INTERACTIVE DRAWERS & MODALS
+         ========================================================================== -->
+    <!-- Backdrop Overlay -->
+    <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+    <!-- Slide-Over Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <h5 class="font-serif mb-0 fs-4">Shopping Bag (<span class="cart-badge-count">2</span>)</h5>
+        <button class="btn-close cart-close-btn"></button>
+      </div>
+
+      <div class="free-shipping-bar">
+        <span id="shipping-bar-status">You are PKR 3,600 away from Complimentary Shipping!</span>
+        <div class="shipping-progress-track">
+          <div class="shipping-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="cart-items-body">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <span class="text-muted">Subtotal</span>
+          <span class="fw-bold cart-subtotal-val">PKR 16,400</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-3 fs-5 fw-bold">
+          <span>Total</span>
+          <span class="text-sage cart-total-val">PKR 16,400</span>
+        </div>
+        <button class="btn-hero-primary w-100" onclick="showToast('Proceeding to Encrypted Doorstep Checkout...')">Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i></button>
+      </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickview-modal" class="modal-overlay-custom">
+      <div class="quickview-card-modal p-4 p-md-5">
+        <button class="btn-close position-absolute top-0 end-0 m-4 quickview-close-btn"></button>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center">
+            <img id="qv-main-img" src="" class="img-fluid rounded-4 shadow-sm" alt="Product Image">
+          </div>
+          <div class="col-md-6">
+            <span id="qv-category" class="product-category-sub">Category</span>
+            <h2 id="qv-title" class="font-serif fs-2 mb-2">Product Title</h2>
+            <div id="qv-price" class="fs-4 fw-bold text-sage mb-3">PKR 0</div>
+            <p id="qv-desc" class="text-muted mb-4">Description goes here...</p>
+
+            <div class="mb-4">
+              <h6 class="fw-bold small text-uppercase tracking-wider">Key Ingredients:</h6>
+              <p id="qv-ingredients" class="small text-muted mb-0">Ingredients...</p>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button id="qv-add-btn" class="btn-hero-primary flex-grow-1">Add To Bag <i class="bi bi-bag-plus"></i></button>
+              <button class="btn-hero-outline" onclick="showToast('Saved to wishlist')"><i class="bi bi-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="modal-overlay-custom">
+      <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width: 680px;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h4 class="font-serif mb-0">Search Formulations</h4>
+          <button class="btn-close search-close-btn"></button>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+          <input id="search-input" type="text" class="form-control border-start-0 py-3" placeholder="Search by skin concern, ingredient or formulation...">
+        </div>
+        <div class="small text-muted mb-3">Trending Searches: <span class="badge bg-light text-dark me-1 cursor-pointer" onclick="document.getElementById('search-input').value='Retinol'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Bio-Retinol</span> <span class="badge bg-light text-dark me-1 cursor-pointer" onclick="document.getElementById('search-input').value='Vitamin C'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Vitamin C</span> <span class="badge bg-light text-dark cursor-pointer" onclick="document.getElementById('search-input').value='Cream'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Moisturizer</span></div>
+        <div id="search-results-box" style="max-height: 320px; overflow-y: auto;">
+          <p class="text-muted text-center py-4">Start typing to search formulations...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Offcanvas Drawer -->
+    <div id="mobile-drawer" class="mobile-offcanvas-menu">
+      <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+        <a href="/" class="brand-logo">
+          <div class="logo-icon-seal">DS</div>
+          <div>
+            <span class="logo-text-title">Dr. Seema's</span>
+            <span class="logo-text-tag">Clinical Skincare</span>
+          </div>
+        </a>
+        <button class="btn-close" onclick="document.getElementById('mobile-drawer').classList.remove('active')"></button>
+      </div>
+
+      <div class="drawer-search-box mb-4">
+        <div class="input-group">
+          <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
+          <input type="text" class="form-control bg-light border-start-0" placeholder="Search formulations..." onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.getElementById('search-overlay').classList.add('active');">
+        </div>
+      </div>
+
+      <ul class="mobile-nav-list list-unstyled mb-4">
+        <li><a href="/" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-house me-2 text-sage"></i> Home</a></li>
+        <li><a href="/shop" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag me-2 text-sage"></i> Shop</a></li>
+        <li><a href="/collections" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-grid me-2 text-sage"></i> Collections</a></li>
+        <li><a href="/shop?filter=new" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-stars me-2 text-sage"></i> New Arrivals</a></li>
+        <li><a href="/shop?filter=bestseller" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-fire me-2 text-sage"></i> Best Sellers</a></li>
+        <li><a href="/#why-us" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-flower1 me-2 text-sage"></i> Skin Concerns</a></li>
+        <li><a href="/#why-us" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-award me-2 text-sage"></i> About Dr. Seema</a></li>
+        <li><a href="#footer" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-envelope me-2 text-sage"></i> Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-actions pt-3 border-top d-flex flex-column gap-2 mt-auto">
+        <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2" onclick="showToast('Your saved wishlist: ' + (window.wishlistState ? window.wishlistState.size : 0) + ' items'); document.getElementById('mobile-drawer').classList.remove('active');">
+          <span><i class="bi bi-heart me-2"></i> Saved Wishlist</span>
+          <span class="badge bg-sage rounded-pill wishlist-badge-count">2</span>
+        </button>
+        <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2" onclick="showToast('Dr. Seema VIP Account Portal'); document.getElementById('mobile-drawer').classList.remove('active');">
+          <span><i class="bi bi-person me-2"></i> VIP Account Portal</span>
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        <button class="btn-hero-primary w-100 mt-2" onclick="showToast('Virtual Derm Consultation'); document.getElementById('mobile-drawer').classList.remove('active');">Book Consultation</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Dedicated Shop Script -->
+  <script src="/assets/shop.js"></script>
+  <script src="/assets/chatbot.js" defer></script>
+</body>
+</html>
+

@@ -1,0 +1,1910 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Concerns | Dr. Seema's Clinical Skincare</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/assets/index-B1ShAhzr.css">
+  <script src="/assets/index-Db8R-LCH.js" defer></script>
+  <style>
+    /* â”€â”€ SKIN CONCERNS HERO â”€â”€ */
+    .sc-hero {
+      position: relative;
+      min-height: 92vh;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(47,107,102,0.35) 0%, transparent 55%),
+        linear-gradient(135deg, rgba(15,26,25,0.93) 0%, rgba(21,34,33,0.88) 60%, rgba(33,79,75,0.82) 100%),
+        url('/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg') center/cover no-repeat fixed;
+      display: flex; align-items: center;
+      padding-top: 110px; overflow: hidden;
+    }
+    .sc-hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,230,213,0.15);
+      border: 1px solid rgba(200,230,213,0.3);
+      color: var(--accent-mint);
+      padding: 6px 18px; border-radius: var(--radius-full);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      margin-bottom: 20px;
+    }
+    .sc-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 5.5vw, 5rem);
+      color: #fff; line-height: 1.05; font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .sc-hero-title em { font-style: italic; color: var(--accent-mint); }
+    .sc-hero-sub {
+      font-size: 1rem; color: rgba(255,255,255,0.75);
+      max-width: 560px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .sc-hero-stat-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff; padding: 8px 18px; border-radius: var(--radius-full);
+      font-size: 0.78rem; font-weight: 600;
+    }
+    .sc-hero-stat-pill i { color: var(--accent-mint); }
+
+    /* â”€â”€ CONCERN SELECTOR TABS â”€â”€ */
+    .sc-tabs-section {
+      background: #fff;
+      position: sticky; top: 70px; z-index: 900;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: 0 2px 12px rgba(47,107,102,0.06);
+    }
+    .sc-tabs-scroll {
+      display: flex; gap: 8px; align-items: center;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      scrollbar-width: none; -ms-overflow-style: none;
+      padding: 4px 2px; flex-wrap: nowrap;
+    }
+    .sc-tabs-scroll::-webkit-scrollbar { display: none; }
+    .sc-tab-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--bg-light-mint); color: var(--primary-sage);
+      border: 1px solid var(--border-light);
+      padding: 9px 22px; border-radius: var(--radius-full);
+      font-size: 0.82rem; font-weight: 600;
+      white-space: nowrap; cursor: pointer;
+      transition: all 0.25s var(--transition-smooth);
+      flex-shrink: 0;
+    }
+    .sc-tab-btn:hover { background: var(--primary-sage); color: #fff; border-color: var(--primary-sage); }
+    .sc-tab-btn.active { background: var(--primary-sage); color: #fff; border-color: var(--primary-sage); box-shadow: 0 4px 16px rgba(47,107,102,0.3); }
+
+    /* â”€â”€ CONCERN PANELS â”€â”€ */
+    .sc-panel { display: none; }
+    .sc-panel.active { display: block; }
+
+    /* â”€â”€ CONCERN BANNER â”€â”€ */
+    .concern-banner {
+      border-radius: var(--radius-lg); overflow: hidden;
+      min-height: 380px; position: relative;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 60px; background-size: cover; background-position: center;
+    }
+    .concern-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(21,34,33,0.9) 0%, rgba(47,107,102,0.7) 100%);
+    }
+    .concern-banner-content { position: relative; z-index: 1; }
+    .concern-banner-tag {
+      display: inline-block; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.18em; color: var(--accent-mint);
+      margin-bottom: 12px;
+    }
+    .concern-banner-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: #fff; font-weight: 600; margin-bottom: 12px; line-height: 1.1;
+    }
+    .concern-banner-desc { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 20px; max-width: 560px; }
+
+    /* â”€â”€ SYMPTOM PILLS â”€â”€ */
+    .symptom-pill {
+      display: inline-flex; align-items: center;
+      background: rgba(200,230,213,0.15);
+      border: 1px solid rgba(200,230,213,0.3);
+      color: var(--accent-mint); font-size: 0.78rem; font-weight: 600;
+      padding: 5px 14px; border-radius: var(--radius-full); margin: 4px;
+    }
+
+    /* â”€â”€ GLASS CARD (inside banner) â”€â”€ */
+    .glass-card {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: var(--radius-md); padding: 28px; color: #fff;
+    }
+    .glass-card-num {
+      font-family: var(--font-heading); font-size: 2.2rem; font-weight: 700;
+      color: var(--accent-mint); line-height: 1; margin-bottom: 4px;
+    }
+    .glass-card-label { font-size: 0.75rem; color: rgba(255,255,255,0.65); letter-spacing: 0.08em; }
+
+    /* â”€â”€ STAT CARD (about section) â”€â”€ */
+    .sc-stat-card {
+      background: var(--dark-forest); border-radius: var(--radius-md);
+      padding: 22px 18px; text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .sc-stat-num {
+      font-family: var(--font-heading); font-size: 1.9rem; font-weight: 700;
+      color: var(--accent-mint); line-height: 1; margin-bottom: 4px;
+    }
+    .sc-stat-label { font-size: 0.72rem; color: rgba(255,255,255,0.6); letter-spacing: 0.08em; }
+
+    /* â”€â”€ PRODUCT CARD â”€â”€ */
+    .sc-product-card {
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); box-shadow: var(--shadow-soft);
+      overflow: hidden; height: 100%;
+      transition: transform 0.35s var(--transition-smooth), box-shadow 0.35s var(--transition-smooth);
+    }
+    .sc-product-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); }
+    .sc-product-img {
+      aspect-ratio: 3/4; overflow: hidden;
+      background: var(--bg-light-mint); position: relative;
+    }
+    .sc-product-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.5s var(--transition-smooth);
+    }
+    .sc-product-card:hover .sc-product-img img { transform: scale(1.07); }
+    .sc-product-badge {
+      position: absolute; top: 12px; left: 12px;
+      background: var(--dark-forest); color: var(--accent-mint);
+      font-size: 0.62rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 4px 10px; border-radius: var(--radius-full);
+    }
+    .sc-product-body { padding: 20px; }
+    .sc-product-name {
+      font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600;
+      color: var(--text-dark); margin-bottom: 6px;
+    }
+    .sc-product-desc { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px; line-height: 1.5; }
+    .sc-product-price {
+      color: var(--primary-sage); font-size: 1.05rem; font-weight: 700; margin-bottom: 12px;
+    }
+    .sc-product-btn {
+      width: 100%; background: var(--bg-light-mint); color: var(--primary-sage);
+      border: 1px solid var(--border-light); border-radius: var(--radius-full);
+      padding: 9px 0; font-size: 0.82rem; font-weight: 600; cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .sc-product-btn:hover { background: var(--primary-sage); color: #fff; border-color: var(--primary-sage); }
+    .sc-product-quick-link {
+      display: block; text-align: center; font-size: 0.75rem;
+      color: var(--text-muted); margin-top: 8px; cursor: pointer;
+      transition: color 0.2s;
+    }
+    .sc-product-quick-link:hover { color: var(--primary-sage); }
+
+    /* â”€â”€ ROUTINE STEP â”€â”€ */
+    .routine-step {
+      display: flex; align-items: flex-start; gap: 16px;
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); padding: 20px;
+      box-shadow: var(--shadow-soft); margin-bottom: 12px;
+      transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s;
+    }
+    .routine-step:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); }
+    .routine-step-num {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--primary-sage); color: #fff;
+      font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .routine-step-title { font-weight: 700; color: var(--text-dark); font-size: 0.95rem; margin-bottom: 2px; }
+    .routine-step-product { font-size: 0.8rem; color: var(--primary-sage); font-weight: 600; margin-bottom: 4px; }
+    .routine-step-desc { font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
+    .routine-header {
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      padding: 16px 20px; margin-bottom: 0;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .routine-header-am { background: var(--primary-sage); color: #fff; }
+    .routine-header-pm { background: var(--dark-forest); color: #fff; }
+    .routine-header-title { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; }
+
+    /* â”€â”€ INGREDIENT CARD â”€â”€ */
+    .ingredient-card {
+      background: var(--bg-cream); border: 1px solid var(--border-light);
+      border-radius: 18px; padding: 24px 18px; text-align: center;
+      height: 100%;
+      transition: transform 0.3s var(--transition-smooth), box-shadow 0.3s;
+    }
+    .ingredient-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .ingredient-icon {
+      width: 56px; height: 56px; border-radius: 50%; background: #fff;
+      color: var(--primary-sage); font-size: 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+      box-shadow: 0 4px 14px rgba(47,107,102,0.1);
+      border: 2px solid var(--accent-mint);
+      transition: all 0.3s ease;
+    }
+    .ingredient-card:hover .ingredient-icon { background: var(--primary-sage); color: #fff; }
+    .ingredient-name { font-family: var(--font-heading); font-size: 1.1rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+    .ingredient-benefit { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; margin: 0; }
+
+    /* â”€â”€ EXPERT TIP CARD â”€â”€ */
+    .expert-tip-card {
+      background: var(--dark-forest); border: 1px solid rgba(255,255,255,0.1);
+      border-left: 3px solid var(--primary-sage);
+      border-radius: var(--radius-md); padding: 28px;
+      transition: all 0.35s var(--transition-smooth);
+      height: 100%;
+    }
+    .expert-tip-card:hover { transform: translateY(-6px); border-color: rgba(47,107,102,0.4); border-left-color: var(--accent-mint); }
+    .expert-tip-num {
+      font-family: var(--font-heading); font-size: 3rem; font-weight: 700;
+      color: var(--accent-mint); line-height: 1; margin-bottom: 8px;
+    }
+    .expert-tip-headline { font-weight: 700; color: #fff; font-size: 0.95rem; margin-bottom: 8px; }
+    .expert-tip-text { font-size: 0.92rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin: 0; }
+
+    /* â”€â”€ FAQ â”€â”€ */
+    .sc-faq-item {
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); margin-bottom: 10px;
+      overflow: hidden; box-shadow: var(--shadow-soft);
+    }
+    .sc-faq-q {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 18px 22px; cursor: pointer;
+      font-weight: 600; color: var(--text-dark); font-size: 0.92rem;
+      transition: background 0.2s; border: none; background: transparent; width: 100%; text-align: left;
+    }
+    .sc-faq-q:hover { background: var(--bg-light-mint); }
+    .sc-faq-q.open { color: var(--primary-sage); background: var(--bg-light-mint); }
+    .sc-faq-q .faq-icon { transition: transform 0.3s ease; flex-shrink: 0; margin-left: 12px; }
+    .sc-faq-q.open .faq-icon { transform: rotate(45deg); }
+    .sc-faq-a {
+      padding: 0 22px; max-height: 0; overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+      font-size: 0.88rem; color: var(--text-muted); line-height: 1.65;
+    }
+    .sc-faq-a.open { max-height: 300px; padding-bottom: 18px; padding-top: 4px; }
+
+    /* â”€â”€ BEFORE/AFTER â”€â”€ */
+    .sc-ba-section { background: var(--bg-light-mint); }
+    .sc-ba-metric { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+    .sc-ba-metric-num {
+      font-family: var(--font-heading); font-size: 2rem; font-weight: 700;
+      color: var(--primary-sage); min-width: 70px; line-height: 1;
+    }
+    .sc-ba-metric-label { font-size: 0.82rem; color: var(--text-muted); line-height: 1.4; }
+
+    /* â”€â”€ CTA SECTION â”€â”€ */
+    .sc-cta-section {
+      background:
+        linear-gradient(135deg, rgba(15,26,25,0.96) 0%, rgba(33,79,75,0.92) 100%),
+        url('/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg') center/cover no-repeat fixed;
+      padding: 100px 0; text-align: center;
+    }
+
+    /* â”€â”€ SECTION LABELS â”€â”€ */
+    .sc-section-label {
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.14em;
+      color: var(--primary-sage); margin-bottom: 8px; display: block;
+    }
+
+    /* â”€â”€ RESPONSIVE â”€â”€ */
+    @media (max-width: 768px) {
+      .concern-banner { padding: 32px 24px; min-height: 280px; }
+      .concern-banner-title { font-size: 1.8rem; }
+      .sc-hero { min-height: 100vh; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- LUXURY LOADER -->
+  <div id="luxury-loader">
+    <div class="loader-bg-particles">
+      <div class="loader-particle p-1"></div>
+      <div class="loader-particle p-2"></div>
+      <div class="loader-particle p-3"></div>
+    </div>
+    <div class="loader-brand-content">
+      <div class="loader-seal-sage">DS</div>
+      <h1 class="loader-title">Dr. Seema's Products</h1>
+      <p class="loader-subtitle">Dermatologist Formulated â€¢ Clinical Botanical Science</p>
+      <div class="loader-spinner-bar"><div class="loader-spinner-progress"></div></div>
+    </div>
+  </div>
+
+  <div id="app-content" style="opacity:0;transition:opacity 0.8s ease;">
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       STICKY NAVIGATION
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <header class="header-wrapper" id="main-header">
+    <div class="nav-main-bar">
+      <div class="container-fluid px-3 px-md-5">
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="/" class="brand-logo">
+            <div class="logo-icon-seal">DS</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title">Dr. Seema's</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          </a>
+          <nav class="d-none d-xl-block">
+            <ul class="nav-menu-list">
+              <li><a href="/" class="nav-link-item">Home</a></li>
+              <li><a href="/shop" class="nav-link-item">Shop</a></li>
+              <li><a href="/collections" class="nav-link-item">Collections</a></li>
+              <li><a href="/shop?filter=new" class="nav-link-item">New Arrivals</a></li>
+              <li><a href="/shop?filter=bestseller" class="nav-link-item">Best Sellers</a></li>
+              <li class="has-megamenu">
+                <a href="/skin-concerns" class="nav-link-item active">Skin Concerns <i class="bi bi-chevron-down ms-1 small"></i></a>
+                <div class="megamenu-dropdown">
+                  <div class="megamenu-grid">
+                    <div>
+                      <h6 class="megamenu-heading">Targeted Clinical Treatments</h6>
+                      <div class="concern-links-grid">
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/skin-concerns#pigmentation'">
+                          <div class="concern-icon"><i class="bi bi-sparkles"></i></div>
+                          <div><div class="concern-title">Hyperpigmentation & Dark Spots</div><div class="concern-desc">15% Vitamin C &amp; Niacinamide radiance boost</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/skin-concerns#dryskin'">
+                          <div class="concern-icon"><i class="bi bi-droplet-half"></i></div>
+                          <div><div class="concern-title">Dehydration &amp; Barrier Loss</div><div class="concern-desc">72-Hour Ceramide NP moisture restoration</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/skin-concerns#aging'">
+                          <div class="concern-icon"><i class="bi bi-hourglass-split"></i></div>
+                          <div><div class="concern-title">Anti-Aging &amp; Fine Lines</div><div class="concern-desc">Bio-Retinol &amp; Quad-Peptide renewal</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/skin-concerns#sensitive'">
+                          <div class="concern-icon"><i class="bi bi-shield-plus"></i></div>
+                          <div><div class="concern-title">Sensitivities &amp; Rosacea</div><div class="concern-desc">Botanical calming oat barrier defense</div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="megamenu-featured">
+                      <span class="badge-clinical mb-2">DERMATOLOGIST PICK</span>
+                      <h5 class="font-serif mb-2 fs-4 text-dark">Cellular Renewal Serum</h5>
+                      <p class="small text-muted mb-3">Bio-Retinol formulation designed for overnight barrier repair and texture refinement.</p>
+                      <button class="btn-luxury-sm" onclick="openQuickView && openQuickView('p1')">Discover Formulation</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a href="/about" class="nav-link-item">About Dr. Seema</a></li>
+              <li><a href="#footer" class="nav-link-item">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button class="action-btn search-trigger-btn" title="Search"><i class="bi bi-search"></i></button>
+            <button class="action-btn" title="Wishlist" onclick="showToast && showToast('Saved wishlist')">
+              <i class="bi bi-heart"></i><span class="badge-count wishlist-badge-count">0</span>
+            </button>
+            <button class="action-btn cart-trigger-btn" title="Bag">
+              <i class="bi bi-bag"></i><span class="badge-count cart-badge-count">0</span>
+            </button>
+            <button class="action-btn d-none d-sm-flex" title="Account" onclick="showToast && showToast('VIP Account Portal')">
+              <i class="bi bi-person"></i>
+            </button>
+            <a href="/shop" class="btn-header-cta d-none d-md-inline-flex">Shop Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+            <button class="action-btn mobile-nav-toggle d-xl-none" onclick="document.getElementById('mobile-drawer').classList.add('active')">
+              <i class="bi bi-list fs-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 1 Â· HERO
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="sc-hero">
+    <div class="container relative-z2">
+      <div class="row">
+        <div class="col-lg-8 reveal-fade-left">
+          <!-- Breadcrumb -->
+          <nav aria-label="breadcrumb" class="mb-3">
+            <ol class="breadcrumb" style="background:transparent;padding:0;font-size:0.78rem;">
+              <li class="breadcrumb-item"><a href="/" style="color:rgba(255,255,255,0.55);text-decoration:none;">Home</a></li>
+              <li class="breadcrumb-item active" style="color:var(--accent-mint);">Skin Concerns</li>
+            </ol>
+          </nav>
+          <div class="sc-hero-tag">
+            <i class="bi bi-patch-check-fill"></i> CLINICAL DERMATOLOGY GUIDE
+          </div>
+          <h1 class="sc-hero-title">
+            Find Your<br><em>Skin Solution</em>
+          </h1>
+          <p class="sc-hero-sub">
+            Dr. Seema's dermatologist-formulated treatments target every skin concern with clinically validated actives and luxury botanical science.
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a href="#concern-tabs" class="btn-hero-primary">Explore Concerns â†“</a>
+            <a href="/shop" class="btn-hero-outline"><i class="bi bi-bag me-1"></i> Shop All Treatments</a>
+          </div>
+          <!-- Floating stat pills -->
+          <div class="d-flex flex-wrap gap-3">
+            <div class="sc-hero-stat-pill"><i class="bi bi-grid-fill"></i> 8 Concerns Covered</div>
+            <div class="sc-hero-stat-pill"><i class="bi bi-droplet-fill"></i> 48 Formulations</div>
+            <div class="sc-hero-stat-pill"><i class="bi bi-graph-up-arrow"></i> 98% Efficacy</div>
+            <div class="sc-hero-stat-pill"><i class="bi bi-people-fill"></i> 50K+ Clients</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 2 Â· CONCERN SELECTOR TABS (sticky)
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="concern-tabs" class="sc-tabs-section">
+    <div class="container-fluid px-3 px-md-5 py-3">
+      <div class="sc-tabs-scroll">
+        <button class="sc-tab-btn active" data-concern="acne"><i class="bi bi-shield-x"></i> Acne</button>
+        <button class="sc-tab-btn" data-concern="pigmentation"><i class="bi bi-sparkles"></i> Pigmentation</button>
+        <button class="sc-tab-btn" data-concern="darkspots"><i class="bi bi-brightness-high"></i> Dark Spots</button>
+        <button class="sc-tab-btn" data-concern="dryskin"><i class="bi bi-droplet"></i> Dry Skin</button>
+        <button class="sc-tab-btn" data-concern="oilyskin"><i class="bi bi-water"></i> Oily Skin</button>
+        <button class="sc-tab-btn" data-concern="sensitive"><i class="bi bi-shield-plus"></i> Sensitive</button>
+        <button class="sc-tab-btn" data-concern="aging"><i class="bi bi-hourglass-split"></i> Aging</button>
+        <button class="sc-tab-btn" data-concern="wrinkles"><i class="bi bi-flower1"></i> Wrinkles</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 3 Â· CONCERN PANELS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <main>
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 1 â€” ACNE                      â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel active" id="acne">
+
+    <!-- A. CONCERN BANNER -->
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Acne &amp; Breakouts</h2>
+            <p class="concern-banner-desc">A chronic inflammatory condition requiring targeted antibacterial, pore-clearing, and barrier-rebuilding actives.</p>
+            <div>
+              <span class="symptom-pill">Whiteheads</span>
+              <span class="symptom-pill">Blackheads</span>
+              <span class="symptom-pill">Cystic Nodules</span>
+              <span class="symptom-pill">Post-Acne Marks</span>
+              <span class="symptom-pill">Enlarged Pores</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. ABOUT + KEY STATS -->
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">WHAT IS ACNE?</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">Understanding Your Breakouts</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Acne occurs when sebaceous follicles become blocked with oil and dead skin cells, creating an environment where bacteria thrive. Hormonal fluctuations, diet, stress, and incorrect skincare all contribute to its severity.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Salicylic Acid 2%</strong> â€” Chemically exfoliates inside the pore to dissolve congestion and prevent future blockages.</span>
+            </li>
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Niacinamide 10%</strong> â€” Regulates sebum, minimises pore appearance, and fades post-acne dark marks simultaneously.</span>
+            </li>
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">SPF 50+ Daily</strong> â€” Non-negotiable step to prevent post-inflammatory hyperpigmentation from worsening.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">91%</div><div class="sc-stat-label">Breakout Reduction</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">28</div><div class="sc-stat-label">Days to Results</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">4.9â˜…</div><div class="sc-stat-label">Clinical Rating</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C. RECOMMENDED PRODUCTS -->
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4">
+        <span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span>
+        <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Acne Protocol</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Calming Gentle Cleanser" loading="lazy">
+              <span class="sc-product-badge">STEP 1</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Calming Gentle Cleanser</div>
+              <div class="sc-product-desc">pH-balanced formula with BHA and zinc to clear pores without stripping the barrier.</div>
+              <div class="sc-product-price">PKR 5,200</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p5','Calming Gentle Cleanser',5200,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p5')">Quick View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy">
+              <span class="sc-product-badge">BESTSELLER</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Cellular Renewal Serum</div>
+              <div class="sc-product-desc">Niacinamide 10% &amp; Retinol complex targets active breakouts and repairs post-acne texture.</div>
+              <div class="sc-product-price">PKR 8,800</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Vitamin C Luminous Concentrate" loading="lazy">
+              <span class="sc-product-badge">CLINICAL PICK</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Vitamin C Luminous Concentrate</div>
+              <div class="sc-product-desc">15% Vitamin C fades post-acne marks and brightens skin tone with antioxidant protection.</div>
+              <div class="sc-product-price">PKR 9,200</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p3','Vitamin C Luminous Concentrate',9200,'/assets/botanical_serum_1784829065095-CWvF2yY0.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p3')">Quick View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D. MORNING + NIGHT ROUTINES -->
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4">
+        <span class="sc-section-label">YOUR DAILY RITUAL</span>
+        <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Acne Routine Protocol</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Massage for 60 seconds with lukewarm water. Rinse thoroughly without rubbing dry.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Vitamin C Serum</div><div class="routine-step-product">Vitamin C Luminous Concentrate</div><p class="routine-step-desc">3â€“4 drops on damp skin. Pat gently â€” do not rub. Allows 90 seconds to absorb.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Lightweight Moisturiser</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Lightweight non-comedogenic layer to seal actives and maintain hydration.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+ Sunscreen</div><div class="routine-step-product">Mineral SPF Shield</div><p class="routine-step-desc">Mandatory final step. SPF prevents PIH from darkening and protecting actives.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Double Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Oil cleanser first to remove SPF, then gel cleanser to clear residue and impurities.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">BHA Toner</div><div class="routine-step-product">Salicylic Acid 2% Toning Solution</div><p class="routine-step-desc">Apply with a cotton pad on breakout-prone zones only. Skip eye area.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Retinol Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Start 2 nights per week. Increase frequency as tolerance builds over 4 weeks.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Niacinamide Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Seal routine with ceramide-rich cream to repair barrier overnight.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E. KEY INGREDIENTS -->
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4">
+          <span class="sc-section-label">CLINICAL ACTIVES</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Ingredients</h3>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll">
+            <div class="ingredient-card">
+              <div class="ingredient-icon"><i class="bi bi-droplet-fill"></i></div>
+              <div class="ingredient-name">Salicylic Acid 2%</div>
+              <p class="ingredient-benefit">Beta-hydroxy acid that penetrates into pores, dissolving oil and cellular debris to clear blockages and reduce future breakouts.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 reveal-on-scroll">
+            <div class="ingredient-card">
+              <div class="ingredient-icon"><i class="bi bi-shield-check"></i></div>
+              <div class="ingredient-name">Niacinamide 10%</div>
+              <p class="ingredient-benefit">Clinically proven to reduce sebum production by 52%, minimise pore size, and fade post-inflammatory hyperpigmentation.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 reveal-on-scroll">
+            <div class="ingredient-card">
+              <div class="ingredient-icon"><i class="bi bi-star-fill"></i></div>
+              <div class="ingredient-name">Zinc PCA</div>
+              <p class="ingredient-benefit">Regulates the sebaceous glands, provides antibacterial action against acne-causing bacteria and soothes inflammation.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-6 reveal-on-scroll">
+            <div class="ingredient-card">
+              <div class="ingredient-icon"><i class="bi bi-flower1"></i></div>
+              <div class="ingredient-name">Tea Tree Extract</div>
+              <p class="ingredient-benefit">Nature's antibacterial powerhouse â€” reduces active lesions and calms surrounding inflamed skin without harsh drying.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F. BEFORE & AFTER -->
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5">
+          <span class="sc-section-label">CLINICAL RESULTS</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Real Acne Transformations</h3>
+        </div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">91%</div><div class="sc-ba-metric-label">reported visible breakout reduction within 28 days</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">84%</div><div class="sc-ba-metric-label">saw reduced pore appearance after 6 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">97%</div><div class="sc-ba-metric-label">would recommend to a friend with acne-prone skin</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container">
+                <img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment">
+              </div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- G. EXPERT TIPS -->
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5">
+          <span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span>
+          <h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Acne</h3>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Never Pop or Squeeze</div><p class="expert-tip-text">Squeezing forces bacteria deeper and ruptures the follicle wall, causing permanent scarring. Use a spot-treatment patch instead â€” clinically proven to reduce lesion size by 60% overnight.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Patch Test Every Active</div><p class="expert-tip-text">Introduce one new active at a time, separated by at least two weeks. Layering salicylic acid with retinol too soon damages the barrier and triggers more breakouts â€” the opposite of your goal.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">SPF Is Non-Negotiable</div><p class="expert-tip-text">UV exposure darkens post-acne marks by up to 400%. Mineral SPF 50+ is your single most powerful tool for preventing hyperpigmentation on active-ingredient days â€” and every other day.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- H. FAQ -->
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4">
+          <span class="sc-section-label">COMMON QUESTIONS</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Acne FAQ</h3>
+        </div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">How long does it take for acne products to work?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Most clinical actives require a minimum of 4â€“6 weeks of consistent daily use before visible improvement. Salicylic acid may clear surface congestion in 2 weeks, but true cellular turnover and pore refinement take a full skin cycle (28 days) to show meaningful results. Patience and consistency are everything.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Can I use Retinol and Salicylic Acid together?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Not on the same application. Use BHA (salicylic acid) in the morning and retinol at night to avoid barrier compromise. Once your skin has adapted to both individually (4â€“6 weeks), Dr. Seema recommends alternating nights rather than mixing them in one step.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is acne caused by diet?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Clinical evidence shows high glycaemic index foods and dairy can trigger inflammatory acne in predisposed individuals. However, dietary changes alone are rarely sufficient â€” they work best alongside a consistent, clinically validated topical routine targeting sebum regulation and bacterial activity.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">What is the difference between purging and a bad reaction?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Purging occurs in the first 2â€“4 weeks of actives like retinol or AHA/BHA â€” breakouts appear in your usual acne zones and then clear. A bad reaction causes breakouts in new areas, redness, burning, or scaling. If in doubt, stop the product and consult Dr. Seema's team for a virtual consultation.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#acne -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 2 â€” PIGMENTATION              â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="pigmentation">
+
+    <!-- A. CONCERN BANNER -->
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/botanical_serum_1784829065095-CWvF2yY0.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Hyperpigmentation</h2>
+            <p class="concern-banner-desc">Excess melanin production causing uneven skin tone â€” the most common concern among South Asian skin types.</p>
+            <div>
+              <span class="symptom-pill">Melasma</span>
+              <span class="symptom-pill">Sun Spots</span>
+              <span class="symptom-pill">Post-Inflammatory</span>
+              <span class="symptom-pill">Uneven Tone</span>
+              <span class="symptom-pill">Dullness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- B. ABOUT + KEY STATS -->
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">WHAT IS HYPERPIGMENTATION?</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">The Melanin Imbalance</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Hyperpigmentation results from overactive melanocytes triggered by UV exposure, hormonal fluctuations, or inflammation. South Asian skin types are particularly vulnerable due to higher baseline melanin activity.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">15% Vitamin C</strong> â€” Inhibits tyrosinase (the enzyme responsible for melanin production) and provides photoprotection.</span>
+            </li>
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Alpha Arbutin</strong> â€” Slow-release hydroquinone derivative that safely brightens without the risk of ochronosis.</span>
+            </li>
+            <li class="d-flex align-items-start gap-3 mb-3">
+              <span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span>
+              <span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Daily SPF 50+</strong> â€” The single most important treatment step â€” without it, all brightening actives are undermined by daily UV exposure.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">96%</div><div class="sc-stat-label">Spot Reduction</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">6 Wks</div><div class="sc-stat-label">To Visible Results</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">Clinically Proven</div><div class="sc-stat-label">Independent Trial â€” 120 Participants</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- C. RECOMMENDED PRODUCTS -->
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4">
+        <span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span>
+        <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Pigmentation Protocol</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Vitamin C Luminous Concentrate" loading="lazy">
+              <span class="sc-product-badge">HERO PRODUCT</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Vitamin C Luminous Concentrate</div>
+              <div class="sc-product-desc">15% L-Ascorbic Acid with Ferulic Acid â€” the gold standard for hyperpigmentation correction.</div>
+              <div class="sc-product-price">PKR 9,200</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p3','Vitamin C Luminous Concentrate',9200,'/assets/botanical_serum_1784829065095-CWvF2yY0.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p3')">Quick View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy">
+              <span class="sc-product-badge">BESTSELLER</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Cellular Renewal Serum</div>
+              <div class="sc-product-desc">Alpha Arbutin and Niacinamide blend to tackle PIH and even skin tone from within.</div>
+              <div class="sc-product-price">PKR 8,800</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="sc-product-card">
+            <div class="sc-product-img">
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Deep Moisture Barrier Cream" loading="lazy">
+              <span class="sc-product-badge">CLINICAL PICK</span>
+            </div>
+            <div class="sc-product-body">
+              <div class="sc-product-name">Deep Moisture Barrier Cream</div>
+              <div class="sc-product-desc">Ceramide-rich nighttime cream that repairs the barrier and locks brightening actives in.</div>
+              <div class="sc-product-price">PKR 7,600</div>
+              <button class="sc-product-btn" onclick="addToCart && addToCart('p2','Deep Moisture Barrier Cream',7600,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button>
+              <a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p2')">Quick View</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D. MORNING + NIGHT ROUTINES -->
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4">
+        <span class="sc-section-label">YOUR DAILY RITUAL</span>
+        <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Pigmentation Routine Protocol</h3>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Vitamin C Serum</div><div class="routine-step-product">Vitamin C Luminous Concentrate</div><p class="routine-step-desc">Apply to clean, damp skin. Vitamin C is most effective in the morning for antioxidant defence against UV damage.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Niacinamide</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Layer after Vitamin C for enhanced melanin-transfer inhibition. Wait 60 seconds between layers.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Moisturise</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Lightweight emollient layer to maintain hydration and enhance active ingredient penetration.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+ (Mandatory)</div><div class="routine-step-product">Mineral Sun Shield</div><p class="routine-step-desc">Without daily SPF, brightening actives are rendered ineffective. Non-negotiable every single morning.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gentle Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Remove SPF and daily oxidative stress from skin before applying brightening actives.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Alpha Arbutin</div><div class="routine-step-product">Brightening Concentrate</div><p class="routine-step-desc">Apply alpha arbutin serum to targeted dark areas. Most effective at night when skin is in repair mode.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Retinol</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Accelerates cell turnover to resurface pigmented skin. Begin 2 nights per week and build tolerance.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Ceramide Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Occlusive nighttime layer seals actives and supports the barrier repair cycle overnight.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E. KEY INGREDIENTS -->
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4">
+          <span class="sc-section-label">CLINICAL ACTIVES</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Brightening Ingredients</h3>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-brightness-high"></i></div><div class="ingredient-name">15% Vitamin C</div><p class="ingredient-benefit">L-Ascorbic Acid at a clinically proven concentration â€” inhibits melanin synthesis and provides potent antioxidant UV protection.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-sparkles"></i></div><div class="ingredient-name">Alpha Arbutin</div><p class="ingredient-benefit">Slow-release brightening agent that reduces melanin production with zero risk of paradoxical darkening seen with older treatments.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-shield-check"></i></div><div class="ingredient-name">Niacinamide 10%</div><p class="ingredient-benefit">Blocks the transfer of melanin from melanocytes to keratinocytes â€” works synergistically with Vitamin C for superior tone correction.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-star-fill"></i></div><div class="ingredient-name">Kojic Acid</div><p class="ingredient-benefit">Naturally derived from fermented rice â€” inhibits tyrosinase and provides gentle brightening appropriate for South Asian skin tones.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F. BEFORE & AFTER -->
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5">
+          <span class="sc-section-label">CLINICAL RESULTS</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Pigmentation Transformations</h3>
+        </div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">96%</div><div class="sc-ba-metric-label">reported measurable spot reduction within 6 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">88%</div><div class="sc-ba-metric-label">saw overall skin tone evening in 12 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">99%</div><div class="sc-ba-metric-label">said skin felt noticeably brighter and more radiant</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container">
+                <img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment">
+              </div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- G. EXPERT TIPS -->
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5">
+          <span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span>
+          <h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Pigmentation</h3>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">SPF Is Your #1 Treatment</div><p class="expert-tip-text">Every brightening product is wasted without daily SPF 50+. UV triggers melanin production within minutes of exposure. Reapply every 2 hours if outdoors. This single habit outperforms any serum.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Patience â€” 12 Weeks Minimum</div><p class="expert-tip-text">Visible correction takes a minimum of 12 weeks for melasma and deep pigmentation. Premature product-switching is the most common mistake. Commit to a consistent protocol and trust the clinical process.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Avoid Heat Triggers</div><p class="expert-tip-text">Heat from hot showers, spicy food, or exercise can trigger melasma flares. Use lukewarm water, and if you have hormonal pigmentation, consider wearing SPF even indoors near windows during peak sun hours.</p></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- H. FAQ -->
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4">
+          <span class="sc-section-label">COMMON QUESTIONS</span>
+          <h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Pigmentation FAQ</h3>
+        </div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">Can hyperpigmentation be completely cured?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Hyperpigmentation can be significantly faded and managed, but requires ongoing maintenance â€” particularly for melasma which is hormonally driven. With a consistent Vitamin C + Alpha Arbutin protocol combined with diligent SPF, most patients achieve near-complete correction within 3â€“6 months.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is Vitamin C safe for dark skin tones?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Absolutely. Dr. Seema's formulations are specifically clinically trialled on South Asian Fitzpatrick IIIâ€“V skin tones. L-Ascorbic Acid at 15% is safe and highly effective across all melanin levels â€” it inhibits melanin production without disrupting healthy skin tone.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">What's the difference between melasma and post-inflammatory hyperpigmentation?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Melasma is hormonally triggered (often by pregnancy, contraceptives, or sun) and typically appears symmetrically on the cheeks, forehead, and upper lip. PIH follows injury, acne, or inflammation and fades naturally with time and targeted actives. Both benefit from the same brightening protocol, but melasma requires stricter SPF adherence.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Why does my Vitamin C serum oxidise and turn orange?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">L-Ascorbic Acid is inherently unstable and oxidises on exposure to light, air, and heat. An orange or brown Vitamin C serum has lost most of its efficacy. Always store in a dark, cool cupboard, use within 3 months of opening, and look for formulations with Ferulic Acid which significantly extends stability.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#pigmentation -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 3 â€” DARK SPOTS                â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="darkspots">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Dark Spots &amp; Marks</h2>
+            <p class="concern-banner-desc">Localised melanin accumulation from sun damage, post-acne marks, or age â€” treatable with targeted brightening actives.</p>
+            <div>
+              <span class="symptom-pill">Post-Acne Marks</span>
+              <span class="symptom-pill">Age Spots</span>
+              <span class="symptom-pill">Sun Damage</span>
+              <span class="symptom-pill">Freckles</span>
+              <span class="symptom-pill">Blotchiness</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">WHAT CAUSES DARK SPOTS?</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">Localised Melanin Overproduction</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Dark spots form when localised trauma or UV stimulates melanocytes to overproduce pigment in a specific area. Unlike generalised pigmentation, targeted brightening actives can isolate and fade these spots effectively within 6â€“8 weeks.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Tranexamic Acid</strong> â€” Blocks the inflammatory pathway that triggers melanin overproduction post-UV and post-acne.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Vitamin C + Ferulic Acid</strong> â€” The classic combination that prevents new spots while lightening existing ones.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Firming Eye Essence</strong> â€” For dark spots around the eye, a targeted peptide and brightening eye formula is essential.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">89%</div><div class="sc-stat-label">Spot Fade Rate</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">8 Wks</div><div class="sc-stat-label">Average Results</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">4.8â˜…</div><div class="sc-stat-label">Customer Rating</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Dark Spots Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Vitamin C" loading="lazy"><span class="sc-product-badge">HERO PRODUCT</span></div><div class="sc-product-body"><div class="sc-product-name">Vitamin C Luminous Concentrate</div><div class="sc-product-desc">15% Vitamin C targets and visibly fades dark spots with antioxidant protection.</div><div class="sc-product-price">PKR 9,200</div><button class="sc-product-btn" onclick="addToCart && addToCart('p3','Vitamin C Luminous Concentrate',9200,'/assets/botanical_serum_1784829065095-CWvF2yY0.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p3')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy"><span class="sc-product-badge">BESTSELLER</span></div><div class="sc-product-body"><div class="sc-product-name">Cellular Renewal Serum</div><div class="sc-product-desc">Tranexamic Acid and Alpha Arbutin blend to block melanin pathways and accelerate cell turnover.</div><div class="sc-product-price">PKR 8,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Firming Peptide Eye Essence" loading="lazy"><span class="sc-product-badge">EYE SPECIALIST</span></div><div class="sc-product-body"><div class="sc-product-name">Firming Peptide Eye Essence</div><div class="sc-product-desc">Targeted brightening peptides and caffeine to fade dark circles and under-eye spots.</div><div class="sc-product-price">PKR 6,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p6','Firming Peptide Eye Essence',6800,'/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p6')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dark Spots Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Clean skin allows maximum absorption of brightening actives.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Vitamin C Serum</div><div class="routine-step-product">Vitamin C Luminous Concentrate</div><p class="routine-step-desc">Apply to full face, focusing extra drops on dark spot areas. Let absorb fully.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Eye Essence</div><div class="routine-step-product">Firming Peptide Eye Essence</div><p class="routine-step-desc">Gently tap around the orbital bone â€” never rub delicate eye skin.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+</div><div class="routine-step-product">Mineral Sun Shield</div><p class="routine-step-desc">Final mandatory step â€” every single morning without exception.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Double Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Remove all SPF and environmental pollutants before actives.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Tranexamic Acid</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Apply targeted drops directly onto individual dark spots for concentrated action.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Retinol Treatment</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Accelerates skin cell renewal, pushing pigmented cells to the surface faster.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Seal &amp; Repair</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Locks actives in and supports overnight cellular renewal cycle.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Brightening Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-droplet"></i></div><div class="ingredient-name">Tranexamic Acid</div><p class="ingredient-benefit">Blocks the prostaglandin pathway that triggers localised melanin overproduction â€” especially effective on PIH and sun-induced spots.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-brightness-high"></i></div><div class="ingredient-name">Vitamin C</div><p class="ingredient-benefit">15% L-Ascorbic Acid with Ferulic Acid â€” the most researched spot-fading active with dual antioxidant and tyrosinase-inhibiting action.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-sparkles"></i></div><div class="ingredient-name">Ferulic Acid</div><p class="ingredient-benefit">Synergistic antioxidant that doubles the efficacy of Vitamin C and Vitamin E while stabilising the formulation against oxidation.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-flower2"></i></div><div class="ingredient-name">Licorice Root</div><p class="ingredient-benefit">Glabridin from licorice selectively inhibits UVB-induced pigmentation without affecting normal skin colour â€” gentle yet effective.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dark Spots Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">89%</div><div class="sc-ba-metric-label">visible spot fading within 8 weeks of consistent use</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">76%</div><div class="sc-ba-metric-label">reported complete spot resolution at 12 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">4.8â˜…</div><div class="sc-ba-metric-label">average customer rating for brightening results</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Dark Spots</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Target Spots Directly</div><p class="expert-tip-text">For concentrated results, apply brightening serum with a precision applicator directly on individual spots morning and night, in addition to full-face application. This doubles active contact time where needed most.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Don't Skip Nights</div><p class="expert-tip-text">Skin cell renewal peaks between 11pm and 4am. Applying brightening actives in the evening aligns treatment with your skin's natural repair window â€” making nighttime application up to 40% more effective than daytime alone.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Exfoliate Weekly</div><p class="expert-tip-text">Gentle AHA exfoliation once per week accelerates the shedding of pigmented surface cells, dramatically speeding up results from brightening serums. Dr. Seema recommends a 10% Lactic Acid formulation for sensitive skin types.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dark Spots FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">How long does it take for dark spots to fade?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Surface-level PIH from recent acne may fade in 4â€“6 weeks with consistent actives and SPF. Deeper sun spots and age spots can take 8â€“16 weeks. Melasma â€” which has a dermal component â€” may require 6+ months. Consistency and daily SPF are the two biggest variables.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is spot treatment better than full-face serum for dark spots?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Both. Full-face application prevents new spots and treats subclinical pigmentation, while targeted spot application concentrates actives where needed most. Dr. Seema recommends full-face application as the base, with an additional precision drop directly on each dark spot.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Can I use Vitamin C and Tranexamic Acid together?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes â€” they work through different mechanisms and are highly synergistic. Vitamin C inhibits tyrosinase; tranexamic acid blocks the prostaglandin pathway. Together they address pigmentation from two angles simultaneously, producing faster results than either ingredient alone.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Do dark spots come back after treatment?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Without ongoing SPF and maintenance, dark spots from sun exposure can return. Maintenance is simple â€” continue daily SPF 50+, use a maintenance dose of Vitamin C serum, and repeat a 6-week brightening protocol once per year. Think of it as seasonal skin management.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#darkspots -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 4 â€” DRY SKIN                  â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="dryskin">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/skin_dry_barrier_before_1784834246217-CY8S9Apx.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Dry &amp; Dehydrated Skin</h2>
+            <p class="concern-banner-desc">Compromised skin barrier resulting in moisture loss, tightness, and accelerated visible aging.</p>
+            <div>
+              <span class="symptom-pill">Tight Feeling</span>
+              <span class="symptom-pill">Flaking</span>
+              <span class="symptom-pill">Rough Texture</span>
+              <span class="symptom-pill">Dullness</span>
+              <span class="symptom-pill">Fine Lines</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">UNDERSTANDING DRY SKIN</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">The Barrier Breakdown</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Dry skin is a barrier condition, not simply a hydration issue. When the skin's natural lipid matrix is depleted, trans-epidermal water loss (TEWL) accelerates, leaving skin tight, flaky, and reactive. The solution is barrier restoration, not just moisturiser application.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Ceramide NP</strong> â€” The primary lipid component of the skin's natural protective barrier. Replenishment is the cornerstone of dry skin treatment.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Hyaluronic Acid (triple weight)</strong> â€” Draws moisture from the environment and deeper skin layers, providing 72-hour hydration surge.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Squalane</strong> â€” Plant-derived emollient that mimics skin's natural sebum, sealing moisture without clogging pores.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">100%</div><div class="sc-stat-label">Hydration Boost</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">72h</div><div class="sc-stat-label">Moisture Retention</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">All Types</div><div class="sc-stat-label">Safe for All Skin Types</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Dry Skin Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Deep Moisture Barrier Cream" loading="lazy"><span class="sc-product-badge">HERO PRODUCT</span></div><div class="sc-product-body"><div class="sc-product-name">Deep Moisture Barrier Cream</div><div class="sc-product-desc">72-hour Ceramide NP and Hyaluronic Acid blend that rebuilds the protective lipid barrier.</div><div class="sc-product-price">PKR 7,600</div><button class="sc-product-btn" onclick="addToCart && addToCart('p2','Deep Moisture Barrier Cream',7600,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p2')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="Radiant Glow Barrier Elixir" loading="lazy"><span class="sc-product-badge">BESTSELLER</span></div><div class="sc-product-body"><div class="sc-product-name">Radiant Glow Barrier Elixir</div><div class="sc-product-desc">Sacred Lotus and Squalane face oil that replenishes lipids and delivers instant radiance.</div><div class="sc-product-price">PKR 8,400</div><button class="sc-product-btn" onclick="addToCart && addToCart('p4','Radiant Glow Barrier Elixir',8400,'/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p4')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy"><span class="sc-product-badge">CLINICAL PICK</span></div><div class="sc-product-body"><div class="sc-product-name">Cellular Renewal Serum</div><div class="sc-product-desc">Triple-weight Hyaluronic Acid serum providing deep hydration at multiple skin layers.</div><div class="sc-product-price">PKR 8,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dry Skin Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gentle Rinse Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Minimal cleansing in the morning â€” water rinse is often enough. Avoid foaming cleansers that strip oils.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Hyaluronic Acid Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Apply to damp skin immediately after cleansing â€” HA binds to the water on your skin's surface.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Barrier Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Generous application â€” do not skimp. Focus on dry patches on cheeks and forehead.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+</div><div class="routine-step-product">Hydrating Mineral Sunscreen</div><p class="routine-step-desc">Use a hydrating SPF formula â€” avoid alcohol-based sunscreens that dehydrate dry skin.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Cream Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Use a cream or oil-based cleanser â€” never foam on dry skin. Double cleanse only if wearing makeup.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Hyaluronic Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Triple-layer Hyaluronic Acid reaches deep, mid, and surface skin layers for maximum overnight plumping.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Barrier Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Use a thicker layer at night â€” skin loses 25% more moisture while sleeping due to trans-epidermal water loss.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Face Oil Seal</div><div class="routine-step-product">Radiant Glow Barrier Elixir</div><p class="routine-step-desc">3â€“4 drops pressed into skin over moisturiser creates an occlusive seal preventing overnight moisture loss.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Hydrating Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-droplet-fill"></i></div><div class="ingredient-name">Ceramide NP</div><p class="ingredient-benefit">Primary lipid component of the skin barrier â€” fills intercellular spaces like mortar between bricks, dramatically reducing trans-epidermal water loss.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-water"></i></div><div class="ingredient-name">Hyaluronic Acid</div><p class="ingredient-benefit">Triple-molecular-weight HA penetrates at surface, mid, and deep skin levels â€” holds 1,000Ã— its weight in water for lasting hydration.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-flower1"></i></div><div class="ingredient-name">Sacred Lotus</div><p class="ingredient-benefit">Nelumbo Nucifera extract â€” a clinically proven botanical that strengthens skin's natural NMF (Natural Moisturising Factor) and reduces TEWL.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-star-fill"></i></div><div class="ingredient-name">Squalane</div><p class="ingredient-benefit">Plant-derived emollient that precisely mimics skin's own sebum â€” absorbs rapidly to seal moisture without comedogenicity.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dry Skin Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">100%</div><div class="sc-ba-metric-label">reported immediate relief from tight, dry sensation</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">92%</div><div class="sc-ba-metric-label">skin hydration improvement measured at 24 hours</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">85%</div><div class="sc-ba-metric-label">saw visible fine line reduction after 4 weeks</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_dry_barrier_before_1784834246217-CY8S9Apx.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Dry Skin</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Apply on Damp Skin</div><p class="expert-tip-text">Hyaluronic Acid needs water to bind to. Apply your serum within 60 seconds of cleansing, while skin is still slightly damp. In dry climates, mist your face before application to ensure HA has moisture to attract.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Never Foam Cleanse</div><p class="expert-tip-text">Surfactant-heavy foaming cleansers strip the natural lipid layer from dry skin â€” essentially reversing your barrier cream's work every morning. Switch to a creamy, non-foaming formula. This single change produces the fastest visible improvement.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Layer Correctly</div><p class="expert-tip-text">Hydrators â†’ Emollients â†’ Occlusives. Apply serums first (hydrate), then cream (emollient), then oil (seal). Applying oil before cream locks out subsequent products. The sequence is the science.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Dry Skin FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">What's the difference between dry and dehydrated skin?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Dry skin is a skin type â€” a genetic lack of oil production. Dehydrated skin is a temporary condition where the skin lacks water, not oil. Even oily skin can be dehydrated. The key test: if your skin feels tight after cleansing, it's likely both. Use Hyaluronic Acid for dehydration and Ceramides for dryness.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Can I use face oil instead of moisturiser?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">No â€” oils are occlusives that seal moisture in, but they cannot provide water-based hydration. You need a moisturiser with humectants (HA, glycerin) first, followed by oil to seal it. Using oil alone without a humectant underneath may actually pull moisture from deeper skin layers.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Why does my skin feel dry even after moisturising?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Most likely your barrier is compromised and your moisturiser isn't occlusive enough. Try the layering method: hydrating serum â†’ thick ceramide cream â†’ face oil seal. Also check your cleanser â€” many "gentle" cleansers still contain barrier-disrupting surfactants. Simplify your routine and rebuild the barrier first.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Does drinking more water fix dry skin?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Mild systemic dehydration can affect skin plumpness, but drinking water alone doesn't resolve dry skin â€” it's a topical barrier issue. Clinical studies show that water intake only affects skin when someone is severely dehydrated. Topical Hyaluronic Acid and Ceramides are far more effective than dietary water alone.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#dryskin -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 5 â€” OILY SKIN                 â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="oilyskin">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/botanical_serum_1784829065095-CWvF2yY0.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Oily &amp; Congested Skin</h2>
+            <p class="concern-banner-desc">Overactive sebaceous glands producing excess lipids â€” manageable with targeted sebum-regulating actives.</p>
+            <div>
+              <span class="symptom-pill">Shine</span>
+              <span class="symptom-pill">Enlarged Pores</span>
+              <span class="symptom-pill">Frequent Breakouts</span>
+              <span class="symptom-pill">Thick Texture</span>
+              <span class="symptom-pill">Makeup Sliding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">UNDERSTANDING OILY SKIN</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">The Sebum Overproduction Cycle</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Oily skin results from genetically overactive sebaceous glands, often worsened by hormones, humidity, and â€” paradoxically â€” over-stripping with harsh cleansers that trigger a sebum rebound effect. The key is regulating, not eliminating, oil production.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">BHA 2% Salicylic Acid</strong> â€” Oil-soluble; penetrates into the pore lining to dissolve sebum and prevent congestion at the source.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Niacinamide 10%</strong> â€” Clinically reduces sebum production by 52% and visibly minimises pore size within 4 weeks.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Light Hydration Still Needed</strong> â€” Skipping moisturiser triggers increased sebum to compensate. Use a lightweight gel moisturiser daily.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">52%</div><div class="sc-stat-label">Sebum Reduction</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">4 Wks</div><div class="sc-stat-label">To Pore Refinement</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">Oil-Free</div><div class="sc-stat-label">Non-Comedogenic Formula</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Oily Skin Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Calming Gentle Cleanser" loading="lazy"><span class="sc-product-badge">STEP 1</span></div><div class="sc-product-body"><div class="sc-product-name">Calming Gentle Cleanser</div><div class="sc-product-desc">BHA-infused gel cleanser that removes excess oil without disrupting the skin's acid mantle.</div><div class="sc-product-price">PKR 5,200</div><button class="sc-product-btn" onclick="addToCart && addToCart('p5','Calming Gentle Cleanser',5200,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p5')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Vitamin C Luminous Concentrate" loading="lazy"><span class="sc-product-badge">CLINICAL PICK</span></div><div class="sc-product-body"><div class="sc-product-name">Vitamin C Luminous Concentrate</div><div class="sc-product-desc">Antioxidant serum that controls oxidative stress driving enlarged pores and uneven texture.</div><div class="sc-product-price">PKR 9,200</div><button class="sc-product-btn" onclick="addToCart && addToCart('p3','Vitamin C Luminous Concentrate',9200,'/assets/botanical_serum_1784829065095-CWvF2yY0.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p3')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy"><span class="sc-product-badge">BESTSELLER</span></div><div class="sc-product-body"><div class="sc-product-name">Cellular Renewal Serum</div><div class="sc-product-desc">Niacinamide 10% regulates sebaceous output and refines pore appearance from week two.</div><div class="sc-product-price">PKR 8,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Oily Skin Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gel Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Gentle gel cleanser removes overnight sebum without stripping. Avoid hot water â€” it increases oil production.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Niacinamide Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Apply niacinamide to regulate sebaceous output and minimise the look of enlarged pores.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Lightweight Gel Moisturiser</div><div class="routine-step-product">Oil-Free Hydration Gel</div><p class="routine-step-desc">Skipping moisturiser increases oil â€” use a lightweight, oil-free gel to maintain balance.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Mattifying SPF 50+</div><div class="routine-step-product">Mattifying Mineral Shield</div><p class="routine-step-desc">Non-comedogenic mineral SPF with a matte finish. Reapply every 2 hours outdoors.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Double Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Remove SPF with micellar water or balm cleanser, then gel cleanse to clear pore congestion.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">BHA Toner</div><div class="routine-step-product">Salicylic Acid 2% Solution</div><p class="routine-step-desc">Exfoliate inside the pore with salicylic acid 4 nights per week â€” not every night to prevent over-exfoliation.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Vitamin C Serum</div><div class="routine-step-product">Vitamin C Luminous Concentrate</div><p class="routine-step-desc">Antioxidant repair at night targets oxidative damage that triggers excess sebum the next day.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Light Niacinamide Cream</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Finish with a thin, lightweight layer â€” not a rich cream â€” to seal without feeding excess oil production.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Sebum-Regulating Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-droplet"></i></div><div class="ingredient-name">BHA Salicylic 2%</div><p class="ingredient-benefit">Lipophilic acid that dissolves inside sebaceous pores â€” the only exfoliant capable of reaching and clearing congestion at the root.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-shield-check"></i></div><div class="ingredient-name">Niacinamide 10%</div><p class="ingredient-benefit">Clinically reduces sebum excretion rate by 52% in 4 weeks â€” the most evidence-backed ingredient for oily skin management.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-star-fill"></i></div><div class="ingredient-name">Zinc PCA</div><p class="ingredient-benefit">Directly inhibits 5Î±-reductase activity in sebaceous glands, reducing androgen-driven excess oil production at the cellular level.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-layers"></i></div><div class="ingredient-name">Clay Extract</div><p class="ingredient-benefit">Kaolin and Bentonite absorb excess surface oil without stripping â€” provides instant mattifying effect with pore-tightening secondary benefits.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Oily Skin Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">52%</div><div class="sc-ba-metric-label">sebum output reduction after 4 weeks of Niacinamide use</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">78%</div><div class="sc-ba-metric-label">reported visibly refined pores at week 6</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">90%</div><div class="sc-ba-metric-label">said skin felt more balanced within first 2 weeks</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Oily Skin</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Don't Skip Moisturiser</div><p class="expert-tip-text">Skipping moisture is the single biggest mistake for oily skin. A stripped barrier triggers compensatory sebum â€” producing more oil than before. Use a lightweight oil-free gel moisturiser twice daily to regulate the skin's self-regulating signals.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Cleanse Twice â€” Not More</div><p class="expert-tip-text">Over-cleansing is as damaging as under-cleansing. Twice daily is optimal. If you're tempted to cleanse at midday due to shine, use blotting papers instead â€” they remove surface oil without triggering the rebound cycle.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">BHA Not Every Night</div><p class="expert-tip-text">Salicylic acid 4 nights per week is the clinical sweet spot. Using it every night without allowing skin recovery days leads to barrier compromise â€” paradoxically making oiliness worse as the skin compensates with more sebum production.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Oily Skin FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">Can oily skin become less oily over time?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes â€” sebum production naturally decreases with age, often dramatically in the 40s. With the right protocol (Niacinamide, BHA, balanced hydration), many patients see substantial improvement within 8â€“12 weeks. Hormonal factors like androgens will continue to drive some baseline oiliness that topicals alone cannot fully eliminate.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is it true that oily skin ages better?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Partially true. Natural sebum provides a degree of lubrication that slows the appearance of fine lines. However, oily skin is still subject to oxidative damage, UV aging, and barrier compromise. Consistent SPF and antioxidant use are just as important for oily skin types as any other.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Should I use a toner for oily skin?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes â€” but choose carefully. A BHA-based toning solution (Salicylic 2%) used 4 nights per week provides genuine pore-clearing benefit. Avoid alcohol-based astringents which strip the barrier and trigger rebound oiliness. Witch hazel-only toners provide minimal clinical benefit compared to actual exfoliating actives.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Does diet affect oil production?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Clinical evidence suggests high glycaemic index foods and dairy (particularly skimmed milk) can elevate sebum production via IGF-1 and androgen pathways. Reducing refined carbohydrates and dairy is a worthwhile complementary step alongside a targeted topical routine. Neither diet alone nor topicals alone produce optimal results.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#oilyskin -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 6 â€” SENSITIVE SKIN            â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="sensitive">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Sensitive &amp; Reactive Skin</h2>
+            <p class="concern-banner-desc">An impaired barrier that over-reacts to external triggers â€” requiring fragrance-free, hypoallergenic formulations.</p>
+            <div>
+              <span class="symptom-pill">Redness</span>
+              <span class="symptom-pill">Rosacea</span>
+              <span class="symptom-pill">Stinging</span>
+              <span class="symptom-pill">Flushing</span>
+              <span class="symptom-pill">Reactive to Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">UNDERSTANDING SENSITIVE SKIN</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">The Reactive Barrier</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Sensitive skin has a compromised barrier that allows irritants, allergens, and environmental triggers to penetrate the epidermis more easily. The nerve endings become hyperactive, producing redness, stinging, and flushing in response to products or conditions that normal skin tolerates without reaction.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Centella Asiatica</strong> â€” Clinically validated botanical for reducing inflammatory redness and accelerating barrier repair in reactive skin.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Colloidal Oat</strong> â€” FDA-recognised skin protectant that forms a physical barrier over reactive skin, reducing TEWL and nerve sensitivity.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">100% Fragrance-Free</strong> â€” Fragrance is the #1 cause of contact dermatitis. All Dr. Seema's sensitive formulations are certified fragrance-free.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">100%</div><div class="sc-stat-label">Fragrance Free</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">Hypo</div><div class="sc-stat-label">Hypoallergenic Formula</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">Derm Tested</div><div class="sc-stat-label">Clinically Tested for Reactive Skin</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Sensitive Skin Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Deep Moisture Barrier Cream" loading="lazy"><span class="sc-product-badge">HERO PRODUCT</span></div><div class="sc-product-body"><div class="sc-product-name">Deep Moisture Barrier Cream</div><div class="sc-product-desc">Ceramide NP and Centella Asiatica barrier cream â€” fragrance-free, hypoallergenic, clinically tested for rosacea.</div><div class="sc-product-price">PKR 7,600</div><button class="sc-product-btn" onclick="addToCart && addToCart('p2','Deep Moisture Barrier Cream',7600,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p2')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Calming Gentle Cleanser" loading="lazy"><span class="sc-product-badge">STEP 1</span></div><div class="sc-product-body"><div class="sc-product-name">Calming Gentle Cleanser</div><div class="sc-product-desc">Colloidal oat and Allantoin cleanser with zero sulfates â€” certified safe for rosacea-prone and reactive skin types.</div><div class="sc-product-price">PKR 5,200</div><button class="sc-product-btn" onclick="addToCart && addToCart('p5','Calming Gentle Cleanser',5200,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p5')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="Radiant Glow Barrier Elixir" loading="lazy"><span class="sc-product-badge">CALMING</span></div><div class="sc-product-body"><div class="sc-product-name">Radiant Glow Barrier Elixir</div><div class="sc-product-desc">Green Tea and Sacred Lotus oil blend â€” antioxidant-rich, deeply calming for chronic redness and reactive flares.</div><div class="sc-product-price">PKR 8,400</div><button class="sc-product-btn" onclick="addToCart && addToCart('p4','Radiant Glow Barrier Elixir',8400,'/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p4')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Sensitive Skin Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gentle Rinse or Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Use cool water only in the morning â€” a simple rinse is often adequate for sensitive skin. Avoid rubbing.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Centella Serum</div><div class="routine-step-product">Calming Botanical Concentrate</div><p class="routine-step-desc">Apply Centella Asiatica serum to calm inflammation and deliver barrier-repair signals to keratinocytes.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Barrier Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Generous application of ceramide cream as a physical barrier against environmental triggers.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Mineral SPF 50+</div><div class="routine-step-product">Mineral Zinc SPF Shield</div><p class="routine-step-desc">Zinc Oxide mineral sunscreen only â€” chemical UV filters trigger stinging in reactive skin.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Cream Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Massage gently with fingertips â€” never use a facial brush or exfoliating cloth on reactive skin.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Calming Serum</div><div class="routine-step-product">Centella &amp; Allantoin Concentrate</div><p class="routine-step-desc">Reduce redness and repair barrier integrity overnight with botanically soothing anti-inflammatory actives.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Rich Barrier Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Apply a generous layer â€” barrier repair happens primarily at night. Don't be afraid of richness.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Calming Oil Seal</div><div class="routine-step-product">Radiant Glow Barrier Elixir</div><p class="routine-step-desc">Press 2â€“3 drops of Green Tea face oil over cream to seal and deliver overnight antioxidant calming.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Calming Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-flower2"></i></div><div class="ingredient-name">Centella Asiatica</div><p class="ingredient-benefit">Asian pennywort extract with Madecassoside and Asiaticoside â€” clinically reduces redness, strengthens barrier integrity, and accelerates wound healing.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-shield-plus"></i></div><div class="ingredient-name">Colloidal Oat</div><p class="ingredient-benefit">FDA skin protectant that forms a physical calming film over reactive skin â€” instantly reduces stinging and significantly lowers TEWL in sensitised conditions.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-cup-hot"></i></div><div class="ingredient-name">Green Tea Extract</div><p class="ingredient-benefit">EGCG polyphenols provide potent anti-inflammatory and antioxidant action â€” particularly effective in reducing rosacea flush triggered by UV and heat.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-heart-pulse"></i></div><div class="ingredient-name">Allantoin</div><p class="ingredient-benefit">Skin-conditioning agent that soothes irritation, promotes cellular regeneration, and significantly reduces the burning sensation in sensitised skin.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Sensitive Skin Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">94%</div><div class="sc-ba-metric-label">reported reduced redness after 3 weeks of consistent use</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">100%</div><div class="sc-ba-metric-label">reported zero fragrance-related reactions</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">89%</div><div class="sc-ba-metric-label">said daily stinging sensations resolved in 4 weeks</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Sensitive Skin</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Patch Test Everything</div><p class="expert-tip-text">Always patch test new products on the inner forearm for 48 hours before full facial application. Reactive skin can take up to 72 hours to respond to an irritant. Never skip this step â€” it saves weeks of recovery from a bad reaction.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Fewer Products, Better Results</div><p class="expert-tip-text">Sensitive skin responds best to a stripped-back routine â€” cleanser, one active, barrier cream, SPF. Each additional product is another potential trigger. Master a minimal routine first, wait 6â€“8 weeks for full stability, before adding anything new.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Mineral SPF Only</div><p class="expert-tip-text">Chemical UV filters like Avobenzone and Oxybenzone penetrate the skin and are a leading cause of stinging reactions in sensitive individuals. Switch exclusively to Zinc Oxide mineral SPF â€” physically sits on skin's surface with zero penetration risk.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Sensitive Skin FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">Can sensitive skin use Vitamin C?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes, but formulation matters. Pure L-Ascorbic Acid at low pH can sting on reactive skin. Dr. Seema recommends starting with a gentler form like Ascorbyl Glucoside or Ethyl Ascorbic Acid, which are pH-neutral and well-tolerated. Begin with once daily, every other day, and build tolerance over 4 weeks.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is rosacea the same as sensitive skin?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Rosacea is a distinct chronic inflammatory skin condition characterised by facial flushing, visible blood vessels, and papulopustular lesions â€” often mistaken for acne. Sensitive skin is a broader descriptor. All rosacea skin is sensitive, but not all sensitive skin has rosacea. Rosacea requires specific dermatological management.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Can sensitive skin use retinol?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes, with a very gradual introduction. Start with Bakuchiol (plant-based retinol alternative) for 8 weeks first to build tolerance. Then introduce the lowest percentage retinol (0.025%) once per week, increasing frequency over 3 months. Never apply retinol on broken or actively flushed skin.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">What ingredients should sensitive skin avoid?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Key irritants for sensitive skin: synthetic fragrances (including "natural fragrance"), alcohol denat, high-concentration AHAs/BHAs, chemical UV filters (Avobenzone, Oxybenzone), SLS/SLES, and essential oils. Dr. Seema's sensitive range is formulated against a 1,400-ingredient restricted list to ensure complete compatibility.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#sensitive -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 7 â€” AGING                     â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="aging">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Skin Aging &amp; Firmness</h2>
+            <p class="concern-banner-desc">Chronological and photo-aging processes that deplete collagen, elastin, and cellular renewal â€” reversible with clinical actives.</p>
+            <div>
+              <span class="symptom-pill">Fine Lines</span>
+              <span class="symptom-pill">Loss of Firmness</span>
+              <span class="symptom-pill">Dull Complexion</span>
+              <span class="symptom-pill">Thinning Skin</span>
+              <span class="symptom-pill">Age Spots</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">UNDERSTANDING SKIN AGING</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">The Biology of Age</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">After age 25, collagen production declines by approximately 1% per year. UV exposure accelerates this process by activating matrix metalloproteinases (MMPs) that actively degrade collagen fibres. The good news: clinical actives can measurably reverse both intrinsic and extrinsic aging signs.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Bio-Retinol Complex</strong> â€” Bakuchiol and encapsulated Retinol stimulate collagen synthesis and accelerate cellular renewal without irritation.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Quad-Peptide Complex</strong> â€” Four synergistic peptides (Argireline, Leuphasyl, Matrixyl, SNAP-8) that target expression lines, firmness, and elasticity simultaneously.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">15% Vitamin C + SPF</strong> â€” The most evidence-backed anti-aging combination â€” neutralises free radicals before they degrade collagen fibres.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">96%</div><div class="sc-stat-label">Firmness Improvement</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">4 Wks</div><div class="sc-stat-label">In Clinical Trial</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">Clinically Verified</div><div class="sc-stat-label">Independent Double-Blind Study</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Anti-Aging Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy"><span class="sc-product-badge">HERO PRODUCT</span></div><div class="sc-product-body"><div class="sc-product-name">Cellular Renewal Serum</div><div class="sc-product-desc">Bio-Retinol and Quad-Peptide complex that stimulates collagen and firms skin from the cellular level.</div><div class="sc-product-price">PKR 8,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Firming Peptide Eye Essence" loading="lazy"><span class="sc-product-badge">EYE FIRMING</span></div><div class="sc-product-body"><div class="sc-product-name">Firming Peptide Eye Essence</div><div class="sc-product-desc">Six-peptide formulation targeting crow's feet, under-eye hollowness, and loss of firmness in the orbital zone.</div><div class="sc-product-price">PKR 6,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p6','Firming Peptide Eye Essence',6800,'/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p6')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Deep Moisture Barrier Cream" loading="lazy"><span class="sc-product-badge">BESTSELLER</span></div><div class="sc-product-body"><div class="sc-product-name">Deep Moisture Barrier Cream</div><div class="sc-product-desc">Ceramide-dense cream that rebuilds moisture reservoirs depleted by aging â€” visibly plumps and restores glow.</div><div class="sc-product-price">PKR 7,600</div><button class="sc-product-btn" onclick="addToCart && addToCart('p2','Deep Moisture Barrier Cream',7600,'/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p2')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Anti-Aging Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gentle Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Mild cleanse to remove overnight product residue â€” never harsh foam which strips aging skin's moisture.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Vitamin C Serum</div><div class="routine-step-product">Vitamin C Luminous Concentrate</div><p class="routine-step-desc">15% Vitamin C + Ferulic Acid â€” the most effective morning step to neutralise free radicals and prevent collagen degradation.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Peptide Eye Essence</div><div class="routine-step-product">Firming Peptide Eye Essence</div><p class="routine-step-desc">Gently tap around the orbital zone. Peptides stimulate fibroblast activity to visibly firm and lift.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+ (Anti-Aging)</div><div class="routine-step-product">Protective Mineral Shield</div><p class="routine-step-desc">UV is responsible for 80% of visible facial aging. SPF is the single most powerful anti-aging step available.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Thorough Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Remove SPF and environmental oxidants that accelerate collagen degradation during sleep if left on.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Bio-Retinol Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Retinol works at night â€” apply 3â€“4 drops, avoiding the eye zone. Start 3 nights per week and build.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Eye Essence</div><div class="routine-step-product">Firming Peptide Eye Essence</div><p class="routine-step-desc">Night application maximises peptide absorption during peak cellular repair hours (11pmâ€“3am).</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Rich Ceramide Cream</div><div class="routine-step-product">Deep Moisture Barrier Cream</div><p class="routine-step-desc">Seal the routine with a rich ceramide layer. Aging skin loses 3Ã— more moisture overnight than younger skin.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Anti-Aging Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-stars"></i></div><div class="ingredient-name">Bio-Retinol</div><p class="ingredient-benefit">Bakuchiol â€” the clinically proven retinol alternative that delivers equivalent collagen-stimulating and cell-renewal results with zero irritation or photosensitivity.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-clipboard2-pulse"></i></div><div class="ingredient-name">Quad-Peptide</div><p class="ingredient-benefit">Four-peptide complex targeting different mechanisms of aging â€” expression lines, collagen synthesis, elastin support, and surface texture refinement.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-brightness-high"></i></div><div class="ingredient-name">Vitamin C</div><p class="ingredient-benefit">Essential co-factor in collagen synthesis â€” and the most potent antioxidant against UV-induced collagen degradation. Prevents new aging while correcting existing signs.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-droplet-fill"></i></div><div class="ingredient-name">Ceramide Complex</div><p class="ingredient-benefit">Aging skin loses ceramides faster than young skin â€” replenishment dramatically restores plumpness, elasticity, and that lit-from-within glow associated with youth.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Anti-Aging Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">96%</div><div class="sc-ba-metric-label">saw measurable firmness improvement at 4 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">88%</div><div class="sc-ba-metric-label">reported visible reduction in fine lines at 6 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">92%</div><div class="sc-ba-metric-label">said skin appeared more radiant and youthful overall</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Aging Skin</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Start Retinol at 25</div><p class="expert-tip-text">Prevention is significantly more effective than correction. Starting a retinol protocol at 25â€“30 builds the collagen reserve before loss accelerates. The earlier you start, the less work your formula needs to do â€” and the better your long-term results.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Neck and Chest Too</div><p class="expert-tip-text">The neck and dÃ©colletage age faster than the face â€” same UV exposure, thinner skin, fewer sebaceous glands. Extend your entire anti-aging routine downward. The most common tell of actual age on a well-treated face is the neglected neck.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Sleep Position Matters</div><p class="expert-tip-text">Side and stomach sleeping compresses the face for 6â€“8 hours creating "sleep lines" that gradually become permanent creases. Sleeping on your back or using a silk pillowcase significantly reduces mechanical skin compression contributing to wrinkle formation.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Aging Skin FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">When should I start using anti-aging products?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">The ideal time to begin a preventative anti-aging routine is your mid-20s â€” before significant loss begins. Starting with SPF 50+, Vitamin C serum, and a light peptide moisturiser in your 20s is clinically more effective than trying to reverse substantial collagen loss in your 40s. Prevention is always easier than correction.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Is Bio-Retinol as effective as prescription Tretinoin?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Independent clinical studies show Bakuchiol (Bio-Retinol) produces equivalent results to 0.5% Retinol for fine line reduction and collagen stimulation â€” with significantly less irritation, peeling, and photosensitivity. For severe photoaging, Tretinoin remains the clinical gold standard, but Bio-Retinol is appropriate for the majority of aging concerns.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Can peptides actually replace Botox?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Not completely â€” Botox paralyses muscles for immediate wrinkle relaxation that topicals cannot replicate. However, signal peptides like Argireline do reduce muscle micro-contractions that deepen expression lines over time. A consistent peptide protocol can delay the need for injectables and enhance their results when used alongside treatments.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">What's more important â€” moisturiser or serum for aging?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Both serve distinct purposes. Serums deliver concentrated actives (retinol, peptides, Vitamin C) at high penetration. Moisturisers seal those actives in and provide structural barrier support. For aging skin, the correct sequence is: active serum â†’ peptide eye essence â†’ rich ceramide cream. Neither alone produces the results of both combined.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#aging -->
+
+  <!-- â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
+       â•‘  PANEL 8 â€” WRINKLES                  â•‘
+       â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div class="sc-panel" id="wrinkles">
+    <div class="container-fluid px-0 pt-4">
+      <div class="px-3 px-md-5">
+        <div class="concern-banner" style="background-image:url('/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg');">
+          <div class="concern-banner-content">
+            <span class="concern-banner-tag">CLINICAL CONCERN</span>
+            <h2 class="concern-banner-title">Wrinkles &amp; Expression Lines</h2>
+            <p class="concern-banner-desc">Dynamic and static wrinkles formed by collagen loss, repetitive muscle movement, and UV-induced dermal degradation.</p>
+            <div>
+              <span class="symptom-pill">Expression Lines</span>
+              <span class="symptom-pill">Crow's Feet</span>
+              <span class="symptom-pill">Forehead Lines</span>
+              <span class="symptom-pill">Lip Lines</span>
+              <span class="symptom-pill">Deep Creases</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 py-5">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-7 reveal-fade-left">
+          <span class="sc-section-label">UNDERSTANDING WRINKLES</span>
+          <h3 class="section-main-title mb-3" style="font-size:clamp(1.6rem,3vw,2.4rem);">Dynamic vs Static Lines</h3>
+          <p class="text-muted mb-4" style="line-height:1.75;">Dynamic wrinkles form from repeated facial expressions â€” smiling, squinting, frowning â€” and eventually become permanent static lines when collagen can no longer "spring back." Clinical treatment targets both the structural collagen deficit and the neuromuscular activity that deepens lines over time.</p>
+          <ul class="list-unstyled">
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Matrixyl 3000</strong> â€” Palmitoyl tripeptide-1 and hexapeptide-12 that directly stimulate fibroblast production of collagen Types I and III.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Bio-Retinol</strong> â€” Activates retinoic acid receptors to normalise dermal thickness and remodel the extracellular matrix underlying wrinkles.</span></li>
+            <li class="d-flex align-items-start gap-3 mb-3"><span style="width:28px;height:28px;border-radius:50%;background:var(--bg-light-mint);color:var(--primary-sage);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.8rem;"><i class="bi bi-check2"></i></span><span class="text-muted" style="font-size:0.88rem;line-height:1.6;"><strong style="color:var(--text-dark);">Collagen Peptides</strong> â€” Topical delivery of collagen-stimulating signal peptides provides the building blocks and cellular signals for measurable wrinkle depth reduction.</span></li>
+          </ul>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="row g-3">
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">94%</div><div class="sc-stat-label">Line Reduction</div></div></div>
+            <div class="col-6"><div class="sc-stat-card"><div class="sc-stat-num">6 Wks</div><div class="sc-stat-label">Clinical Trial Results</div></div></div>
+            <div class="col-12"><div class="sc-stat-card"><div class="sc-stat-num">Derm Verified</div><div class="sc-stat-label">Dermatologist Independent Review</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">DERMATOLOGIST RECOMMENDED</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Your Wrinkle Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Cellular Renewal Serum" loading="lazy"><span class="sc-product-badge">HERO PRODUCT</span></div><div class="sc-product-body"><div class="sc-product-name">Cellular Renewal Serum</div><div class="sc-product-desc">Matrixyl 3000 and Bio-Retinol serum that rebuilds collagen matrix and smooths expression lines.</div><div class="sc-product-price">PKR 8,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p1','Cellular Renewal Serum',8800,'/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p1')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Firming Peptide Eye Essence" loading="lazy"><span class="sc-product-badge">EYE SPECIALIST</span></div><div class="sc-product-body"><div class="sc-product-name">Firming Peptide Eye Essence</div><div class="sc-product-desc">Targets crow's feet, forehead and lip line wrinkles with concentrated peptide and collagen technology.</div><div class="sc-product-price">PKR 6,800</div><button class="sc-product-btn" onclick="addToCart && addToCart('p6','Firming Peptide Eye Essence',6800,'/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p6')">Quick View</a></div></div></div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll"><div class="sc-product-card"><div class="sc-product-img"><img src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="Radiant Glow Barrier Elixir" loading="lazy"><span class="sc-product-badge">CLINICAL PICK</span></div><div class="sc-product-body"><div class="sc-product-name">Radiant Glow Barrier Elixir</div><div class="sc-product-desc">Hyaluronic Acid and Collagen Peptide oil that plumps fine lines and restores skin's youthful volume.</div><div class="sc-product-price">PKR 8,400</div><button class="sc-product-btn" onclick="addToCart && addToCart('p4','Radiant Glow Barrier Elixir',8400,'/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg')">Add to Bag <i class="bi bi-bag-plus ms-1"></i></button><a class="sc-product-quick-link" onclick="openQuickView && openQuickView('p4')">Quick View</a></div></div></div>
+      </div>
+    </div>
+    <div class="container px-3 px-md-5 pb-5">
+      <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">YOUR DAILY RITUAL</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Wrinkle Routine Protocol</h3></div>
+      <div class="row g-4">
+        <div class="col-md-6 reveal-fade-left">
+          <div class="routine-header routine-header-am mb-3 rounded-3"><i class="bi bi-sun me-2"></i><span class="routine-header-title">Morning Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Gentle Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Soft cream cleanse to prepare a clean base â€” excess cleansing removes natural oils that cushion wrinkled skin.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Vitamin C + Peptide Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Morning antioxidant and peptide application protects collagen from UV degradation throughout the day.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Eye Essence</div><div class="routine-step-product">Firming Peptide Eye Essence</div><p class="routine-step-desc">Apply with ring finger â€” lightest pressure possible around the delicate eye and lip line areas.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">SPF 50+</div><div class="routine-step-product">Anti-Aging Mineral Shield</div><p class="routine-step-desc">The only true anti-wrinkle prevention â€” block the UV radiation that destroys collagen fibres daily.</p></div></div>
+        </div>
+        <div class="col-md-6 reveal-fade-right">
+          <div class="routine-header routine-header-pm mb-3 rounded-3"><i class="bi bi-moon-stars me-2"></i><span class="routine-header-title">Night Routine</span></div>
+          <div class="routine-step"><div class="routine-step-num">1</div><div><div class="routine-step-title">Thorough Cleanse</div><div class="routine-step-product">Calming Gentle Cleanser</div><p class="routine-step-desc">Remove all UV filters â€” leaving SPF on overnight accelerates the free radical activity it was blocking.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">2</div><div><div class="routine-step-title">Bio-Retinol Serum</div><div class="routine-step-product">Cellular Renewal Serum</div><p class="routine-step-desc">Apply to fine-line zones â€” forehead, around mouth, crow's feet areas. Work into deeper creases with gentle pressing.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">3</div><div><div class="routine-step-title">Peptide Eye Essence</div><div class="routine-step-product">Firming Peptide Eye Essence</div><p class="routine-step-desc">Night application works during peak cellular repair â€” peptides trigger fibroblast activity most effectively at night.</p></div></div>
+          <div class="routine-step"><div class="routine-step-num">4</div><div><div class="routine-step-title">Barrier Elixir Seal</div><div class="routine-step-product">Radiant Glow Barrier Elixir</div><p class="routine-step-desc">Hyaluronic Acid-rich oil physically plumps surface wrinkles while you sleep â€” visible smoothing by morning.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-light-mint);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">CLINICAL ACTIVES</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Key Anti-Wrinkle Ingredients</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-clipboard2-pulse"></i></div><div class="ingredient-name">Matrixyl 3000</div><p class="ingredient-benefit">The most studied anti-wrinkle peptide â€” Palmitoyl Tripeptide-1 directly signals fibroblasts to produce new Collagen I and III, reducing wrinkle depth by up to 45%.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-stars"></i></div><div class="ingredient-name">Bio-Retinol</div><p class="ingredient-benefit">Normalises cell turnover and remodels the entire extracellular matrix â€” thickening the dermis and increasing collagen density in as little as 4 weeks.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-droplet"></i></div><div class="ingredient-name">Hyaluronic Acid</div><p class="ingredient-benefit">Instantly plumps the appearance of surface wrinkles by drawing water into the skin â€” creating an immediate visual smoothing effect while actives work long-term.</p></div></div>
+          <div class="col-lg-3 col-6 reveal-on-scroll"><div class="ingredient-card"><div class="ingredient-icon"><i class="bi bi-heart-pulse"></i></div><div class="ingredient-name">Collagen Peptides</div><p class="ingredient-benefit">Signal peptides that mimic collagen's natural degradation products â€” triggering the skin's own repair pathway to synthesise new, organised collagen fibres.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="sc-ba-section py-5">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label">CLINICAL RESULTS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Wrinkle Transformations</h3></div>
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-4 reveal-fade-left">
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">94%</div><div class="sc-ba-metric-label">reported measurable line reduction at 6 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">86%</div><div class="sc-ba-metric-label">saw crow's feet visibly reduced after 4 weeks</div></div>
+            <div class="sc-ba-metric"><div class="sc-ba-metric-num">91%</div><div class="sc-ba-metric-label">confirmed improved skin texture and overall plumpness</div></div>
+          </div>
+          <div class="col-lg-8 reveal-fade-right">
+            <div class="before-after-wrapper" style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-hover);">
+              <img class="ba-image" src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" alt="After treatment">
+              <div class="ba-before-container"><img class="ba-before-img" src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" alt="Before treatment"></div>
+              <div class="ba-handle"><div class="ba-handle-circle"><i class="bi bi-arrows-expand" style="font-size:1rem;color:var(--primary-sage);"></i></div></div>
+              <span class="ba-label ba-label-before">Before</span>
+              <span class="ba-label ba-label-after">After</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--dark-forest);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-5"><span class="sc-section-label" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span><h3 class="section-main-title" style="color:#fff;font-size:clamp(1.5rem,3vw,2.2rem);">Expert Tips for Wrinkles</h3></div>
+        <div class="row g-4">
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">01</div><div class="expert-tip-headline">Consistency Over Intensity</div><p class="expert-tip-text">The biggest mistake patients make is rotating through multiple "miracle" products every month. Clinical actives â€” especially retinol and peptides â€” require 3â€“6 months of uninterrupted use to produce measurable structural collagen changes. Commit to one evidence-based protocol and give it time.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">02</div><div class="expert-tip-headline">Target Application Matters</div><p class="expert-tip-text">For expression-line zones like crow's feet, forehead furrows, and nasolabial folds â€” apply peptide serum with a pressing technique rather than swiping. Pressing increases local concentration at the precise site of collagen loss without diluting the active across surrounding skin.</p></div></div>
+          <div class="col-lg-4 reveal-on-scroll"><div class="expert-tip-card"><div class="expert-tip-num">03</div><div class="expert-tip-headline">Layer Hyaluronic Acid Last</div><p class="expert-tip-text">For an immediate visual smoothing effect at any age, apply your HA serum as the final step before SPF â€” it creates a surface-plumping effect on shallow wrinkles within minutes. This is why so many clients feel their skin looks instantly better. The long-term collagen work happens underneath.</p></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="py-5" style="background:var(--bg-cream);">
+      <div class="container px-3 px-md-5">
+        <div class="section-header-center reveal-on-scroll mb-4"><span class="sc-section-label">COMMON QUESTIONS</span><h3 class="section-main-title" style="font-size:clamp(1.5rem,3vw,2.2rem);">Wrinkles FAQ</h3></div>
+        <div class="col-lg-9 mx-auto">
+          <div class="sc-faq-item"><button class="sc-faq-q">Can topical products actually remove deep wrinkles?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Deep static wrinkles with significant dermis loss cannot be fully eliminated with topicals â€” they require dermal filler or radiofrequency treatments for that level of correction. However, clinical actives like Matrixyl 3000 and Bio-Retinol consistently reduce wrinkle depth by 30â€“45% in clinical measurements, which produces a clearly visible improvement without procedures.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">What is the fastest way to reduce wrinkles?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Fastest topical improvement: Hyaluronic Acid serum for same-day plumping. Fastest structural improvement: Bio-Retinol showing measurable change in 4 weeks. For the fastest and most complete solution, Dr. Seema recommends combining a clinical topical routine with professional dermatological treatments for synergistic results.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Are eye creams worth using for crow's feet?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Yes â€” the eye area requires a dedicated formula. Regular face creams often contain concentrations of actives, preservatives, or fragrances that cause stinging in the highly delicate periorbital zone. Dr. Seema's Firming Peptide Eye Essence is specifically formulated with the orbital area's thin skin, pH sensitivity, and reduced sebaceous activity in mind.</div></div>
+          <div class="sc-faq-item"><button class="sc-faq-q">Does facial massage help with wrinkles?<i class="bi bi-plus-lg faq-icon"></i></button><div class="sc-faq-a">Gentle facial massage increases microcirculation and lymphatic drainage, which can temporarily improve glow and reduce puffiness. Some evidence suggests consistent Gua Sha or facial rolling supports product absorption. However, aggressive manipulation of wrinkled skin can worsen elastic fibre fragmentation â€” always use gentle upward motions and never pull or drag.</div></div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /#wrinkles -->
+
+  </main><!-- /main panels -->
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 4 Â· LUXURY CTA BANNER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="sc-cta-section reveal-scale">
+    <div class="container px-3 px-md-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <span class="sc-section-label" style="color:var(--accent-mint);">START YOUR TREATMENT</span>
+          <h2 class="section-main-title" style="color:#fff;font-size:clamp(2.2rem,4vw,3.6rem);">
+            Find Your Perfect Clinical<br><em style="font-style:italic;color:var(--accent-mint);">Routine</em>
+          </h2>
+          <p class="section-description mb-5" style="color:rgba(255,255,255,0.72);max-width:520px;margin-left:auto;margin-right:auto;">
+            Every skin concern has a clinically validated solution. Explore Dr. Seema's full collection of dermatologist-formulated treatments â€” or book a free virtual consultation to get your personalised protocol.
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a href="/shop" class="btn-hero-primary px-5 py-3" style="font-size:1rem;">
+              Shop All Treatments <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <button class="btn-hero-outline px-5 py-3" style="font-size:1rem;" onclick="showToast && showToast('Booking virtual consultation â€” our team will reach out shortly.')">
+              Book Free Consult <i class="bi bi-chat-heart ms-2"></i>
+            </button>
+          </div>
+          <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-patch-check-fill" style="color:var(--accent-mint);font-size:1.1rem;"></i> Dermatologist Certified
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-heart-fill" style="color:var(--accent-mint);font-size:1.1rem;"></i> Cruelty Free
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-flower2" style="color:var(--accent-mint);font-size:1.1rem;"></i> Organic Actives
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-shield-check" style="color:var(--accent-mint);font-size:1.1rem;"></i> Clinically Tested
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 5 Â· NEWSLETTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card-wrapper reveal-scale">
+        <span class="section-tagline">CLUB SEEMA INNER CIRCLE</span>
+        <h2 class="section-main-title">Receive 15% Off Your First Order</h2>
+        <p class="section-description mb-4" style="max-width:540px;margin-left:auto;margin-right:auto;">
+          Join Dr. Seema's VIP circle for dermatologist skincare guides, early access to new formulations, and exclusive clinical insights.
+        </p>
+        <form id="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email address">
+            <button type="submit" class="btn-hero-primary px-4">Subscribe &amp; Claim 15%</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 6 Â· FOOTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <footer id="footer" class="footer-luxury">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-2">
+            <div class="logo-icon-seal">DS</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title" style="color:#fff;">Dr. Seema's</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          </a>
+          <p class="small mb-3 mt-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;line-height:1.5;max-width:300px;">
+            Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop All</a></li>
+            <li><a href="/collections">Collections</a></li>
+            <li><a href="/shop?filter=bestseller">Best Sellers</a></li>
+            <li><a href="/about">About Dr. Seema</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">Skin Concerns</h5>
+          <ul class="footer-links-list">
+            <li><a href="/skin-concerns#acne">Acne</a></li>
+            <li><a href="/skin-concerns#pigmentation">Pigmentation</a></li>
+            <li><a href="/skin-concerns#dryskin">Dry Skin</a></li>
+            <li><a href="/skin-concerns#aging">Aging</a></li>
+            <li><a href="/skin-concerns#sensitive">Sensitive</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Customer Care</h5>
+          <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i>support@drseemasproducts.pk</div>
+          <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i>+92 (042) 3555-SEEMA</div>
+          <div class="small mb-3" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i>Gulberg III, Lahore</div>
+          <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" style="font-size:0.78rem;" onclick="showToast && showToast('Virtual Dermatology Assistant Active')">
+            Virtual Derm Consult
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>Â© 2026 Dr. Seema's Products. All rights reserved.</div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" style="color:rgba(255,255,255,0.5);">Privacy Policy</a>
+          <span>â€¢</span>
+          <a href="#" style="color:rgba(255,255,255,0.5);">Terms</a>
+          <span>â€¢</span>
+          <a href="#" style="color:rgba(255,255,255,0.5);">Returns</a>
+        </div>
+        <div class="d-flex align-items-center gap-2 fs-6" style="color:rgba(255,255,255,0.5);">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-shield-check"></i>
+        </div>
+      </div>
+      <div class="footer-credits-bar">
+        <span class="footer-credits-text">Prepared by Nova Fuxion</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       DRAWERS & MODALS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+  <div id="cart-drawer" class="cart-drawer-panel">
+    <div class="cart-drawer-header">
+      <h5 class="font-serif mb-0 fs-4">Shopping Bag (<span class="cart-badge-count">0</span>)</h5>
+      <button class="btn-close cart-close-btn"></button>
+    </div>
+    <div class="free-shipping-bar">
+      <span id="shipping-bar-status">You are PKR 12,000 away from Complimentary Shipping!</span>
+      <div class="shipping-progress-track"><div class="shipping-progress-fill"></div></div>
+    </div>
+    <div class="cart-items-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <span class="text-muted">Subtotal</span><span class="fw-bold cart-subtotal-val">PKR 0</span>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3 fs-5 fw-bold">
+        <span>Total</span><span class="text-sage cart-total-val">PKR 0</span>
+      </div>
+      <button class="btn-hero-primary w-100" onclick="showToast && showToast('Proceeding to checkout...')">
+        Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="quickview-modal" class="modal-overlay-custom">
+    <div class="quickview-card-modal p-4 p-md-5" style="position:relative;">
+      <button class="btn-close position-absolute top-0 end-0 m-4 quickview-close-btn"></button>
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6 text-center">
+          <img id="qv-main-img" src="" class="img-fluid rounded-4 shadow-sm" alt="Product">
+        </div>
+        <div class="col-md-6">
+          <span id="qv-category" class="product-category-sub"></span>
+          <h2 id="qv-title" class="font-serif fs-2 mb-2"></h2>
+          <div id="qv-price" class="fs-4 fw-bold text-sage mb-3"></div>
+          <p id="qv-desc" class="text-muted mb-4"></p>
+          <div class="d-flex gap-3">
+            <button id="qv-add-btn" class="btn-hero-primary flex-grow-1">Add To Bag <i class="bi bi-bag-plus"></i></button>
+            <button class="btn-hero-outline" onclick="showToast && showToast('Saved to wishlist')"><i class="bi bi-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="search-overlay" class="modal-overlay-custom">
+    <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width:680px;">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h4 class="font-serif mb-0">Search Formulations</h4>
+        <button class="btn-close search-close-btn"></button>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+        <input id="search-input" type="text" class="form-control border-start-0 py-3" placeholder="Search by skin concern, ingredient or formulation...">
+      </div>
+      <div id="search-results-box" style="max-height:320px;overflow-y:auto;">
+        <p class="text-muted text-center py-4">Start typing to search formulations...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-drawer" class="mobile-offcanvas-menu">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+      <a href="/" class="brand-logo">
+        <div class="logo-icon-seal">DS</div>
+        <div><span class="logo-text-title">Dr. Seema's</span><span class="logo-text-tag">Clinical Skincare</span></div>
+      </a>
+      <button class="btn-close" onclick="document.getElementById('mobile-drawer').classList.remove('active')"></button>
+    </div>
+    <ul class="mobile-nav-list list-unstyled mb-4">
+      <li><a href="/"><i class="bi bi-house me-2 text-sage"></i> Home</a></li>
+      <li><a href="/shop"><i class="bi bi-bag me-2 text-sage"></i> Shop</a></li>
+      <li><a href="/collections"><i class="bi bi-grid me-2 text-sage"></i> Collections</a></li>
+      <li><a href="/shop?filter=new"><i class="bi bi-stars me-2 text-sage"></i> New Arrivals</a></li>
+      <li><a href="/shop?filter=bestseller"><i class="bi bi-fire me-2 text-sage"></i> Best Sellers</a></li>
+      <li><a href="/skin-concerns"><i class="bi bi-shield-plus me-2 text-sage"></i> Skin Concerns</a></li>
+      <li><a href="/about"><i class="bi bi-person-badge me-2 text-sage"></i> About Dr. Seema</a></li>
+      <li><a href="#footer"><i class="bi bi-envelope me-2 text-sage"></i> Contact</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex flex-column gap-2">
+      <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2"
+        onclick="showToast && showToast('Saved wishlist'); document.getElementById('mobile-drawer').classList.remove('active');">
+        <span><i class="bi bi-heart me-2"></i> Saved Wishlist</span>
+        <span class="badge bg-sage rounded-pill wishlist-badge-count">0</span>
+      </button>
+      <button class="btn-hero-primary w-100 mt-2"
+        onclick="showToast && showToast('Booking consultation...'); document.getElementById('mobile-drawer').classList.remove('active');">
+        Book Free Consultation
+      </button>
+    </div>
+  </div>
+
+  </div><!-- /#app-content -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/skin-concerns.js"></script>
+  <script src="/assets/chatbot.js" defer></script>
+</body>
+</html>
+

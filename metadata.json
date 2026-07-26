@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Seema's Products",
+  "description": "Ultra-luxury dermatologist-developed skincare eCommerce website homepage.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

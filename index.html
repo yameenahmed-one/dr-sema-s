@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. Seema's Products | Ultra-Luxury Clinical Skincare</title>
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Global Application Stylesheet -->
+  <link rel="stylesheet" href="/assets/index-B1ShAhzr.css">
+  <script src="/assets/index-Db8R-LCH.js" defer></script>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       1. LUXURY APPLE-STYLE LOADING EXPERIENCE
+       ========================================================================== -->
+  <div id="luxury-loader">
+    <div class="loader-bg-particles">
+      <div class="loader-particle p-1"></div>
+      <div class="loader-particle p-2"></div>
+      <div class="loader-particle p-3"></div>
+    </div>
+    
+    <div class="loader-brand-content">
+      <div class="loader-seal-sage">DS</div>
+      <h1 class="loader-title">Dr. Seema's Products</h1>
+      <p class="loader-subtitle">Dermatologist Formulated • Clinical Botanical Science</p>
+      <div class="loader-spinner-bar">
+        <div class="loader-spinner-progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Website Wrapper -->
+  <div id="app-content" style="opacity: 0; transition: opacity 0.8s ease;">
+
+    <!-- ==========================================================================
+         2. ULTRA-PREMIUM STICKY NAVIGATION (NO ANNOUNCEMENT BAR ABOVE)
+         ========================================================================== -->
+    <header class="header-wrapper" id="main-header">
+      <!-- Main Navigation Bar -->
+      <div class="nav-main-bar">
+        <div class="container-fluid px-3 px-md-5">
+          <div class="d-flex align-items-center justify-content-between">
+            
+            <!-- Brand Logo -->
+            <a href="#" class="brand-logo">
+              <div class="logo-icon-seal">DS</div>
+              <div class="brand-name-group">
+                <span class="logo-text-title">Dr. Seema's</span>
+                <span class="logo-text-tag">Clinical Skincare</span>
+              </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="d-none d-xl-block">
+              <ul class="nav-menu-list">
+                <li><a href="/" class="nav-link-item active">Home</a></li>
+                <li><a href="/shop" class="nav-link-item">Shop</a></li>
+                <li><a href="/collections" class="nav-link-item">Collections</a></li>
+                <li><a href="/shop?filter=new" class="nav-link-item">New Arrivals</a></li>
+                <li><a href="/shop?filter=bestseller" class="nav-link-item">Best Sellers</a></li>
+                
+                <!-- Skin Concerns Mega Menu -->
+                <li class="has-megamenu">
+                  <a href="#why-us" class="nav-link-item">Skin Concerns <i class="bi bi-chevron-down ms-1 small"></i></a>
+                  <div class="megamenu-dropdown">
+                    <div class="megamenu-grid">
+                      <div>
+                        <h6 class="megamenu-heading">Targeted Clinical Treatments</h6>
+                        <div class="concern-links-grid">
+                          <div class="concern-item-card cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+                            <div class="concern-icon"><i class="bi bi-sparkles"></i></div>
+                            <div>
+                              <div class="concern-title">Hyperpigmentation & Dark Spots</div>
+                              <div class="concern-desc">15% Vitamin C & Niacinamide radiance boost</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+                            <div class="concern-icon"><i class="bi bi-droplet-half"></i></div>
+                            <div>
+                              <div class="concern-title">Dehydration & Barrier Loss</div>
+                              <div class="concern-desc">72-Hour Ceramide NP moisture restoration</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+                            <div class="concern-icon"><i class="bi bi-hourglass-split"></i></div>
+                            <div>
+                              <div class="concern-title">Anti-Aging & Fine Lines</div>
+                              <div class="concern-desc">Bio-Retinol & Quad-Peptide renewal</div>
+                            </div>
+                          </div>
+                          <div class="concern-item-card cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+                            <div class="concern-icon"><i class="bi bi-shield-plus"></i></div>
+                            <div>
+                              <div class="concern-title">Sensitivities & Rosacea</div>
+                              <div class="concern-desc">Botanical calming oat barrier defense</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="megamenu-featured">
+                        <span class="badge-clinical mb-2">DERMATOLOGIST PICK</span>
+                        <h5 class="font-serif mb-2 fs-4 text-dark">Cellular Renewal Serum</h5>
+                        <p class="small text-muted mb-3">Bio-Retinol formulation designed for overnight barrier repair and texture refinement.</p>
+                        <button class="btn-luxury-sm" onclick="openQuickView('p1')">Discover Formulation</button>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li><a href="/about" class="nav-link-item">About Dr. Seema</a></li>
+                <li><a href="#footer" class="nav-link-item">Contact</a></li>
+              </ul>
+            </nav>
+
+            <!-- Header Action Icons & CTA Button -->
+            <div class="header-actions">
+              <!-- Search Icon -->
+              <button class="action-btn search-trigger-btn" title="Search Formulations">
+                <i class="bi bi-search"></i>
+              </button>
+
+              <!-- Wishlist Icon -->
+              <button class="action-btn wishlist-trigger-btn" title="Saved Wishlist" onclick="showToast('Your saved wishlist: ' + (window.wishlistState ? window.wishlistState.size : 0) + ' items')">
+                <i class="bi bi-heart"></i>
+                <span class="badge-count wishlist-badge-count">2</span>
+              </button>
+
+              <!-- Shopping Cart -->
+              <button class="action-btn cart-trigger-btn" title="Shopping Bag">
+                <i class="bi bi-bag"></i>
+                <span class="badge-count cart-badge-count">2</span>
+              </button>
+
+              <!-- Account Profile -->
+              <button class="action-btn d-none d-sm-flex" title="VIP Account" onclick="showToast('Dr. Seema VIP Client Portal')">
+                <i class="bi bi-person"></i>
+              </button>
+
+              <!-- Luxury CTA Button -->
+              <a href="#bestsellers" class="btn-header-cta d-none d-md-inline-flex">
+                Shop Now <i class="bi bi-arrow-right-short ms-1"></i>
+              </a>
+
+              <!-- Mobile Hamburger Toggle -->
+              <button class="action-btn mobile-nav-toggle d-xl-none" title="Open Menu" onclick="document.getElementById('mobile-drawer').classList.add('active')">
+                <i class="bi bi-list fs-2"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ==========================================================================
+         3. HERO SECTION (100VH CINEMATIC LUXURY - CLEAN MEDICAL AESTHETIC)
+         ========================================================================== -->
+    <section id="hero" class="hero-section">
+      <!-- Full Bleed Background Imagery Carousel -->
+      <div class="hero-bg-carousel">
+        
+        <!-- Slide 1 Background -->
+        <div class="hero-bg-slide active" style="background-image: url('/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg');">
+          <div class="hero-overlay-dark"></div>
+        </div>
+
+        <!-- Slide 2 Background -->
+        <div class="hero-bg-slide" style="background-image: url('/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg');">
+          <div class="hero-overlay-dark"></div>
+        </div>
+
+        <!-- Slide 3 Background -->
+        <div class="hero-bg-slide" style="background-image: url('/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg');">
+          <div class="hero-overlay-dark"></div>
+        </div>
+
+      </div>
+
+      <!-- Hero Glass Card Content -->
+      <div class="container relative-z2">
+        <div class="row align-items-center py-4 py-md-5">
+          <div class="col-lg-8 col-xl-7 mx-auto text-center">
+            
+            <div class="hero-content-slider">
+              
+              <!-- Content Item 1 -->
+              <div class="hero-text-item active">
+                <span class="hero-pill-tag"><i class="bi bi-patch-check-fill text-mint me-1"></i> DERMATOLOGIST FORMULATED</span>
+                <h1 class="hero-main-heading">Pure Clinical Science.<br><span class="text-italic-mint">Uncompromising Radiance.</span></h1>
+                <p class="hero-subtext">Engineered by Dr. Seema with cold-pressed organic botanicals and bio-peptides to nourish, restore, and illuminate skin.</p>
+                <div class="hero-btn-group">
+                  <a href="#bestsellers" class="btn-hero-primary">Shop Formulations <i class="bi bi-arrow-right ms-1"></i></a>
+                  <button class="btn-hero-outline" onclick="openQuickView('p1')"><i class="bi bi-eye me-1"></i> Quick View Serum</button>
+                </div>
+              </div>
+
+              <!-- Content Item 2 -->
+              <div class="hero-text-item">
+                <span class="hero-pill-tag"><i class="bi bi-stars text-mint me-1"></i> BIO-RETINOL INNOVATION</span>
+                <h1 class="hero-main-heading">Cellular Renewal.<br><span class="text-italic-mint">Without Irritation.</span></h1>
+                <p class="hero-subtext">Natural botanical retinol alternatives that smooth fine lines, stimulate collagen, and correct hyperpigmentation gently.</p>
+                <div class="hero-btn-group">
+                  <a href="#new-arrivals" class="btn-hero-primary">Explore Bio-Retinol <i class="bi bi-arrow-right ms-1"></i></a>
+                  <button class="btn-hero-outline" onclick="openQuickView('p3')"><i class="bi bi-eye me-1"></i> Quick View Vitamin C</button>
+                </div>
+              </div>
+
+              <!-- Content Item 3 -->
+              <div class="hero-text-item">
+                <span class="hero-pill-tag"><i class="bi bi-droplet-fill text-mint me-1"></i> 72-HOUR BARRIER MOISTURE</span>
+                <h1 class="hero-main-heading">Deep Ceramide Hydration.<br><span class="text-italic-mint">Intensive Repair.</span></h1>
+                <p class="hero-subtext">Infused with Ceramide-3 and Sacred Lotus Extract to lock in deep hydration and restore damaged barrier lipids.</p>
+                <div class="hero-btn-group">
+                  <a href="#collections" class="btn-hero-primary">Shop Moisture Creams <i class="bi bi-arrow-right ms-1"></i></a>
+                  <button class="btn-hero-outline" onclick="openQuickView('p2')"><i class="bi bi-eye me-1"></i> Quick View Cream</button>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Navigation Dots & Controls -->
+      <div class="hero-bottom-controls">
+        <div class="hero-dots-container">
+          <button class="hero-dot active" data-index="0" title="Slide 1"></button>
+          <button class="hero-dot" data-index="1" title="Slide 2"></button>
+          <button class="hero-dot" data-index="2" title="Slide 3"></button>
+        </div>
+        <div class="hero-scroll-indicator" onclick="document.querySelector('#features').scrollIntoView({behavior: 'smooth'})">
+          <span class="small tracking-widest text-uppercase">EXPLORE FORMULATIONS</span>
+          <i class="bi bi-chevron-down fs-5"></i>
+        </div>
+      </div>
+
+      <!-- Slide Timer Line -->
+      <div class="hero-progress-line"></div>
+    </section>
+
+    <!-- ==========================================================================
+         4. FEATURE HIGHLIGHT CARDS (EQUAL HEIGHT & PERFECT ALIGNMENT)
+         ========================================================================== -->
+    <section id="features" class="features-section">
+      <div class="container">
+        <div class="row g-4 justify-content-center">
+          
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="feature-card-luxury">
+              <div class="feature-icon-box"><i class="bi bi-patch-check"></i></div>
+              <h4 class="feature-title">Dermatologist Tested</h4>
+              <p class="feature-desc">Rigorously formulated & clinical trial verified by Dr. Seema for optimal skin tolerance.</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="feature-card-luxury">
+              <div class="feature-icon-box"><i class="bi bi-flower2"></i></div>
+              <h4 class="feature-title">100% Clean Actives</h4>
+              <p class="feature-desc">Zero parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances.</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="feature-card-luxury">
+              <div class="feature-icon-box"><i class="bi bi-recycle"></i></div>
+              <h4 class="feature-title">Sustainable Luxury</h4>
+              <p class="feature-desc">Eco-conscious recyclable Italian glass vessels and FSC certified organic packaging.</p>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="feature-card-luxury">
+              <div class="feature-icon-box"><i class="bi bi-truck"></i></div>
+              <h4 class="feature-title">Express Shipping</h4>
+              <p class="feature-desc">Complimentary doorstep delivery across Pakistan on all orders above PKR 12,000.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. NEW ARRIVALS (INFINITE CONTINUOUS TICKER MARQUEE)
+         ========================================================================== -->
+    <section id="new-arrivals" class="new-arrivals-section">
+      <div class="container-fluid px-3 px-md-5 mb-4">
+        <div class="section-header-center reveal-on-scroll">
+          <span class="section-tagline">Freshly Formulated</span>
+          <h2 class="section-main-title">New Clinical Arrivals</h2>
+          <p class="section-description">Discover our latest breakthrough bio-active additions crafted for radiant skin health.</p>
+        </div>
+      </div>
+
+      <!-- Continuous Infinite Slider Container -->
+      <div class="product-marquee-viewport">
+        <div class="product-marquee-track">
+          
+          <!-- Product Card 1 -->
+          <div class="product-card-luxury">
+            <div class="product-image-box">
+              <span class="product-badge bestseller">BESTSELLER</span>
+              <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p1')" title="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+              <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="product-img-primary" alt="Cellular Renewal Serum">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-secondary" alt="Cellular Renewal Serum Alternate">
+              <button class="quickview-hover-btn" onclick="openQuickView('p1')">Quick View <i class="bi bi-eye"></i></button>
+            </div>
+            <div class="product-info-box">
+              <span class="product-category-sub">Serums & Concentrates</span>
+              <h3 class="product-title-text">Cellular Renewal Serum</h3>
+              <div class="product-rating-line">
+                <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="rating-count">(148 reviews)</span>
+              </div>
+              <div class="product-price-row">
+                <div class="product-price-tag">PKR 8,800 <span class="old-price">PKR 10,500</span></div>
+                <button class="add-cart-icon-btn" onclick="addToCart('p1')"><i class="bi bi-bag-plus"></i> Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 2 -->
+          <div class="product-card-luxury">
+            <div class="product-image-box">
+              <span class="product-badge">CLINICAL</span>
+              <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p2')" title="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-primary" alt="Deep Moisture Barrier Cream">
+              <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="product-img-secondary" alt="Deep Moisture Cream Secondary">
+              <button class="quickview-hover-btn" onclick="openQuickView('p2')">Quick View <i class="bi bi-eye"></i></button>
+            </div>
+            <div class="product-info-box">
+              <span class="product-category-sub">Moisturizers & Creams</span>
+              <h3 class="product-title-text">Deep Moisture Barrier Cream</h3>
+              <div class="product-rating-line">
+                <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="rating-count">(96 reviews)</span>
+              </div>
+              <div class="product-price-row">
+                <div class="product-price-tag">PKR 7,600</div>
+                <button class="add-cart-icon-btn" onclick="addToCart('p2')"><i class="bi bi-bag-plus"></i> Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 3 -->
+          <div class="product-card-luxury">
+            <div class="product-image-box">
+              <span class="product-badge">ORGANIC</span>
+              <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p3')" title="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-primary" alt="Vitamin C Luminous Concentrate">
+              <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="product-img-secondary" alt="Vitamin C Secondary">
+              <button class="quickview-hover-btn" onclick="openQuickView('p3')">Quick View <i class="bi bi-eye"></i></button>
+            </div>
+            <div class="product-info-box">
+              <span class="product-category-sub">Serums & Concentrates</span>
+              <h3 class="product-title-text">Vitamin C Luminous Concentrate</h3>
+              <div class="product-rating-line">
+                <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="rating-count">(210 reviews)</span>
+              </div>
+              <div class="product-price-row">
+                <div class="product-price-tag">PKR 9,200 <span class="old-price">PKR 11,000</span></div>
+                <button class="add-cart-icon-btn" onclick="addToCart('p3')"><i class="bi bi-bag-plus"></i> Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 4 -->
+          <div class="product-card-luxury">
+            <div class="product-image-box">
+              <span class="product-badge">NEW</span>
+              <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p4')" title="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+              <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="product-img-primary" alt="Radiant Glow Barrier Elixir">
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-secondary" alt="Barrier Elixir Secondary">
+              <button class="quickview-hover-btn" onclick="openQuickView('p4')">Quick View <i class="bi bi-eye"></i></button>
+            </div>
+            <div class="product-info-box">
+              <span class="product-category-sub">Treatment Oils</span>
+              <h3 class="product-title-text">Radiant Glow Barrier Elixir</h3>
+              <div class="product-rating-line">
+                <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                <span class="rating-count">(82 reviews)</span>
+              </div>
+              <div class="product-price-row">
+                <div class="product-price-tag">PKR 8,400</div>
+                <button class="add-cart-icon-btn" onclick="addToCart('p4')"><i class="bi bi-bag-plus"></i> Add</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Card 5 -->
+          <div class="product-card-luxury">
+            <div class="product-image-box">
+              <span class="product-badge">GENTLE</span>
+              <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p5')" title="Add to Wishlist"><i class="bi bi-heart-fill"></i></button>
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-primary" alt="Calming Gentle Cleanser">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-secondary" alt="Cleanser Secondary">
+              <button class="quickview-hover-btn" onclick="openQuickView('p5')">Quick View <i class="bi bi-eye"></i></button>
+            </div>
+            <div class="product-info-box">
+              <span class="product-category-sub">Cleansers & Toners</span>
+              <h3 class="product-title-text">Calming Gentle Cleanser</h3>
+              <div class="product-rating-line">
+                <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                <span class="rating-count">(115 reviews)</span>
+              </div>
+              <div class="product-price-row">
+                <div class="product-price-tag">PKR 5,200 <span class="old-price">PKR 6,200</span></div>
+                <button class="add-cart-icon-btn" onclick="addToCart('p5')"><i class="bi bi-bag-plus"></i> Add</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. CURATED COLLECTIONS
+         ========================================================================== -->
+    <section id="collections" class="collections-section">
+      <div class="container">
+        <div class="section-header-center reveal-on-scroll">
+          <span class="section-tagline">Curated Rituals</span>
+          <h2 class="section-main-title">Explore Our Collections</h2>
+          <p class="section-description">Targeted skincare regimens designed for specific dermatological concerns.</p>
+        </div>
+
+        <div class="row g-4">
+          
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="collection-card-luxury cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+              <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="collection-bg-img" alt="Cellular Serums">
+              <div class="collection-overlay-glass">
+                <span class="collection-item-count">12 Formulations</span>
+                <h3 class="collection-title-text">Cellular Serums</h3>
+                <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="collection-card-luxury cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+              <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="collection-bg-img" alt="Barrier Creams">
+              <div class="collection-overlay-glass">
+                <span class="collection-item-count">8 Formulations</span>
+                <h3 class="collection-title-text">Barrier Creams</h3>
+                <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="collection-card-luxury cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+              <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="collection-bg-img" alt="Treatment Oils">
+              <div class="collection-overlay-glass">
+                <span class="collection-item-count">6 Formulations</span>
+                <h3 class="collection-title-text">Treatment Oils</h3>
+                <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
+            <div class="collection-card-luxury cursor-pointer" onclick="document.querySelector('#bestsellers').scrollIntoView({behavior: 'smooth'})">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="collection-bg-img" alt="Gentle Cleansers">
+              <div class="collection-overlay-glass">
+                <span class="collection-item-count">9 Formulations</span>
+                <h3 class="collection-title-text">Gentle Cleansers</h3>
+                <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         7. BEST SELLERS FILTER GRID (PKR PRICING ONLY)
+         ========================================================================== -->
+    <section id="bestsellers" class="bestsellers-section">
+      <div class="container">
+        <div class="section-header-center reveal-on-scroll">
+          <span class="section-tagline">Clinical Favorites</span>
+          <h2 class="section-main-title">Best Selling Formulations</h2>
+          <p class="section-description">Filter through our most revered dermatologist-approved solutions.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs-luxury reveal-on-scroll">
+          <button class="filter-tab-btn active" data-filter="all">All Formulations</button>
+          <button class="filter-tab-btn" data-filter="serums">Serums & Concentrates</button>
+          <button class="filter-tab-btn" data-filter="creams">Moisturizers & Creams</button>
+          <button class="filter-tab-btn" data-filter="cleansers">Cleansers & Toners</button>
+          <button class="filter-tab-btn" data-filter="oils">Treatment Oils</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="row g-4 bestsellers-grid">
+          
+          <div class="col-12 col-md-6 col-lg-4" data-category="serums">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge bestseller">BESTSELLER</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p1')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="product-img-primary" alt="Cellular Renewal Serum">
+                <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-secondary" alt="Cellular Renewal Serum">
+                <button class="quickview-hover-btn" onclick="openQuickView('p1')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Serums & Concentrates</span>
+                <h3 class="product-title-text">Cellular Renewal Serum</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <span class="rating-count">(148 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 8,800 <span class="old-price">PKR 10,500</span></div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p1')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4" data-category="creams">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge">CLINICAL</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p2')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-primary" alt="Deep Moisture Barrier Cream">
+                <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="product-img-secondary" alt="Deep Moisture Cream">
+                <button class="quickview-hover-btn" onclick="openQuickView('p2')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Moisturizers & Creams</span>
+                <h3 class="product-title-text">Deep Moisture Barrier Cream</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <span class="rating-count">(96 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 7,600</div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p2')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4" data-category="serums">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge">ORGANIC</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p3')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-primary" alt="Vitamin C Luminous Concentrate">
+                <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="product-img-secondary" alt="Vitamin C">
+                <button class="quickview-hover-btn" onclick="openQuickView('p3')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Serums & Concentrates</span>
+                <h3 class="product-title-text">Vitamin C Luminous Concentrate</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <span class="rating-count">(210 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 9,200 <span class="old-price">PKR 11,000</span></div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p3')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4" data-category="oils">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge">NEW</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p4')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="product-img-primary" alt="Radiant Glow Barrier Elixir">
+                <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-secondary" alt="Barrier Elixir">
+                <button class="quickview-hover-btn" onclick="openQuickView('p4')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Treatment Oils</span>
+                <h3 class="product-title-text">Radiant Glow Barrier Elixir</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                  <span class="rating-count">(82 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 8,400</div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p4')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4" data-category="cleansers">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge">GENTLE</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p5')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" class="product-img-primary" alt="Calming Gentle Cleanser">
+                <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="product-img-secondary" alt="Cleanser">
+                <button class="quickview-hover-btn" onclick="openQuickView('p5')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Cleansers & Toners</span>
+                <h3 class="product-title-text">Calming Gentle Cleanser</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <span class="rating-count">(115 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 5,200 <span class="old-price">PKR 6,200</span></div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p5')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4" data-category="serums">
+            <div class="product-card-luxury">
+              <div class="product-image-box">
+                <span class="product-badge">TARGETED</span>
+                <button class="wishlist-btn-corner" onclick="toggleWishlist(this, 'p6')"><i class="bi bi-heart-fill"></i></button>
+                <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="product-img-primary" alt="Firming Peptide Eye Essence">
+                <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="product-img-secondary" alt="Eye Essence">
+                <button class="quickview-hover-btn" onclick="openQuickView('p6')">Quick View <i class="bi bi-eye"></i></button>
+              </div>
+              <div class="product-info-box">
+                <span class="product-category-sub">Eye & Treatment</span>
+                <h3 class="product-title-text">Firming Peptide Eye Essence</h3>
+                <div class="product-rating-line">
+                  <div class="stars-gold"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                  <span class="rating-count">(74 reviews)</span>
+                </div>
+                <div class="product-price-row">
+                  <div class="product-price-tag">PKR 6,800</div>
+                  <button class="add-cart-icon-btn" onclick="addToCart('p6')"><i class="bi bi-bag-plus"></i> Add</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         8. WHY CHOOSE DR. SEEMA'S & STATS COUNTERS (REDESIGNED LUXURY LAYOUT)
+         ========================================================================== -->
+    <section id="why-us" class="why-us-section">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          
+          <div class="col-lg-5 reveal-fade-left">
+            <div class="why-us-image-card">
+              <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="why-main-img" alt="Clinical Botanical Formulations">
+              
+              <div class="why-card-badge">
+                <div class="why-badge-text">
+                  <i class="bi bi-shield-check text-mint fs-5"></i>
+                  <span>Dermatologist Formulated</span>
+                </div>
+                <span class="badge bg-sage text-white rounded-pill px-2 py-1 small">18+ Yrs Clinical</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-7 why-us-content reveal-fade-right">
+            <span class="section-tagline">WHY CHOOSE DR. SEEMA'S</span>
+            <h2 class="section-main-title">The Art & Science of Botanical Elegance</h2>
+            <p class="section-description mb-3">For over 18 years, Dr. Seema has fused board-certified clinical dermatology with cold-pressed organic botanicals to craft clean, high-performance skincare rituals.</p>
+
+            <div class="why-feature-list">
+              <div class="why-feature-item">
+                <div class="why-icon-box"><i class="bi bi-shield-check"></i></div>
+                <div>
+                  <h4 class="why-item-title">Patented Micro-Encapsulation</h4>
+                  <p class="why-item-desc">Delivers active vitamins deep into skin layers for slow, sustained release without surface irritation.</p>
+                </div>
+              </div>
+
+              <div class="why-feature-item">
+                <div class="why-icon-box"><i class="bi bi-flower1"></i></div>
+                <div>
+                  <h4 class="why-item-title">Ethically Harvested Botanicals</h4>
+                  <p class="why-item-desc">Pure wildcrafted extracts sourced directly from organic sustainable fair-trade farms across Asia and Europe.</p>
+                </div>
+              </div>
+
+              <div class="why-feature-item">
+                <div class="why-icon-box"><i class="bi bi-heart-pulse"></i></div>
+                <div>
+                  <h4 class="why-item-title">Clinical Barrier Restoration</h4>
+                  <p class="why-item-desc">Rebuilds lipid barriers and restores healthy skin biome balance for long-term luminous resilience.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Animated Counters Grid -->
+            <div class="counters-grid">
+              <div class="counter-card">
+                <div class="counter-number" data-target="50000" data-suffix="+">0</div>
+                <div class="counter-label">Satisfied Clients</div>
+              </div>
+              <div class="counter-card">
+                <div class="counter-number" data-target="250" data-suffix="+">0</div>
+                <div class="counter-label">Formulations</div>
+              </div>
+              <div class="counter-card">
+                <div class="counter-number" data-target="98" data-suffix="%">0</div>
+                <div class="counter-label">Clinical Satisfaction</div>
+              </div>
+              <div class="counter-card">
+                <div class="counter-number" data-target="20" data-suffix="+">0</div>
+                <div class="counter-label">Global Awards</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         9. INTERACTIVE BEFORE & AFTER SLIDER (ULTRA LUXURY SPLIT LAYOUT)
+         ========================================================================== -->
+    <section id="clinical-results" class="before-after-section">
+      <div class="container">
+        
+        <div class="row g-4 g-lg-5 align-items-center">
+          
+          <!-- Text Information Side -->
+          <div class="col-lg-5 reveal-fade-left">
+            <span class="section-tagline">CLINICALLY PROVEN RESULTS</span>
+            <h2 class="section-main-title mb-3">Visible Skin Transformation In 4 Weeks</h2>
+            <p class="section-description mb-4">In independent 28-day double-blind clinical trials monitored by dermatologists, Dr. Seema's Cellular Renewal Ritual demonstrated dramatic skin barrier repair.</p>
+            
+            <div class="ba-metrics-list mb-4">
+              <div class="ba-metric-item">
+                <span class="ba-metric-num">98%</span>
+                <span class="ba-metric-text">Noticed visible reduction in hyperpigmentation and dark spots</span>
+              </div>
+              <div class="ba-metric-item">
+                <span class="ba-metric-num">96%</span>
+                <span class="ba-metric-text">Reported enhanced skin firmness and collagen bounce</span>
+              </div>
+              <div class="ba-metric-item">
+                <span class="ba-metric-num">100%</span>
+                <span class="ba-metric-text">Experienced deep 72-hour moisture barrier hydration</span>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <button class="btn-hero-primary" onclick="openQuickView('p1')">Shop Trial Ritual <i class="bi bi-arrow-right ms-2"></i></button>
+            </div>
+          </div>
+
+          <!-- Interactive Draggable Comparison Side -->
+          <div class="col-lg-7 reveal-fade-right">
+            
+            <div class="ba-tabs-nav mb-3">
+              <button class="ba-tab-btn active" data-before="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" data-after="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg">Hyperpigmentation Correction</button>
+              <button class="ba-tab-btn" data-before="/assets/skin_dry_barrier_before_1784834246217-CY8S9Apx.jpg" data-after="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg">Barrier Hydration & Smoothness</button>
+            </div>
+
+            <div class="before-after-wrapper">
+              <!-- After Image (Base) -->
+              <img src="/assets/skin_after_treatment_1784834215984-D_r22WyY.jpg" class="ba-image ba-after-img" alt="After Treatment Radiant Skin">
+              <span class="ba-label ba-label-after"><i class="bi bi-check-circle-fill text-mint me-1"></i> AFTER 4 WEEKS</span>
+
+              <!-- Before Image (Overlaid Crop) -->
+              <div class="ba-before-container">
+                <img src="/assets/skin_before_treatment_1784834198735-Cms2UeTZ.jpg" class="ba-image ba-before-img" alt="Before Treatment Skin">
+              </div>
+              
+              <!-- Before Label (Outside overlay container to prevent clipping) -->
+              <span class="ba-label ba-label-before">BEFORE</span>
+
+              <!-- Draggable Divider Line & Handle -->
+              <div class="ba-handle">
+                <div class="ba-handle-circle">
+                  <i class="bi bi-arrows-collapse"></i>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         10. PATIENT TESTIMONIALS
+         ========================================================================== -->
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header-center reveal-on-scroll">
+          <span class="section-tagline">Real Client Stories</span>
+          <h2 class="section-main-title">Loved By Thousands Across Pakistan</h2>
+          <p class="section-description">Discover how Dr. Seema's formulations transformed daily skincare into luxury holistic rituals.</p>
+        </div>
+
+        <div class="row g-4">
+          
+          <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
+            <div class="testimonial-card-luxury">
+              <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <div class="quote-icon-sage">“</div>
+              <p class="review-body-text">"Dr. Seema's Cellular Renewal Serum completely cured my stubborn hyperpigmentation within 3 weeks. My skin has never looked this radiant or glassy!"</p>
+              <div class="reviewer-profile">
+                <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" class="reviewer-avatar" alt="Ayesha Khan">
+                <div>
+                  <div class="reviewer-name">Ayesha Khan</div>
+                  <div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Lahore</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
+            <div class="testimonial-card-luxury">
+              <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <div class="quote-icon-sage">“</div>
+              <p class="review-body-text">"The Deep Moisture Barrier Cream is pure luxury in a glass jar. My sensitive rosacea-prone skin calmed down immediately. Truly exceptional quality."</p>
+              <div class="reviewer-profile">
+                <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" class="reviewer-avatar" alt="Fatima Zahra">
+                <div>
+                  <div class="reviewer-name">Fatima Zahra</div>
+                  <div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Karachi</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
+            <div class="testimonial-card-luxury">
+              <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <div class="quote-icon-sage">“</div>
+              <p class="review-body-text">"As a cosmetic aesthetician myself, I recommend Dr. Seema's formulations to all my post-procedure clients. The clinical purity and texture are world-class."</p>
+              <div class="reviewer-profile">
+                <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" class="reviewer-avatar" alt="Dr. Zoya Mansoor">
+                <div>
+                  <div class="reviewer-name">Dr. Zoya Mansoor</div>
+                  <div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Islamabad</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         11. INSTAGRAM GALLERY
+         ========================================================================== -->
+    <section class="instagram-section">
+      <div class="container-fluid px-lg-5">
+        <div class="text-center mb-4 reveal-on-scroll">
+          <span class="section-tagline">@DrSeemasProducts</span>
+          <h2 class="section-main-title">Follow Us On Instagram</h2>
+        </div>
+
+        <div class="insta-grid reveal-on-scroll">
+          <div class="insta-item-card">
+            <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Insta Post 1">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Shop Serum</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Insta Post 2">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Shop Cream</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Insta Post 3">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">View Glow</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Insta Post 4">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Botanicals</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/luxury_cream_jar_1784829034543-DzFwA63r.jpg" alt="Insta Post 5">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Hydration</span>
+            </div>
+          </div>
+
+          <div class="insta-item-card">
+            <img src="/assets/hero_skincare_bottle_1784829018079-DS2qkswC.jpg" alt="Insta Post 6">
+            <div class="insta-overlay">
+              <i class="bi bi-instagram fs-3"></i>
+              <span class="small fw-bold">Bio-Retinol</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         12. NEWSLETTER SUBSCRIPTION
+         ========================================================================== -->
+    <section class="newsletter-section">
+      <div class="container">
+        <div class="newsletter-card-wrapper reveal-scale">
+          <span class="section-tagline">Club Seema Inner Circle</span>
+          <h2 class="section-main-title">Receive 15% Off Your First Order</h2>
+          <p class="section-description mb-4 me-auto ms-auto" style="max-width: 540px;">Join our VIP circle for dermatologist skincare guides, early access to new releases, and private invitations.</p>
+
+          <form id="newsletter-form">
+            <div class="newsletter-input-group">
+              <input type="email" class="newsletter-input" placeholder="Enter your email address..." required>
+              <button type="submit" class="btn-hero-primary px-4">Subscribe & Claim 15%</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         13. STREAMLINED LUXURY FOOTER (COMPACT & COMPACT PADDING)
+         ========================================================================== -->
+    <footer id="footer" class="footer-luxury">
+      <div class="container">
+        <div class="row g-4 justify-content-between">
+          
+          <!-- Column 1: Brand Info & Social -->
+          <div class="col-lg-4 col-md-6">
+            <a href="#" class="brand-logo mb-2">
+              <div class="logo-icon-seal">DS</div>
+              <div class="brand-name-group">
+                <span class="logo-text-title text-white fs-6 fw-bold">Dr. Seema's</span>
+                <span class="logo-text-tag text-mint">Clinical Skincare</span>
+              </div>
+            </a>
+            <p class="small text-white-50 mb-3 me-lg-3" style="font-size: 0.8rem; line-height: 1.5;">Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type.</p>
+            <div class="d-flex align-items-center gap-2">
+              <a href="#" class="social-icon-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-icon-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-icon-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
+              <a href="#" class="social-icon-btn" title="TikTok"><i class="bi bi-tiktok"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div class="col-lg-2 col-6">
+            <h5 class="footer-title">Quick Links</h5>
+            <ul class="footer-links-list">
+              <li><a href="#hero">Home</a></li>
+              <li><a href="#new-arrivals">Shop All</a></li>
+              <li><a href="#collections">Collections</a></li>
+              <li><a href="#bestsellers">Best Sellers</a></li>
+              <li><a href="#why-us">About Dr. Seema</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Collections -->
+          <div class="col-lg-2 col-6">
+            <h5 class="footer-title">Collections</h5>
+            <ul class="footer-links-list">
+              <li><a href="#bestsellers">Cellular Serums</a></li>
+              <li><a href="#bestsellers">Barrier Creams</a></li>
+              <li><a href="#bestsellers">Gentle Cleansers</a></li>
+              <li><a href="#bestsellers">Treatment Oils</a></li>
+              <li><a href="#bestsellers">Eye Essences</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact & Support -->
+          <div class="col-lg-3 col-md-6">
+            <h5 class="footer-title">Customer Care</h5>
+            <div class="small text-white-50 mb-2" style="font-size: 0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i> support@drseemasproducts.pk</div>
+            <div class="small text-white-50 mb-2" style="font-size: 0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i> +92 (042) 3555-SEEMA</div>
+            <div class="small text-white-50 mb-3" style="font-size: 0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i> Gulberg III, Lahore</div>
+            <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" style="font-size: 0.78rem;" onclick="showToast('Virtual Dermatology Assistant Active')">Virtual Derm Consult</button>
+          </div>
+
+        </div>
+
+        <!-- Bottom Legal Bar -->
+        <div class="footer-bottom-bar">
+          <div>© 2026 Dr. Seema's Products. All rights reserved.</div>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" class="text-white-50">Privacy Policy</a>
+            <span>•</span>
+            <a href="#" class="text-white-50">Terms</a>
+            <span>•</span>
+            <a href="#" class="text-white-50">Returns</a>
+          </div>
+          <div class="d-flex align-items-center gap-2 fs-6 text-white-50">
+            <i class="bi bi-credit-card-2-front" title="Card Payment"></i>
+            <i class="bi bi-cash-coin" title="Cash on Delivery"></i>
+            <i class="bi bi-shield-check" title="Encrypted Checkout"></i>
+          </div>
+        </div>
+
+        <!-- Prepared by Nova Fuxion Credits -->
+        <div class="footer-credits-bar">
+          <span class="footer-credits-text">Prepared by Nova Fuxion</span>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- ==========================================================================
+         14. INTERACTIVE DRAWERS & MODALS
+         ========================================================================== -->
+    <!-- Backdrop Overlay -->
+    <div id="cart-backdrop" class="drawer-backdrop"></div>
+
+    <!-- Slide-Over Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer-panel">
+      <div class="cart-drawer-header">
+        <h5 class="font-serif mb-0 fs-4">Shopping Bag (<span class="cart-badge-count">2</span>)</h5>
+        <button class="btn-close cart-close-btn"></button>
+      </div>
+
+      <div class="free-shipping-bar">
+        <span id="shipping-bar-status">You are PKR 3,600 away from Complimentary Shipping!</span>
+        <div class="shipping-progress-track">
+          <div class="shipping-progress-fill"></div>
+        </div>
+      </div>
+
+      <div class="cart-items-body">
+        <!-- Rendered dynamically by main.js -->
+      </div>
+
+      <div class="cart-drawer-footer">
+        <div class="d-flex align-items-center justify-content-between mb-2">
+          <span class="text-muted">Subtotal</span>
+          <span class="fw-bold cart-subtotal-val">PKR 16,400</span>
+        </div>
+        <div class="d-flex align-items-center justify-content-between mb-3 fs-5 fw-bold">
+          <span>Total</span>
+          <span class="text-sage cart-total-val">PKR 16,400</span>
+        </div>
+        <button class="btn-hero-primary w-100" onclick="showToast('Proceeding to Encrypted Doorstep Checkout...')">Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i></button>
+      </div>
+    </div>
+
+    <!-- Quick View Modal -->
+    <div id="quickview-modal" class="modal-overlay-custom">
+      <div class="quickview-card-modal p-4 p-md-5">
+        <button class="btn-close position-absolute top-0 end-0 m-4 quickview-close-btn"></button>
+        <div class="row g-4 align-items-center">
+          <div class="col-md-6 text-center">
+            <img id="qv-main-img" src="" class="img-fluid rounded-4 shadow-sm" alt="Product Image">
+          </div>
+          <div class="col-md-6">
+            <span id="qv-category" class="product-category-sub">Category</span>
+            <h2 id="qv-title" class="font-serif fs-2 mb-2">Product Title</h2>
+            <div id="qv-price" class="fs-4 fw-bold text-sage mb-3">PKR 0</div>
+            <p id="qv-desc" class="text-muted mb-4">Description goes here...</p>
+
+            <div class="mb-4">
+              <h6 class="fw-bold small text-uppercase tracking-wider">Key Ingredients:</h6>
+              <p id="qv-ingredients" class="small text-muted mb-0">Ingredients...</p>
+            </div>
+
+            <div class="d-flex gap-3">
+              <button id="qv-add-btn" class="btn-hero-primary flex-grow-1">Add To Bag <i class="bi bi-bag-plus"></i></button>
+              <button class="btn-hero-outline" onclick="showToast('Saved to wishlist')"><i class="bi bi-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="modal-overlay-custom">
+      <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width: 680px;">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h4 class="font-serif mb-0">Search Formulations</h4>
+          <button class="btn-close search-close-btn"></button>
+        </div>
+        <div class="input-group mb-3">
+          <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+          <input id="search-input" type="text" class="form-control border-start-0 py-3" placeholder="Search by skin concern, ingredient or formulation...">
+        </div>
+        <div class="small text-muted mb-3">Trending Searches: <span class="badge bg-light text-dark me-1 cursor-pointer" onclick="document.getElementById('search-input').value='Retinol'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Bio-Retinol</span> <span class="badge bg-light text-dark me-1 cursor-pointer" onclick="document.getElementById('search-input').value='Vitamin C'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Vitamin C</span> <span class="badge bg-light text-dark cursor-pointer" onclick="document.getElementById('search-input').value='Cream'; document.getElementById('search-input').dispatchEvent(new Event('input'))">Moisturizer</span></div>
+        <div id="search-results-box" style="max-height: 320px; overflow-y: auto;">
+          <p class="text-muted text-center py-4">Start typing to search formulations...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Offcanvas Drawer (Slides smoothly from RIGHT) -->
+    <div id="mobile-drawer" class="mobile-offcanvas-menu">
+      <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+        <a href="#" class="brand-logo">
+          <div class="logo-icon-seal">DS</div>
+          <div>
+            <span class="logo-text-title">Dr. Seema's</span>
+            <span class="logo-text-tag">Clinical Skincare</span>
+          </div>
+        </a>
+        <button class="btn-close" onclick="document.getElementById('mobile-drawer').classList.remove('active')"></button>
+      </div>
+
+      <div class="drawer-search-box mb-4">
+        <div class="input-group">
+          <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
+          <input type="text" class="form-control bg-light border-start-0" placeholder="Search formulations..." onclick="document.getElementById('mobile-drawer').classList.remove('active'); document.getElementById('search-overlay').classList.add('active');">
+        </div>
+      </div>
+
+      <ul class="mobile-nav-list list-unstyled mb-4">
+        <li><a href="/" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-house me-2 text-sage"></i> Home</a></li>
+        <li><a href="/shop" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag me-2 text-sage"></i> Shop</a></li>
+        <li><a href="/collections" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-grid me-2 text-sage"></i> Collections</a></li>
+        <li><a href="/shop?filter=new" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-stars me-2 text-sage"></i> New Arrivals</a></li>
+        <li><a href="/shop?filter=bestseller" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-fire me-2 text-sage"></i> Best Sellers</a></li>
+        <li><a href="#why-us" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-flower1 me-2 text-sage"></i> Skin Concerns</a></li>
+        <li><a href="#why-us" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-award me-2 text-sage"></i> About Dr. Seema</a></li>
+        <li><a href="#footer" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-envelope me-2 text-sage"></i> Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-actions pt-3 border-top d-flex flex-column gap-2 mt-auto">
+        <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2" onclick="showToast('Your saved wishlist: ' + (window.wishlistState ? window.wishlistState.size : 0) + ' items'); document.getElementById('mobile-drawer').classList.remove('active');">
+          <span><i class="bi bi-heart me-2"></i> Saved Wishlist</span>
+          <span class="badge bg-sage rounded-pill wishlist-badge-count">2</span>
+        </button>
+        <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2" onclick="showToast('Dr. Seema VIP Account Portal'); document.getElementById('mobile-drawer').classList.remove('active');">
+          <span><i class="bi bi-person me-2"></i> VIP Account Portal</span>
+          <i class="bi bi-chevron-right"></i>
+        </button>
+        <button class="btn-hero-primary w-100 mt-2" onclick="showToast('Virtual Derm Consultation'); document.getElementById('mobile-drawer').classList.remove('active');">Book Consultation</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/chatbot.js" defer></script>
+
+</body>
+</html>

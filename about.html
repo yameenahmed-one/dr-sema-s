@@ -1,0 +1,1188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Dr. Seema | Clinical Skincare Founder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="/assets/index-B1ShAhzr.css">
+  <script src="/assets/index-Db8R-LCH.js" defer></script>
+  <style>
+    /* â”€â”€ ABOUT HERO â”€â”€ */
+    .about-hero {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(135deg, rgba(15,26,25,0.92) 0%, rgba(21,34,33,0.88) 60%, rgba(33,79,75,0.82) 100%),
+                  url('/assets/botanical_serum_1784829065095-CWvF2yY0.jpg') center/cover no-repeat fixed;
+      display: flex; align-items: center;
+      padding-top: 100px; overflow: hidden;
+    }
+    .about-hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(47,107,102,0.3) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .about-hero-floating-card {
+      background: rgba(255,255,255,0.07);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .about-hero-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(200,230,213,0.15);
+      border: 1px solid rgba(200,230,213,0.3);
+      color: var(--accent-mint);
+      padding: 6px 18px; border-radius: var(--radius-full);
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
+      margin-bottom: 20px;
+    }
+    .about-hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(3rem, 6vw, 5.5rem);
+      color: #fff; line-height: 1.05; font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .about-hero-title em { font-style: italic; color: var(--accent-mint); }
+    .about-hero-subtitle {
+      font-family: var(--font-heading);
+      font-size: clamp(1.1rem, 2vw, 1.5rem);
+      color: rgba(200,230,213,0.85); font-style: italic;
+      margin-bottom: 20px;
+    }
+    .about-hero-body {
+      font-size: 1rem; color: rgba(255,255,255,0.75);
+      max-width: 560px; line-height: 1.7; margin-bottom: 36px;
+    }
+    .about-hero-stat-row {
+      display: flex; gap: 32px; flex-wrap: wrap; margin-top: 40px;
+    }
+    .about-hero-stat { text-align: center; }
+    .about-hero-stat-num {
+      font-family: var(--font-heading);
+      font-size: 2.4rem; font-weight: 700; color: #fff; line-height: 1;
+    }
+    .about-hero-stat-num span { color: var(--accent-mint); }
+    .about-hero-stat-label {
+      font-size: 0.75rem; color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em; margin-top: 4px;
+    }
+    .about-hero-img-wrap {
+      position: relative; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .about-hero-img-wrap img {
+      width: 100%; height: 580px; object-fit: cover; display: block;
+    }
+    .about-hero-img-badge {
+      position: absolute; bottom: 24px; left: 24px; right: 24px;
+      background: rgba(15,26,25,0.88);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md); padding: 16px 20px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .about-hero-img-badge-icon {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--primary-sage); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .about-hero-img-badge-text { font-size: 0.85rem; font-weight: 700; color: #fff; }
+    .about-hero-img-badge-sub { font-size: 0.72rem; color: rgba(255,255,255,0.6); }
+  </style>
+  <style>
+    /* â”€â”€ FOUNDER STORY / TIMELINE â”€â”€ */
+    .founder-img-wrap {
+      position: relative; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-hover);
+      border: 1px solid var(--border-light);
+    }
+    .founder-img-wrap img { width: 100%; height: 520px; object-fit: cover; display: block; }
+    .founder-img-badge {
+      position: absolute; bottom: 22px; left: 22px; right: 22px;
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-radius: var(--radius-md); padding: 14px 18px;
+      border: 1px solid rgba(255,255,255,0.9);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .timeline-wrap { position: relative; padding-left: 32px; }
+    .timeline-wrap::before {
+      content: ''; position: absolute; left: 10px; top: 8px; bottom: 8px;
+      width: 2px; background: linear-gradient(180deg, var(--primary-sage), var(--accent-mint));
+      border-radius: 2px;
+    }
+    .timeline-item { position: relative; margin-bottom: 36px; }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .timeline-dot {
+      position: absolute; left: -28px; top: 4px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: var(--primary-sage); border: 3px solid #fff;
+      box-shadow: 0 0 0 3px rgba(47,107,102,0.25);
+      z-index: 1;
+    }
+    .timeline-year {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em;
+      color: var(--primary-sage); margin-bottom: 4px;
+    }
+    .timeline-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem; font-weight: 600; color: var(--text-dark);
+      margin-bottom: 6px; line-height: 1.25;
+    }
+    .timeline-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; margin: 0; }
+
+    /* â”€â”€ PHILOSOPHY â”€â”€ */
+    .philosophy-section { background: var(--dark-forest); }
+    .philosophy-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md); padding: 36px 28px;
+      height: 100%; transition: all 0.35s var(--transition-smooth);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .philosophy-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 0%, rgba(47,107,102,0.2) 0%, transparent 70%);
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .philosophy-card:hover { transform: translateY(-8px); border-color: rgba(47,107,102,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+    .philosophy-card:hover::before { opacity: 1; }
+    .philosophy-icon {
+      width: 70px; height: 70px; border-radius: 50%;
+      background: rgba(200,230,213,0.12); color: var(--accent-mint);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin: 0 auto 22px;
+      border: 1px solid rgba(200,230,213,0.2);
+      transition: all 0.3s ease; position: relative; z-index: 1;
+    }
+    .philosophy-card:hover .philosophy-icon { background: var(--primary-sage); color: #fff; transform: scale(1.1); }
+    .philosophy-title { font-family: var(--font-heading); font-size: 1.5rem; color: #fff; margin-bottom: 12px; position: relative; z-index: 1; }
+    .philosophy-desc { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.65; position: relative; z-index: 1; }
+
+    /* â”€â”€ CERTIFICATIONS â”€â”€ */
+    .cert-card {
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); padding: 28px 24px;
+      height: 100%; box-shadow: var(--shadow-soft);
+      transition: all 0.35s var(--transition-smooth);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .cert-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: linear-gradient(90deg, var(--primary-sage), var(--accent-mint));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .cert-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(47,107,102,0.25); }
+    .cert-card:hover::after { transform: scaleX(1); }
+    .cert-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--bg-light-mint); color: var(--primary-sage);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; margin: 0 auto 18px;
+      box-shadow: 0 4px 14px rgba(47,107,102,0.1);
+      transition: all 0.3s ease;
+    }
+    .cert-card:hover .cert-icon { background: var(--primary-sage); color: #fff; transform: scale(1.08); }
+    .cert-name { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; color: var(--text-dark); margin-bottom: 6px; }
+    .cert-body { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
+    .cert-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; color: var(--primary-sage); margin-top: 12px; display: block; }
+  </style>
+  <style>
+    /* â”€â”€ BRAND VALUES â”€â”€ */
+    .value-card {
+      background: var(--bg-cream); border: 1px solid var(--border-light);
+      border-radius: 20px; padding: 32px 24px; height: 100%;
+      box-shadow: var(--shadow-soft); transition: all 0.35s var(--transition-smooth);
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .value-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--primary-sage), var(--accent-mint));
+      transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
+    }
+    .value-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-hover); border-color: rgba(47,107,102,0.25); }
+    .value-card:hover::before { transform: scaleX(1); }
+    .value-icon {
+      width: 66px; height: 66px; border-radius: 50%;
+      background: #fff; color: var(--primary-sage);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; margin: 0 auto 20px;
+      box-shadow: 0 6px 20px rgba(47,107,102,0.1);
+      border: 2px solid var(--accent-mint);
+      transition: all 0.3s ease;
+    }
+    .value-card:hover .value-icon { background: var(--primary-sage); color: #fff; border-color: var(--primary-sage); transform: scale(1.1); }
+    .value-title { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 600; color: var(--text-dark); margin-bottom: 10px; }
+    .value-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* â”€â”€ COMPANY TIMELINE â”€â”€ */
+    .co-timeline { position: relative; }
+    .co-timeline::before {
+      content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+      width: 2px; background: linear-gradient(180deg, var(--primary-sage), var(--accent-mint));
+      transform: translateX(-50%);
+    }
+    @media (max-width: 768px) {
+      .co-timeline::before { left: 20px; }
+    }
+    .co-timeline-item { display: flex; align-items: flex-start; margin-bottom: 56px; position: relative; }
+    .co-timeline-item:last-child { margin-bottom: 0; }
+    .co-timeline-item.left { flex-direction: row-reverse; }
+    .co-timeline-year-badge {
+      position: absolute; left: 50%; transform: translateX(-50%);
+      background: var(--primary-sage); color: #fff;
+      font-family: var(--font-heading); font-size: 1rem; font-weight: 700;
+      padding: 6px 20px; border-radius: var(--radius-full);
+      white-space: nowrap; z-index: 2;
+      box-shadow: 0 4px 16px rgba(47,107,102,0.35);
+    }
+    .co-timeline-card {
+      background: #fff; border: 1px solid var(--border-light);
+      border-radius: var(--radius-md); padding: 24px 28px;
+      box-shadow: var(--shadow-soft); width: calc(50% - 60px);
+      transition: all 0.35s var(--transition-smooth);
+    }
+    .co-timeline-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+    .co-timeline-card-year { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--primary-sage); margin-bottom: 6px; }
+    .co-timeline-card-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 8px; }
+    .co-timeline-card-desc { font-size: 0.84rem; color: var(--text-muted); line-height: 1.55; margin: 0; }
+    @media (max-width: 768px) {
+      .co-timeline::before { left: 20px; }
+      .co-timeline-item, .co-timeline-item.left { flex-direction: column; padding-left: 50px; }
+      .co-timeline-year-badge { left: 20px; transform: translateX(-50%) translateY(-50%); top: 12px; font-size: 0.72rem; padding: 4px 12px; }
+      .co-timeline-card { width: 100%; }
+    }
+
+    /* â”€â”€ AWARDS â”€â”€ */
+    .award-card {
+      background: var(--dark-forest); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md); padding: 30px 22px;
+      text-align: center; height: 100%;
+      transition: all 0.35s var(--transition-smooth);
+      position: relative; overflow: hidden;
+    }
+    .award-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(circle at 50% 100%, rgba(47,107,102,0.25) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.35s ease;
+    }
+    .award-card:hover { transform: translateY(-8px); border-color: rgba(47,107,102,0.4); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+    .award-card:hover::before { opacity: 1; }
+    .award-icon {
+      font-size: 2.4rem; color: var(--accent-mint);
+      margin-bottom: 16px; display: block; position: relative; z-index: 1;
+    }
+    .award-name { font-family: var(--font-heading); font-size: 1.1rem; color: #fff; margin-bottom: 6px; position: relative; z-index: 1; }
+    .award-org { font-size: 0.75rem; color: rgba(255,255,255,0.5); letter-spacing: 0.08em; margin-bottom: 8px; position: relative; z-index: 1; }
+    .award-year { font-size: 0.7rem; font-weight: 700; color: var(--accent-mint); letter-spacing: 0.12em; position: relative; z-index: 1; }
+
+    /* â”€â”€ STATS STRIP â”€â”€ */
+    .about-stats-section { background: var(--primary-sage); padding: 56px 0; }
+    .about-stat-item { text-align: center; }
+    .about-stat-num {
+      font-family: var(--font-heading); font-size: clamp(2.8rem, 4vw, 4rem);
+      font-weight: 700; color: #fff; line-height: 1; display: block;
+    }
+    .about-stat-num span { color: var(--accent-mint); }
+    .about-stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.72); letter-spacing: 0.06em; margin-top: 6px; display: block; }
+    .about-stat-divider { width: 1px; background: rgba(255,255,255,0.2); align-self: stretch; margin: 10px 0; }
+
+    /* â”€â”€ CTA BANNER â”€â”€ */
+    .about-cta-section {
+      background: linear-gradient(135deg, rgba(15,26,25,0.95), rgba(33,79,75,0.9)),
+                  url('/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg') center/cover no-repeat fixed;
+      padding: 100px 0; text-align: center;
+    }
+  </style>
+</style>
+</head>
+<body>
+
+  <!-- LUXURY LOADER -->
+  <div id="luxury-loader">
+    <div class="loader-bg-particles">
+      <div class="loader-particle p-1"></div>
+      <div class="loader-particle p-2"></div>
+      <div class="loader-particle p-3"></div>
+    </div>
+    <div class="loader-brand-content">
+      <div class="loader-seal-sage">DS</div>
+      <h1 class="loader-title">Dr. Seema's Products</h1>
+      <p class="loader-subtitle">Dermatologist Formulated â€¢ Clinical Botanical Science</p>
+      <div class="loader-spinner-bar"><div class="loader-spinner-progress"></div></div>
+    </div>
+  </div>
+
+  <div id="app-content" style="opacity:0;transition:opacity 0.8s ease;">
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       STICKY NAVIGATION
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <header class="header-wrapper" id="main-header">
+    <div class="nav-main-bar">
+      <div class="container-fluid px-3 px-md-5">
+        <div class="d-flex align-items-center justify-content-between">
+          <a href="/" class="brand-logo">
+            <div class="logo-icon-seal">DS</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title">Dr. Seema's</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          </a>
+          <nav class="d-none d-xl-block">
+            <ul class="nav-menu-list">
+              <li><a href="/" class="nav-link-item">Home</a></li>
+              <li><a href="/shop" class="nav-link-item">Shop</a></li>
+              <li><a href="/collections" class="nav-link-item">Collections</a></li>
+              <li><a href="/shop?filter=new" class="nav-link-item">New Arrivals</a></li>
+              <li><a href="/shop?filter=bestseller" class="nav-link-item">Best Sellers</a></li>
+              <li class="has-megamenu">
+                <a href="#" class="nav-link-item">Skin Concerns <i class="bi bi-chevron-down ms-1 small"></i></a>
+                <div class="megamenu-dropdown">
+                  <div class="megamenu-grid">
+                    <div>
+                      <h6 class="megamenu-heading">Targeted Clinical Treatments</h6>
+                      <div class="concern-links-grid">
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/shop?filter=pigmentation'">
+                          <div class="concern-icon"><i class="bi bi-sparkles"></i></div>
+                          <div><div class="concern-title">Hyperpigmentation & Dark Spots</div><div class="concern-desc">15% Vitamin C & Niacinamide radiance boost</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/shop?filter=hydration'">
+                          <div class="concern-icon"><i class="bi bi-droplet-half"></i></div>
+                          <div><div class="concern-title">Dehydration & Barrier Loss</div><div class="concern-desc">72-Hour Ceramide NP moisture restoration</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/shop?filter=antiaging'">
+                          <div class="concern-icon"><i class="bi bi-hourglass-split"></i></div>
+                          <div><div class="concern-title">Anti-Aging & Fine Lines</div><div class="concern-desc">Bio-Retinol & Quad-Peptide renewal</div></div>
+                        </div>
+                        <div class="concern-item-card cursor-pointer" onclick="window.location.href='/shop?filter=sensitive'">
+                          <div class="concern-icon"><i class="bi bi-shield-plus"></i></div>
+                          <div><div class="concern-title">Sensitivities & Rosacea</div><div class="concern-desc">Botanical calming oat barrier defense</div></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="megamenu-featured">
+                      <span class="badge-clinical mb-2">DERMATOLOGIST PICK</span>
+                      <h5 class="font-serif mb-2 fs-4 text-dark">Cellular Renewal Serum</h5>
+                      <p class="small text-muted mb-3">Bio-Retinol formulation designed for overnight barrier repair and texture refinement.</p>
+                      <button class="btn-luxury-sm" onclick="openQuickView && openQuickView('p1')">Discover Formulation</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li><a href="/about" class="nav-link-item active">About Dr. Seema</a></li>
+              <li><a href="#footer" class="nav-link-item">Contact</a></li>
+            </ul>
+          </nav>
+          <div class="header-actions">
+            <button class="action-btn search-trigger-btn" title="Search"><i class="bi bi-search"></i></button>
+            <button class="action-btn" title="Wishlist" onclick="showToast && showToast('Saved wishlist')">
+              <i class="bi bi-heart"></i><span class="badge-count wishlist-badge-count">0</span>
+            </button>
+            <button class="action-btn cart-trigger-btn" title="Bag">
+              <i class="bi bi-bag"></i><span class="badge-count cart-badge-count">0</span>
+            </button>
+            <button class="action-btn d-none d-sm-flex" title="Account" onclick="showToast && showToast('VIP Account Portal')">
+              <i class="bi bi-person"></i>
+            </button>
+            <a href="/shop" class="btn-header-cta d-none d-md-inline-flex">Shop Now <i class="bi bi-arrow-right-short ms-1"></i></a>
+            <button class="action-btn mobile-nav-toggle d-xl-none" onclick="document.getElementById('mobile-drawer').classList.add('active')">
+              <i class="bi bi-list fs-2"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 1 Â· PREMIUM HERO BANNER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="about-hero">
+    <div class="container relative-z2">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7 reveal-fade-left">
+          <div class="about-hero-pill">
+            <i class="bi bi-patch-check-fill"></i> BOARD-CERTIFIED DERMATOLOGIST
+          </div>
+          <h1 class="about-hero-title">
+            Meet<br><em>Dr. Seema</em>
+          </h1>
+          <p class="about-hero-subtitle">Founder Â· Clinical Dermatologist Â· Skincare Visionary</p>
+          <p class="about-hero-body">
+            With over 18 years of clinical dermatology practice and a passion for botanical science,
+            Dr. Seema bridges the gap between pharmaceutical precision and nature's purest actives â€”
+            creating formulations that genuinely transform skin at the cellular level.
+          </p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#founder-story" class="btn-hero-primary">Her Story <i class="bi bi-arrow-down ms-1"></i></a>
+            <a href="/shop" class="btn-hero-outline"><i class="bi bi-bag me-1"></i> Shop Formulations</a>
+          </div>
+          <div class="about-hero-stat-row">
+            <div class="about-hero-stat">
+              <div class="about-hero-stat-num">18<span>+</span></div>
+              <div class="about-hero-stat-label">Years Clinical Practice</div>
+            </div>
+            <div class="about-hero-stat">
+              <div class="about-hero-stat-num">50<span>K+</span></div>
+              <div class="about-hero-stat-label">Patients Treated</div>
+            </div>
+            <div class="about-hero-stat">
+              <div class="about-hero-stat-num">48<span>+</span></div>
+              <div class="about-hero-stat-label">Formulations</div>
+            </div>
+            <div class="about-hero-stat">
+              <div class="about-hero-stat-num">12<span>+</span></div>
+              <div class="about-hero-stat-label">Global Awards</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 reveal-fade-right">
+          <div class="about-hero-img-wrap">
+            <img src="/assets/skin_glowing_portrait_1784829050112-BE8ZFnY9.jpg" alt="Dr. Seema Portrait">
+            <div class="about-hero-img-badge">
+              <div class="about-hero-img-badge-icon"><i class="bi bi-award-fill"></i></div>
+              <div>
+                <div class="about-hero-img-badge-text">Pakistan's #1 Clinical Dermatologist</div>
+                <div class="about-hero-img-badge-sub">Board Certified Â· 18+ Years Experience</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 2 Â· FOUNDER STORY + TIMELINE
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section id="founder-story" class="py-5" style="background:var(--bg-white);">
+    <div class="container px-3 px-md-5" style="padding-top:80px;padding-bottom:80px;">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-5 reveal-fade-left">
+          <div class="founder-img-wrap">
+            <img src="/assets/botanical_serum_1784829065095-CWvF2yY0.jpg" alt="Dr. Seema in Lab">
+            <div class="founder-img-badge">
+              <div class="why-icon-box"><i class="bi bi-shield-check"></i></div>
+              <div>
+                <div class="why-badge-text">Board-Certified Dermatologist</div>
+                <div style="font-size:0.75rem;color:var(--text-muted);">PMDC Â· FCPS Â· Fellowship London</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 reveal-fade-right">
+          <span class="section-tagline">FOUNDER'S JOURNEY</span>
+          <h2 class="section-main-title mb-3">From Clinic to<br><em class="text-italic-mint" style="color:var(--primary-sage)">Botanical Lab</em></h2>
+          <p class="section-description mb-4" style="text-align:left;">
+            Dr. Seema's journey began not in a boardroom, but in the consultation room â€” listening to thousands of patients frustrated by ineffective, chemical-laden products that promised results but delivered irritation. She resolved to create something different.
+          </p>
+          <div class="timeline-wrap">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2005</div>
+              <h4 class="timeline-title">FCPS Dermatology â€” Lahore</h4>
+              <p class="timeline-desc">Completed Fellowship in Dermatology with distinction. Began clinical practice treating thousands of patients with complex skin conditions.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2010</div>
+              <h4 class="timeline-title">Fellowship in Aesthetic Dermatology â€” London</h4>
+              <p class="timeline-desc">Advanced training in cosmetic dermatology at King's College London. Pioneered combination botanical-clinical treatments for hyperpigmentation.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2015</div>
+              <h4 class="timeline-title">Clinical Research â€” Barrier Restoration</h4>
+              <p class="timeline-desc">Published landmark research on Ceramide NP barrier restoration. Results led to the development of the first proprietary Dr. Seema formula.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2019</div>
+              <h4 class="timeline-title">Launch of Dr. Seema's Products</h4>
+              <p class="timeline-desc">Officially launched clinical skincare brand with 6 formulations. Sold out within 72 hours. Expanded to nationwide distribution within 6 months.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-year">2024</div>
+              <h4 class="timeline-title">48 Formulations Â· 50,000+ Clients</h4>
+              <p class="timeline-desc">Recognised as Pakistan's leading clinical skincare brand. Winner of 12 international beauty awards. Expanding globally in 2025.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+          </div><!-- /timeline-wrap -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 3 Â· CLINICAL PHILOSOPHY
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="philosophy-section py-5" style="padding-top:90px;padding-bottom:90px;">
+    <div class="container px-3 px-md-5">
+      <div class="section-header-center reveal-on-scroll mb-5">
+        <span class="section-tagline" style="color:var(--accent-mint);">OUR PHILOSOPHY</span>
+        <h2 class="section-main-title" style="color:#fff;">Science Meets <em style="font-style:italic;color:var(--accent-mint);">Nature</em></h2>
+        <p class="section-description" style="color:rgba(255,255,255,0.65);">Every Dr. Seema formulation is built on three uncompromising pillars â€” clinical validation, botanical purity, and luxury sensoriality.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-eyedropper"></i></div>
+            <h3 class="philosophy-title">Clinical Precision</h3>
+            <p class="philosophy-desc">Every active ingredient is selected based on peer-reviewed clinical evidence. Concentrations are optimised for maximum efficacy with zero unnecessary irritation.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-flower2"></i></div>
+            <h3 class="philosophy-title">Botanical Purity</h3>
+            <p class="philosophy-desc">Cold-pressed, wildcrafted botanicals sourced from certified organic farms. No parabens, sulfates, synthetic fragrances or endocrine-disrupting chemicals â€” ever.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-stars"></i></div>
+            <h3 class="philosophy-title">Luxury Sensoriality</h3>
+            <p class="philosophy-desc">Skincare should feel as extraordinary as it performs. Each texture is crafted for indulgent sensory pleasure â€” silky serums, velvet creams, weightless oils.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-shield-check"></i></div>
+            <h3 class="philosophy-title">Clean Beauty Standard</h3>
+            <p class="philosophy-desc">Formulated against a strict 1,400-ingredient restricted list. Certified clean, non-toxic and safe for all skin types including sensitive and reactive skin.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-recycle"></i></div>
+            <h3 class="philosophy-title">Sustainable Luxury</h3>
+            <p class="philosophy-desc">Recyclable Italian glass packaging, FSC-certified paper inserts, and carbon-neutral manufacturing. Luxury that respects the planet.</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div class="philosophy-card">
+            <div class="philosophy-icon"><i class="bi bi-heart-pulse"></i></div>
+            <h3 class="philosophy-title">Patient-First Formulation</h3>
+            <p class="philosophy-desc">Every product begins with a real patient need observed in Dr. Seema's clinic. Solutions are tested clinically before they ever reach the market.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 4 Â· DERMATOLOGY CERTIFICATIONS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="py-5" style="background:var(--bg-light-mint);padding-top:90px;padding-bottom:90px;">
+    <div class="container px-3 px-md-5">
+      <div class="section-header-center reveal-on-scroll mb-5">
+        <span class="section-tagline">CREDENTIALS & RESEARCH</span>
+        <h2 class="section-main-title">Clinical Certifications</h2>
+        <p class="section-description">Internationally recognised qualifications and research publications underpinning every Dr. Seema formulation.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-mortarboard-fill"></i></div>
+            <div class="cert-name">FCPS Dermatology</div>
+            <p class="cert-body">Fellowship of the College of Physicians & Surgeons Pakistan â€” highest post-graduate dermatology qualification.</p>
+            <span class="cert-year">AWARDED 2005</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-globe2"></i></div>
+            <div class="cert-name">Fellowship London</div>
+            <p class="cert-body">Advanced aesthetic dermatology fellowship at King's College Hospital, London â€” specialisation in laser and cosmeceuticals.</p>
+            <span class="cert-year">AWARDED 2010</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-journal-medical"></i></div>
+            <div class="cert-name">Clinical Research Publications</div>
+            <p class="cert-body">14 peer-reviewed publications in international dermatology journals on barrier restoration, hyperpigmentation correction and bio-retinoids.</p>
+            <span class="cert-year">2008 â€” PRESENT</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-patch-check-fill"></i></div>
+            <div class="cert-name">PMDC Registration</div>
+            <p class="cert-body">Pakistan Medical & Dental Council registered specialist. Active member of Pakistan Association of Dermatologists (PAD).</p>
+            <span class="cert-year">ACTIVE MEMBER</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-flower1"></i></div>
+            <div class="cert-name">Cosmeceutical Chemistry</div>
+            <p class="cert-body">Certified cosmeceutical formulation specialist. Advanced training in active ingredient micro-encapsulation and delivery systems.</p>
+            <span class="cert-year">CERTIFIED 2013</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-award-fill"></i></div>
+            <div class="cert-name">ISO 22716 GMP</div>
+            <p class="cert-body">All Dr. Seema formulations manufactured under ISO 22716 Good Manufacturing Practice certified facilities with full traceability.</p>
+            <span class="cert-year">CERTIFIED FACILITY</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+            <div class="cert-name">Clinical Trial Director</div>
+            <p class="cert-body">Directed 8 independent double-blind consumer clinical trials on formulation efficacy with 100â€“200 participants each.</p>
+            <span class="cert-year">2019 â€” PRESENT</span>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="cert-card">
+            <div class="cert-icon"><i class="bi bi-building"></i></div>
+            <div class="cert-name">AAD Membership</div>
+            <p class="cert-body">International member of the American Academy of Dermatology. Regular speaker at PAD annual conferences on clinical cosmeceuticals.</p>
+            <span class="cert-year">MEMBER SINCE 2012</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 5 Â· PATIENT TRUST STATISTICS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="about-stats-section reveal-scale">
+    <div class="container px-3 px-md-5">
+      <div class="row g-0 align-items-center justify-content-around text-center">
+        <div class="col-6 col-md-2 about-stat-item py-3">
+          <span class="about-stat-num" data-target="50000" data-suffix="+">0+</span>
+          <span class="about-stat-label">Satisfied Clients</span>
+        </div>
+        <div class="d-none d-md-block about-stat-divider"></div>
+        <div class="col-6 col-md-2 about-stat-item py-3">
+          <span class="about-stat-num" data-target="98" data-suffix="%">0%</span>
+          <span class="about-stat-label">Clinical Efficacy Rate</span>
+        </div>
+        <div class="d-none d-md-block about-stat-divider"></div>
+        <div class="col-6 col-md-2 about-stat-item py-3">
+          <span class="about-stat-num" data-target="18" data-suffix="+">0+</span>
+          <span class="about-stat-label">Years in Practice</span>
+        </div>
+        <div class="d-none d-md-block about-stat-divider"></div>
+        <div class="col-6 col-md-2 about-stat-item py-3">
+          <span class="about-stat-num" data-target="48" data-suffix="">0</span>
+          <span class="about-stat-label">Formulations</span>
+        </div>
+        <div class="d-none d-md-block about-stat-divider"></div>
+        <div class="col-6 col-md-2 about-stat-item py-3">
+          <span class="about-stat-num" data-target="14" data-suffix="+">0+</span>
+          <span class="about-stat-label">Research Publications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 6 Â· BRAND VALUES
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="py-5" style="background:var(--bg-white);padding-top:90px;padding-bottom:90px;">
+    <div class="container px-3 px-md-5">
+      <div class="section-header-center reveal-on-scroll mb-5">
+        <span class="section-tagline">WHAT WE STAND FOR</span>
+        <h2 class="section-main-title">Our Brand Values</h2>
+        <p class="section-description">Non-negotiable commitments that guide every ingredient choice, every formula, and every interaction with our clients.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-droplet-fill"></i></div>
+            <h4 class="value-title">Clean Beauty</h4>
+            <p class="value-desc">1,400+ restricted ingredients. Zero parabens, sulfates, phthalates, mineral oils or synthetic colourants in any formulation.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-heart-fill"></i></div>
+            <h4 class="value-title">Cruelty Free</h4>
+            <p class="value-desc">100% cruelty-free. Never tested on animals. Leaping Bunny certified and endorsed by international animal welfare organisations.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-flower2"></i></div>
+            <h4 class="value-title">Organic Ingredients</h4>
+            <p class="value-desc">Botanicals sourced exclusively from USDA organic certified farms. Traceable from seed to serum with full transparency on origin.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-clipboard2-pulse"></i></div>
+            <h4 class="value-title">Clinically Tested</h4>
+            <p class="value-desc">Every product backed by independent double-blind clinical trials. Published results and full methodology available on request.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-recycle"></i></div>
+            <h4 class="value-title">Sustainable Packaging</h4>
+            <p class="value-desc">Recyclable Italian glass vessels, FSC-certified paper, soy-based inks and carbon-offset manufacturing across the supply chain.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-transparency"></i></div>
+            <h4 class="value-title">Full Transparency</h4>
+            <p class="value-desc">Complete ingredient lists, concentration disclosures and clinical trial data published openly. No hidden actives, no proprietary blends that conceal truth.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-globe2"></i></div>
+            <h4 class="value-title">Inclusive for All</h4>
+            <p class="value-desc">Formulated for all Fitzpatrick skin types, all ages and all genders. Dermatologist-tested for South Asian skin tones specifically.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="value-card">
+            <div class="value-icon"><i class="bi bi-award-fill"></i></div>
+            <h4 class="value-title">Award-Winning Quality</h4>
+            <p class="value-desc">12 international beauty and dermatology awards. Recognised by Allure, Harper's Bazaar Pakistan, and the Pakistan Beauty Council.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 8 Â· COMPANY TIMELINE
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="py-5" style="background:var(--bg-white);padding-top:90px;padding-bottom:90px;">
+    <div class="container px-3 px-md-5">
+      <div class="section-header-center reveal-on-scroll mb-5">
+        <span class="section-tagline">OUR HISTORY</span>
+        <h2 class="section-main-title">The Brand Timeline</h2>
+        <p class="section-description">A decade of relentless dedication to skin science â€” from a single clinic to a nationally recognised clinical skincare brand.</p>
+      </div>
+      <div class="co-timeline">
+        <div class="co-timeline-item reveal-fade-left">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2005</div>
+            <h4 class="co-timeline-card-title">Clinical Foundation</h4>
+            <p class="co-timeline-card-desc">Dr. Seema opens her first dermatology clinic in Lahore. Begins observing a critical gap â€” patients needed clean, effective, dermatologist-grade products they could trust.</p>
+          </div>
+          <div class="co-timeline-year-badge">2005</div>
+        </div>
+        <div class="co-timeline-item left reveal-fade-right">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2010</div>
+            <h4 class="co-timeline-card-title">London Research Fellowship</h4>
+            <p class="co-timeline-card-desc">Advanced cosmetic dermatology fellowship at King's College London unlocks understanding of pharmaceutical-grade botanical delivery systems.</p>
+          </div>
+          <div class="co-timeline-year-badge">2010</div>
+        </div>
+        <div class="co-timeline-item reveal-fade-left">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2015</div>
+            <h4 class="co-timeline-card-title">Barrier Research Breakthrough</h4>
+            <p class="co-timeline-card-desc">Landmark published study on Ceramide NP barrier restoration in South Asian skin types lays the scientific foundation for the product line.</p>
+          </div>
+          <div class="co-timeline-year-badge">2015</div>
+        </div>
+        <div class="co-timeline-item left reveal-fade-right">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2019</div>
+            <h4 class="co-timeline-card-title">Brand Launch</h4>
+            <p class="co-timeline-card-desc">Dr. Seema's Products officially launches with 6 hero formulations. First batch sells out in 72 hours. Distribution scales to 40+ cities in 6 months.</p>
+          </div>
+          <div class="co-timeline-year-badge">2019</div>
+        </div>
+        <div class="co-timeline-item reveal-fade-left">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2021</div>
+            <h4 class="co-timeline-card-title">International Recognition</h4>
+            <p class="co-timeline-card-desc">Wins first international award at the Global Dermatology Excellence Awards. Featured in Harper's Bazaar Pakistan and Vogue Arabia Beauty Specials.</p>
+          </div>
+          <div class="co-timeline-year-badge">2021</div>
+        </div>
+        <div class="co-timeline-item left reveal-fade-right">
+          <div class="co-timeline-card">
+            <div class="co-timeline-card-year">2024</div>
+            <h4 class="co-timeline-card-title">50,000+ Clients Â· Global Expansion</h4>
+            <p class="co-timeline-card-desc">Portfolio grows to 48 clinical formulations. 50,000+ satisfied clients across Pakistan. International launch planned for UAE, UK and Canada in 2025.</p>
+          </div>
+          <div class="co-timeline-year-badge">2024</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 9 Â· AWARDS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="py-5" style="background:var(--bg-cream);padding-top:90px;padding-bottom:90px;">
+    <div class="container px-3 px-md-5">
+      <div class="section-header-center reveal-on-scroll mb-5">
+        <span class="section-tagline">RECOGNITION</span>
+        <h2 class="section-main-title">Awards & Honours</h2>
+        <p class="section-description">Internationally recognised for clinical excellence, sustainable innovation and outstanding product performance.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-trophy-fill award-icon"></i>
+            <div class="award-name">Best Clinical Skincare Brand</div>
+            <div class="award-org">GLOBAL DERM EXCELLENCE AWARDS</div>
+            <div class="award-year">2021 Â· 2023</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-award-fill award-icon"></i>
+            <div class="award-name">Allure Best of Beauty</div>
+            <div class="award-org">ALLURE MAGAZINE</div>
+            <div class="award-year">CELLULAR RENEWAL SERUM Â· 2022</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-star-fill award-icon"></i>
+            <div class="award-name">Top Dermatologist Pakistan</div>
+            <div class="award-org">PAKISTAN BEAUTY COUNCIL</div>
+            <div class="award-year">2020 Â· 2021 Â· 2022 Â· 2023</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-patch-check-fill award-icon"></i>
+            <div class="award-name">Clean Beauty Pioneer</div>
+            <div class="award-org">ECO BEAUTY AWARDS LONDON</div>
+            <div class="award-year">2022</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-gem award-icon"></i>
+            <div class="award-name">Luxury Skincare Excellence</div>
+            <div class="award-org">HARPER'S BAZAAR PAKISTAN</div>
+            <div class="award-year">2023</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-shield-fill-check award-icon"></i>
+            <div class="award-name">Dermatologist of the Year</div>
+            <div class="award-org">PAD ANNUAL CONFERENCE</div>
+            <div class="award-year">2022</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-flower2 award-icon"></i>
+            <div class="award-name">Sustainable Brand Award</div>
+            <div class="award-org">GREEN BEAUTY GLOBAL</div>
+            <div class="award-year">2023</div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 reveal-on-scroll">
+          <div class="award-card">
+            <i class="bi bi-heart-fill award-icon"></i>
+            <div class="award-name">Consumer's Choice Award</div>
+            <div class="award-org">VOGUE ARABIA BEAUTY</div>
+            <div class="award-year">2024</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 10 Â· LUXURY CTA BANNER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="about-cta-section reveal-scale">
+    <div class="container px-3 px-md-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <span class="section-tagline" style="color:var(--accent-mint);">START YOUR JOURNEY</span>
+          <h2 class="section-main-title" style="color:#fff;font-size:clamp(2.2rem,4vw,3.6rem);">
+            Experience the Science<br><em style="font-style:italic;color:var(--accent-mint);">of Radiant Skin</em>
+          </h2>
+          <p class="section-description mb-5" style="color:rgba(255,255,255,0.72);max-width:520px;margin-left:auto;margin-right:auto;">
+            Explore Dr. Seema's complete collection of clinical skincare formulations â€” or book a free virtual consultation with our dermatology team.
+          </p>
+          <div class="d-flex flex-wrap gap-3 justify-content-center">
+            <a href="/shop" class="btn-hero-primary px-5 py-3" style="font-size:1rem;">
+              Shop Formulations <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <button class="btn-hero-outline px-5 py-3" style="font-size:1rem;" onclick="showToast && showToast('Booking virtual consultation â€” our team will reach out shortly.')">
+              Book Free Consult <i class="bi bi-chat-heart ms-2"></i>
+            </button>
+          </div>
+          <!-- Trust badges -->
+          <div class="d-flex flex-wrap justify-content-center gap-4 mt-5">
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-patch-check-fill" style="color:var(--accent-mint);font-size:1.1rem;"></i> Dermatologist Certified
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-heart-fill" style="color:var(--accent-mint);font-size:1.1rem;"></i> Cruelty Free
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-flower2" style="color:var(--accent-mint);font-size:1.1rem;"></i> Organic Actives
+            </div>
+            <div class="d-flex align-items-center gap-2" style="color:rgba(255,255,255,0.65);font-size:0.82rem;">
+              <i class="bi bi-shield-check" style="color:var(--accent-mint);font-size:1.1rem;"></i> Clinically Tested
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 11 Â· NEWSLETTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-card-wrapper reveal-scale">
+        <span class="section-tagline">CLUB SEEMA INNER CIRCLE</span>
+        <h2 class="section-main-title">Receive 15% Off Your First Order</h2>
+        <p class="section-description mb-4" style="max-width:540px;margin-left:auto;margin-right:auto;">
+          Join Dr. Seema's VIP circle for dermatologist skincare guides, early access to new formulations, and exclusive clinical insights.
+        </p>
+        <form id="newsletter-form">
+          <div class="newsletter-input-group">
+            <input type="email" class="newsletter-input" placeholder="Enter your email address..." required aria-label="Email address">
+            <button type="submit" class="btn-hero-primary px-4">Subscribe &amp; Claim 15%</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       SECTION 12 Â· FOOTER
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <footer id="footer" class="footer-luxury">
+    <div class="container">
+      <div class="row g-4 justify-content-between">
+        <div class="col-lg-4 col-md-6">
+          <a href="/" class="brand-logo mb-2">
+            <div class="logo-icon-seal">DS</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title" style="color:#fff;">Dr. Seema's</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          </a>
+          <p class="small mb-3 mt-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;line-height:1.5;max-width:300px;">
+            Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type.
+          </p>
+          <div class="d-flex align-items-center gap-2">
+            <a href="#" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop All</a></li>
+            <li><a href="/collections">Collections</a></li>
+            <li><a href="/shop?filter=bestseller">Best Sellers</a></li>
+            <li><a href="/about">About Dr. Seema</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">Collections</h5>
+          <ul class="footer-links-list">
+            <li><a href="/shop?filter=serums">Cellular Serums</a></li>
+            <li><a href="/shop?filter=hydration">Barrier Creams</a></li>
+            <li><a href="/shop?filter=cleansers">Gentle Cleansers</a></li>
+            <li><a href="/shop?filter=antiaging">Eye Essences</a></li>
+            <li><a href="/shop?filter=sunscreen">Sun Protection</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5 class="footer-title">Customer Care</h5>
+          <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i>support@drseemasproducts.pk</div>
+          <div class="small mb-2" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i>+92 (042) 3555-SEEMA</div>
+          <div class="small mb-3" style="color:rgba(255,255,255,0.5);font-size:0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i>Gulberg III, Lahore</div>
+          <button class="btn btn-sm btn-outline-light rounded-pill px-3 py-1" style="font-size:0.78rem;" onclick="showToast && showToast('Virtual Dermatology Assistant Active')">
+            Virtual Derm Consult
+          </button>
+        </div>
+      </div>
+      <div class="footer-bottom-bar">
+        <div>Â© 2026 Dr. Seema's Products. All rights reserved.</div>
+        <div class="d-flex align-items-center gap-2">
+          <a href="#" style="color:rgba(255,255,255,0.5);">Privacy Policy</a>
+          <span>â€¢</span>
+          <a href="#" style="color:rgba(255,255,255,0.5);">Terms</a>
+          <span>â€¢</span>
+          <a href="#" style="color:rgba(255,255,255,0.5);">Returns</a>
+        </div>
+        <div class="d-flex align-items-center gap-2 fs-6" style="color:rgba(255,255,255,0.5);">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-shield-check"></i>
+        </div>
+      </div>
+      <div class="footer-credits-bar">
+        <span class="footer-credits-text">Prepared by Nova Fuxion</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+       DRAWERS & MODALS
+  â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• -->
+  <div id="cart-backdrop" class="drawer-backdrop"></div>
+  <div id="cart-drawer" class="cart-drawer-panel">
+    <div class="cart-drawer-header">
+      <h5 class="font-serif mb-0 fs-4">Shopping Bag (<span class="cart-badge-count">0</span>)</h5>
+      <button class="btn-close cart-close-btn"></button>
+    </div>
+    <div class="free-shipping-bar">
+      <span id="shipping-bar-status">You are PKR 12,000 away from Complimentary Shipping!</span>
+      <div class="shipping-progress-track"><div class="shipping-progress-fill"></div></div>
+    </div>
+    <div class="cart-items-body"></div>
+    <div class="cart-drawer-footer">
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <span class="text-muted">Subtotal</span><span class="fw-bold cart-subtotal-val">PKR 0</span>
+      </div>
+      <div class="d-flex align-items-center justify-content-between mb-3 fs-5 fw-bold">
+        <span>Total</span><span class="text-sage cart-total-val">PKR 0</span>
+      </div>
+      <button class="btn-hero-primary w-100" onclick="showToast && showToast('Proceeding to checkout...')">
+        Proceed to Checkout <i class="bi bi-lock-fill ms-2"></i>
+      </button>
+    </div>
+  </div>
+
+  <div id="quickview-modal" class="modal-overlay-custom">
+    <div class="quickview-card-modal p-4 p-md-5" style="position:relative;">
+      <button class="btn-close position-absolute top-0 end-0 m-4 quickview-close-btn"></button>
+      <div class="row g-4 align-items-center">
+        <div class="col-md-6 text-center">
+          <img id="qv-main-img" src="" class="img-fluid rounded-4 shadow-sm" alt="Product">
+        </div>
+        <div class="col-md-6">
+          <span id="qv-category" class="product-category-sub"></span>
+          <h2 id="qv-title" class="font-serif fs-2 mb-2"></h2>
+          <div id="qv-price" class="fs-4 fw-bold text-sage mb-3"></div>
+          <p id="qv-desc" class="text-muted mb-4"></p>
+          <div class="d-flex gap-3">
+            <button id="qv-add-btn" class="btn-hero-primary flex-grow-1">Add To Bag <i class="bi bi-bag-plus"></i></button>
+            <button class="btn-hero-outline" onclick="showToast && showToast('Saved to wishlist')"><i class="bi bi-heart"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="search-overlay" class="modal-overlay-custom">
+    <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width:680px;">
+      <div class="d-flex align-items-center justify-content-between mb-4">
+        <h4 class="font-serif mb-0">Search Formulations</h4>
+        <button class="btn-close search-close-btn"></button>
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+        <input id="search-input" type="text" class="form-control border-start-0 py-3" placeholder="Search by skin concern, ingredient or formulation...">
+      </div>
+      <div id="search-results-box" style="max-height:320px;overflow-y:auto;">
+        <p class="text-muted text-center py-4">Start typing to search formulations...</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-drawer" class="mobile-offcanvas-menu">
+    <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
+      <a href="/" class="brand-logo">
+        <div class="logo-icon-seal">DS</div>
+        <div><span class="logo-text-title">Dr. Seema's</span><span class="logo-text-tag">Clinical Skincare</span></div>
+      </a>
+      <button class="btn-close" onclick="document.getElementById('mobile-drawer').classList.remove('active')"></button>
+    </div>
+    <ul class="mobile-nav-list list-unstyled mb-4">
+      <li><a href="/"><i class="bi bi-house me-2 text-sage"></i> Home</a></li>
+      <li><a href="/shop"><i class="bi bi-bag me-2 text-sage"></i> Shop</a></li>
+      <li><a href="/collections"><i class="bi bi-grid me-2 text-sage"></i> Collections</a></li>
+      <li><a href="/shop?filter=new"><i class="bi bi-stars me-2 text-sage"></i> New Arrivals</a></li>
+      <li><a href="/shop?filter=bestseller"><i class="bi bi-fire me-2 text-sage"></i> Best Sellers</a></li>
+      <li><a href="/about"><i class="bi bi-person-badge me-2 text-sage"></i> About Dr. Seema</a></li>
+      <li><a href="#footer"><i class="bi bi-envelope me-2 text-sage"></i> Contact</a></li>
+    </ul>
+    <div class="mt-auto pt-3 border-top d-flex flex-column gap-2">
+      <button class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2"
+        onclick="showToast && showToast('Saved wishlist'); document.getElementById('mobile-drawer').classList.remove('active');">
+        <span><i class="bi bi-heart me-2"></i> Saved Wishlist</span>
+        <span class="badge bg-sage rounded-pill wishlist-badge-count">0</span>
+      </button>
+      <button class="btn-hero-primary w-100 mt-2"
+        onclick="showToast && showToast('Booking consultation...'); document.getElementById('mobile-drawer').classList.remove('active');">
+        Book Free Consultation
+      </button>
+    </div>
+  </div>
+
+  </div><!-- /#app-content -->
+
+  <!-- ABOUT PAGE COUNTER ANIMATION -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const strip = document.querySelector('.about-stats-section');
+      if (!strip) return;
+      const easeOut = t => 1 - Math.pow(1 - t, 3);
+      let fired = false;
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting && !fired) {
+            fired = true;
+            strip.querySelectorAll('.about-stat-num[data-target]').forEach(el => {
+              const target = parseFloat(el.dataset.target);
+              const suffix = el.dataset.suffix || '';
+              const dur = 1800;
+              const start = performance.now();
+              function step(now) {
+                const p = Math.min((now - start) / dur, 1);
+                const val = Math.round(easeOut(p) * target);
+                el.textContent = (target >= 1000 ? val.toLocaleString('en-PK') : val) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+                else el.textContent = (target >= 1000 ? target.toLocaleString('en-PK') : target) + suffix;
+              }
+              requestAnimationFrame(step);
+            });
+          }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(strip);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/chatbot.js" defer></script>
+</body>
+</html>
+
