@@ -1,230 +1,63 @@
-﻿<section id="hero" class="hero-section">
-  <div class="hero-bg-carousel">
-    {% for block in section.blocks %}
-      <div class="hero-bg-slide {% if forloop.first %}active{% endif %}"
-        style="background-image:url('{{ block.settings.image | img_url: "master" }}');">
-        {% if section.settings.overlay_opacity < 10 %}{% assign hero_opacity_css = '0.0' | append: section.settings.overlay_opacity %}{% else %}{% assign hero_opacity_css = '0.' | append: section.settings.overlay_opacity %}{% endif %}
-        <div class="hero-overlay-dark" style="opacity:{{ hero_opacity_css }};background-color:{{ section.settings.overlay_color }};"></div>
-      </div>
-    {% endfor %}
-  </div>
-
+﻿<section id="hero" class="hero-section" style="min-height:88vh;background:linear-gradient(135deg,rgba(15,26,25,0.92),rgba(21,34,33,0.88)),url('{{ section.settings.hero_image_1 | img_url: "master" | default: "" }}') center/cover no-repeat;display:flex;align-items:center;overflow:hidden;padding-top:100px;padding-bottom:80px;">
   <div class="container relative-z2">
-    <div class="row align-items-center py-4 py-md-5">
+    <div class="row align-items-center py-4">
       <div class="col-lg-8 col-xl-7 mx-auto text-center">
         <div class="hero-content-slider">
-          {% for block in section.blocks %}
-            <div class="hero-text-item {% if forloop.first %}active{% endif %}" {{ block.shopify_attributes }}>
-              {% if block.settings.pill_text != blank %}
-                <span class="hero-pill-tag">
-                  <i class="bi bi-{{ block.settings.pill_icon }} text-mint me-1"></i>
-                  {{ block.settings.pill_text }}
-                </span>
-              {% endif %}
-              <h1 class="hero-main-heading" style="color:{{ section.settings.heading_color }};">
-                {{ block.settings.heading }}
-                {% if block.settings.subheading != blank %}
-                  <br><span class="text-italic-mint" style="color:{{ section.settings.accent_color }};">{{ block.settings.subheading }}</span>
-                {% endif %}
-              </h1>
-              {% if block.settings.text != blank %}
-                <p class="hero-subtext" style="color:{{ section.settings.text_color }};">{{ block.settings.text }}</p>
-              {% endif %}
-              <div class="hero-btn-group">
-                {% if block.settings.btn_primary_text != blank %}
-                  <a href="{{ block.settings.btn_primary_url }}" class="btn-hero-primary"
-                    style="background-color:{{ section.settings.btn_primary_color }};border-color:{{ section.settings.btn_primary_color }};">
-                    {{ block.settings.btn_primary_text }} <i class="bi bi-arrow-right ms-1"></i>
-                  </a>
-                {% endif %}
-                {% if block.settings.btn_secondary_text != blank %}
-                  <a href="{{ block.settings.btn_secondary_url }}" class="btn-hero-outline"
-                    style="color:{{ section.settings.heading_color }};border-color:{{ section.settings.heading_color }};">
-                    {{ block.settings.btn_secondary_text }}
-                  </a>
-                {% endif %}
-              </div>
+          <div class="hero-text-item active">
+            <span class="hero-pill-tag"><i class="bi bi-patch-check-fill text-mint me-1"></i> DERMATOLOGIST FORMULATED</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_1 }}<br><span class="text-italic-mint">{{ section.settings.subheading_1 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_1 }}</p>
+            <div class="hero-btn-group">
+              <a href="{{ routes.collections_url }}" class="btn-hero-primary">Shop Formulations <i class="bi bi-arrow-right ms-1"></i></a>
+              <a href="/pages/skin-concerns" class="btn-hero-outline">Skin Concerns <i class="bi bi-arrow-right ms-1"></i></a>
             </div>
-          {% endfor %}
+          </div>
+          <div class="hero-text-item">
+            <span class="hero-pill-tag"><i class="bi bi-stars text-mint me-1"></i> BIO-RETINOL INNOVATION</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_2 }}<br><span class="text-italic-mint">{{ section.settings.subheading_2 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_2 }}</p>
+            <div class="hero-btn-group">
+              <a href="{{ routes.collections_url }}" class="btn-hero-primary">Explore Collections <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+          <div class="hero-text-item">
+            <span class="hero-pill-tag"><i class="bi bi-droplet-fill text-mint me-1"></i> 72-HOUR BARRIER MOISTURE</span>
+            <h1 class="hero-main-heading">{{ section.settings.heading_3 }}<br><span class="text-italic-mint">{{ section.settings.subheading_3 }}</span></h1>
+            <p class="hero-subtext">{{ section.settings.text_3 }}</p>
+            <div class="hero-btn-group">
+              <a href="{{ routes.collections_url }}" class="btn-hero-primary">Shop Now <i class="bi bi-arrow-right ms-1"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  {% if section.blocks.size > 1 %}
-    <div class="hero-bottom-controls">
-      <div class="hero-dots-container">
-        {% for block in section.blocks %}
-          <button class="hero-dot {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}"></button>
-        {% endfor %}
-      </div>
+  <div class="hero-bottom-controls">
+    <div class="hero-dots-container">
+      <button class="hero-dot active" data-index="0"></button>
+      <button class="hero-dot" data-index="1"></button>
+      <button class="hero-dot" data-index="2"></button>
     </div>
-    <div class="hero-progress-line"></div>
-  {% endif %}
+  </div>
+  <div class="hero-progress-line"></div>
 </section>
 
 {% schema %}
 {
-  "name": "Hero Slider",
-  "tag": "section",
-  "class": "section-hero",
+  "name": "Hero",
   "settings": [
-    {
-      "type": "header",
-      "content": "Overlay"
-    },
-    {
-      "type": "color",
-      "id": "overlay_color",
-      "label": "Overlay color",
-      "default": "#152221"
-    },
-    {
-      "type": "range",
-      "id": "overlay_opacity",
-      "label": "Overlay opacity",
-      "min": 0,
-      "max": 90,
-      "step": 5,
-      "unit": "%",
-      "default": 55
-    },
-    {
-      "type": "header",
-      "content": "Text Colors"
-    },
-    {
-      "type": "color",
-      "id": "heading_color",
-      "label": "Heading color",
-      "default": "#ffffff"
-    },
-    {
-      "type": "color",
-      "id": "accent_color",
-      "label": "Accent / italic color",
-      "default": "#C8E6D5"
-    },
-    {
-      "type": "color",
-      "id": "text_color",
-      "label": "Body text color",
-      "default": "#d4e8e0"
-    },
-    {
-      "type": "header",
-      "content": "Buttons"
-    },
-    {
-      "type": "color",
-      "id": "btn_primary_color",
-      "label": "Primary button color",
-      "default": "#2F6B66"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "slide",
-      "name": "Slide",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Background image"
-        },
-        {
-          "type": "text",
-          "id": "pill_icon",
-          "label": "Pill badge icon (Bootstrap Icons name)",
-          "default": "patch-check-fill",
-          "info": "e.g. patch-check-fill, stars, droplet-fill"
-        },
-        {
-          "type": "text",
-          "id": "pill_text",
-          "label": "Pill badge text",
-          "default": "DERMATOLOGIST FORMULATED"
-        },
-        {
-          "type": "text",
-          "id": "heading",
-          "label": "Heading",
-          "default": "Pure Clinical Science."
-        },
-        {
-          "type": "text",
-          "id": "subheading",
-          "label": "Italic accent subheading",
-          "default": "Uncompromising Radiance."
-        },
-        {
-          "type": "textarea",
-          "id": "text",
-          "label": "Body text",
-          "default": "Engineered by Dr. Sema with cold-pressed organic botanicals."
-        },
-        {
-          "type": "text",
-          "id": "btn_primary_text",
-          "label": "Primary button text",
-          "default": "Shop Formulations"
-        },
-        {
-          "type": "url",
-          "id": "btn_primary_url",
-          "label": "Primary button URL"
-        },
-        {
-          "type": "text",
-          "id": "btn_secondary_text",
-          "label": "Secondary button text",
-          "default": ""
-        },
-        {
-          "type": "url",
-          "id": "btn_secondary_url",
-          "label": "Secondary button URL"
-        }
-      ]
-    }
-  ],
-  "presets": [
-    {
-      "name": "Hero Slider",
-      "blocks": [
-        {
-          "type": "slide",
-          "settings": {
-            "pill_text": "DERMATOLOGIST FORMULATED",
-            "heading": "Pure Clinical Science.",
-            "subheading": "Uncompromising Radiance.",
-            "text": "Engineered by Dr. Sema with cold-pressed organic botanicals.",
-            "btn_primary_text": "Shop Formulations"
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "pill_text": "BIO-RETINOL INNOVATION",
-            "heading": "Cellular Renewal.",
-            "subheading": "Without Irritation.",
-            "text": "Natural botanical retinol alternatives that smooth fine lines gently.",
-            "btn_primary_text": "Explore Bio-Retinol"
-          }
-        },
-        {
-          "type": "slide",
-          "settings": {
-            "pill_text": "72-HOUR BARRIER MOISTURE",
-            "heading": "Deep Ceramide Hydration.",
-            "subheading": "Intensive Repair.",
-            "text": "Ceramide-3 and Sacred Lotus Extract lock in deep hydration.",
-            "btn_primary_text": "Shop Moisture Creams"
-          }
-        }
-      ]
-    }
+    { "type": "image_picker", "id": "hero_image_1", "label": "Slide 1 Image" },
+    { "type": "image_picker", "id": "hero_image_2", "label": "Slide 2 Image" },
+    { "type": "image_picker", "id": "hero_image_3", "label": "Slide 3 Image" },
+    { "type": "text", "id": "heading_1", "label": "Slide 1 Heading", "default": "Pure Clinical Science." },
+    { "type": "text", "id": "subheading_1", "label": "Slide 1 Subheading", "default": "Uncompromising Radiance." },
+    { "type": "textarea", "id": "text_1", "label": "Slide 1 Text", "default": "Engineered with cold-pressed organic botanicals and bio-peptides." },
+    { "type": "text", "id": "heading_2", "label": "Slide 2 Heading", "default": "Cellular Renewal." },
+    { "type": "text", "id": "subheading_2", "label": "Slide 2 Subheading", "default": "Without Irritation." },
+    { "type": "textarea", "id": "text_2", "label": "Slide 2 Text", "default": "Natural botanical retinol alternatives that smooth fine lines gently." },
+    { "type": "text", "id": "heading_3", "label": "Slide 3 Heading", "default": "Deep Ceramide Hydration." },
+    { "type": "text", "id": "subheading_3", "label": "Slide 3 Subheading", "default": "Intensive Repair." },
+    { "type": "textarea", "id": "text_3", "label": "Slide 3 Text", "default": "Ceramide-3 and Sacred Lotus Extract to lock in deep hydration." }
   ]
 }
 {% endschema %}
-
