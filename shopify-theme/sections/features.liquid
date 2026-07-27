@@ -1,38 +1,176 @@
-<section id="features" class="features-section">
+<section id="features" class="features-section"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  ">
   <div class="container">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="section-header-center reveal-on-scroll mb-4">
+        {% if section.settings.subheading != blank %}
+          <span class="section-tagline" style="color:{{ section.settings.icon_color }};">{{ section.settings.subheading }}</span>
+        {% endif %}
+        {% if section.settings.heading != blank %}
+          <h2 class="section-main-title" style="color:{{ section.settings.text_color }};">{{ section.settings.heading }}</h2>
+        {% endif %}
+      </div>
+    {% endif %}
     <div class="row g-4 justify-content-center">
-      <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
-        <div class="feature-card-luxury">
-          <div class="feature-icon-box"><i class="bi bi-patch-check"></i></div>
-          <h4 class="feature-title">Dermatologist Tested</h4>
-          <p class="feature-desc">Rigorously formulated and clinical trial verified by Dr. Seema for optimal skin tolerance.</p>
+      {% for block in section.blocks %}
+        <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll" {{ block.shopify_attributes }}>
+          <div class="feature-card-luxury" style="background-color:{{ section.settings.card_bg_color }};">
+            <div class="feature-icon-box" style="color:{{ section.settings.icon_color }};">
+              <i class="bi bi-{{ block.settings.icon }}"></i>
+            </div>
+            <h4 class="feature-title" style="color:{{ section.settings.text_color }};">{{ block.settings.heading }}</h4>
+            <p class="feature-desc" style="color:{{ section.settings.text_color }};">{{ block.settings.description }}</p>
+          </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
-        <div class="feature-card-luxury">
-          <div class="feature-icon-box"><i class="bi bi-flower2"></i></div>
-          <h4 class="feature-title">100% Clean Actives</h4>
-          <p class="feature-desc">Zero parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances.</p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
-        <div class="feature-card-luxury">
-          <div class="feature-icon-box"><i class="bi bi-recycle"></i></div>
-          <h4 class="feature-title">Sustainable Luxury</h4>
-          <p class="feature-desc">Eco-conscious recyclable Italian glass vessels and FSC certified organic packaging.</p>
-        </div>
-      </div>
-      <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
-        <div class="feature-card-luxury">
-          <div class="feature-icon-box"><i class="bi bi-truck"></i></div>
-          <h4 class="feature-title">Express Shipping</h4>
-          <p class="feature-desc">Complimentary doorstep delivery across Pakistan on all orders above PKR 12,000.</p>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 {% schema %}
-{ "name": "Features", "settings": [] }
+{
+  "name": "Features Bar",
+  "tag": "section",
+  "class": "section-features",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Tagline / subheading",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#f8faf8"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#152221"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 48
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Bootstrap icon name",
+          "info": "Enter a Bootstrap Icons name, e.g. patch-check, flower2, truck, recycle",
+          "default": "patch-check"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Short description of this feature."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Bar",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "patch-check",
+            "heading": "Dermatologist Tested",
+            "description": "Rigorously formulated and clinical trial verified by Dr. Seema for optimal skin tolerance."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "flower2",
+            "heading": "100% Clean Actives",
+            "description": "Zero parabens, sulfates, phthalates, synthetic dyes, or artificial fragrances."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "recycle",
+            "heading": "Sustainable Luxury",
+            "description": "Eco-conscious recyclable Italian glass vessels and FSC certified organic packaging."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "truck",
+            "heading": "Express Shipping",
+            "description": "Complimentary doorstep delivery across Pakistan on all orders above PKR 12,000."
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

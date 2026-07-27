@@ -1,34 +1,217 @@
-<section id="bestsellers" class="bestsellers-section">
+<section id="bestsellers" class="bestsellers-section"
+  style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
   <div class="container">
     <div class="section-header-center reveal-on-scroll">
-      <span class="section-tagline">Clinical Favorites</span>
-      <h2 class="section-main-title">Best Selling Formulations</h2>
-      <p class="section-description">Our most revered dermatologist-approved solutions.</p>
+      {% if section.settings.tagline != blank %}
+        <span class="section-tagline" style="color:{{ section.settings.accent_color }};">{{ section.settings.tagline }}</span>
+      {% endif %}
+      <h2 class="section-main-title" style="color:{{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="section-description" style="color:{{ section.settings.text_color }};">{{ section.settings.description }}</p>
+      {% endif %}
     </div>
-    <div class="filter-tabs-luxury reveal-on-scroll">
-      <button class="filter-tab-btn active" data-filter="all">All Formulations</button>
-      <button class="filter-tab-btn" data-filter="serums">Serums</button>
-      <button class="filter-tab-btn" data-filter="creams">Moisturizers</button>
-      <button class="filter-tab-btn" data-filter="cleansers">Cleansers</button>
-      <button class="filter-tab-btn" data-filter="oils">Treatment Oils</button>
-    </div>
+
+    {% if section.settings.show_filter_tabs %}
+      <div class="filter-tabs-luxury reveal-on-scroll">
+        <button class="filter-tab-btn active" data-filter="all">{{ section.settings.filter_all_label }}</button>
+        {% for block in section.blocks %}
+          {% if block.type == 'filter_tab' %}
+            <button class="filter-tab-btn" data-filter="{{ block.settings.filter_value }}" {{ block.shopify_attributes }}>
+              {{ block.settings.label }}
+            </button>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <div class="row g-4 bestsellers-grid">
       {% assign bs_col = collections[section.settings.collection] %}
       {% assign products_list = bs_col.products | default: collections.all.products %}
-      {% for product in products_list limit: 6 %}
-        <div class="col-12 col-md-6 col-lg-4" data-category="{{ product.type | downcase }}">
+      {% for product in products_list limit: section.settings.products_count %}
+        <div class="col-12 col-md-6 col-lg-{{ 12 | divided_by: section.settings.columns }}" data-category="{{ product.type | downcase }}">
           {% render 'product-card', product: product %}
         </div>
       {% endfor %}
     </div>
+
+    {% if section.settings.show_view_all %}
+      <div class="text-center mt-5">
+        <a href="{{ section.settings.view_all_url | default: routes.collections_url }}" class="btn-hero-outline"
+          style="color:{{ section.settings.accent_color }};border-color:{{ section.settings.accent_color }};">
+          {{ section.settings.view_all_text }}
+        </a>
+      </div>
+    {% endif %}
   </div>
 </section>
 
 {% schema %}
 {
   "name": "Bestsellers",
+  "tag": "section",
+  "class": "section-bestsellers",
   "settings": [
-    { "type": "collection", "id": "collection", "label": "Best Sellers Collection" }
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Clinical Favorites"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Best Selling Formulations"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Our most revered dermatologist-approved solutions."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_count",
+      "label": "Number of products",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns per row",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "header",
+      "content": "Filter Tabs"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_tabs",
+      "label": "Show filter tabs",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "filter_all_label",
+      "label": "\"All\" tab label",
+      "default": "All Formulations"
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show view all button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View all text",
+      "default": "View All Formulations"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View all URL"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter_tab",
+      "name": "Filter Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Tab label",
+          "default": "Serums"
+        },
+        {
+          "type": "text",
+          "id": "filter_value",
+          "label": "Filter value (product type, lowercase)",
+          "default": "serums"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bestsellers",
+      "blocks": [
+        { "type": "filter_tab", "settings": { "label": "Serums", "filter_value": "serums" } },
+        { "type": "filter_tab", "settings": { "label": "Moisturizers", "filter_value": "creams" } },
+        { "type": "filter_tab", "settings": { "label": "Cleansers", "filter_value": "cleansers" } },
+        { "type": "filter_tab", "settings": { "label": "Treatment Oils", "filter_value": "oils" } }
+      ]
+    }
   ]
 }
 {% endschema %}

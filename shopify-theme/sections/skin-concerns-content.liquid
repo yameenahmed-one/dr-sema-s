@@ -1,0 +1,127 @@
+<div id="concerns" style="background:var(--bg-light-mint);">
+
+  <!-- Sticky Tab Bar -->
+  <div style="background:#fff;position:sticky;top:70px;z-index:900;border-bottom:1px solid var(--border-light);box-shadow:0 2px 12px rgba(47,107,102,0.06);">
+    <div class="container-fluid px-3 px-md-5 py-3">
+      <div style="display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;">
+        {% for block in section.blocks %}
+          <button class="sc-tab-btn {% if forloop.first %}active{% endif %}" data-concern="concern-{{ forloop.index }}"
+            style="display:inline-flex;align-items:center;gap:6px;background:var(--bg-light-mint);color:var(--primary-sage);border:1px solid var(--border-light);padding:9px 22px;border-radius:999px;font-size:0.82rem;font-weight:600;white-space:nowrap;cursor:pointer;flex-shrink:0;transition:all 0.25s;">
+            <i class="{{ block.settings.icon }}"></i> {{ block.settings.tab_name }}
+          </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Concern Panels -->
+  {% for block in section.blocks %}
+    <div class="sc-panel {% if forloop.first %}active{% endif %}" id="concern-{{ forloop.index }}" style="{% unless forloop.first %}display:none;{% endunless %}">
+
+      <!-- Banner -->
+      <div class="container-fluid px-0 pt-4">
+        <div class="px-3 px-md-5">
+          <div style="border-radius:var(--radius-lg);overflow:hidden;min-height:320px;position:relative;display:flex;flex-direction:column;justify-content:center;padding:48px;background:url('{{ block.settings.banner_image | img_url: "master" }}') center/cover;">
+            <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(21,34,33,0.9),rgba(47,107,102,0.7));"></div>
+            <div style="position:relative;z-index:1;">
+              <span style="font-size:0.68rem;font-weight:700;letter-spacing:0.18em;color:var(--accent-mint);display:block;margin-bottom:12px;">CLINICAL CONCERN</span>
+              <h2 style="font-family:var(--font-heading);font-size:clamp(2rem,4vw,3.2rem);color:#fff;margin-bottom:12px;">{{ block.settings.title }}</h2>
+              <p style="font-size:0.95rem;color:rgba(255,255,255,0.8);margin-bottom:20px;max-width:560px;">{{ block.settings.description }}</p>
+              <div>
+                {% assign symptoms = block.settings.symptoms | split: ',' %}
+                {% for s in symptoms %}
+                  <span style="display:inline-flex;align-items:center;background:rgba(200,230,213,0.15);border:1px solid rgba(200,230,213,0.3);color:var(--accent-mint);font-size:0.78rem;font-weight:600;padding:5px 14px;border-radius:999px;margin:4px;">{{ s | strip }}</span>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Products from collection -->
+      <div class="container px-3 px-md-5 py-5">
+        <div class="section-header-center mb-4">
+          <span class="section-tagline">DERMATOLOGIST RECOMMENDED</span>
+          <h3 style="font-family:var(--font-heading);font-size:clamp(1.5rem,3vw,2.2rem);color:var(--text-dark);">{{ block.settings.products_heading }}</h3>
+        </div>
+        {% assign concern_col = collections[block.settings.collection_handle] %}
+        {% if concern_col %}
+          <div class="row g-4">
+            {% for product in concern_col.products limit: 3 %}
+              <div class="col-lg-4 col-md-6">{% render 'product-card', product: product %}</div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p class="text-center text-muted">Assign a collection handle in theme editor to show products here.</p>
+        {% endif %}
+      </div>
+
+      <!-- Expert Tips -->
+      <div style="background:var(--dark-forest);padding:60px 0;">
+        <div class="container px-3 px-md-5">
+          <div class="section-header-center mb-5">
+            <span class="section-tagline" style="color:var(--accent-mint);">DR. SEEMA'S ADVICE</span>
+            <h3 style="font-family:var(--font-heading);font-size:clamp(1.5rem,3vw,2.2rem);color:#fff;">Expert Tips</h3>
+          </div>
+          <div class="row g-4">
+            {% assign tips = block.settings.tips | split: '||' %}
+            {% for tip in tips %}
+              {% assign parts = tip | split: '::' %}
+              <div class="col-lg-4">
+                <div style="background:var(--dark-forest);border:1px solid rgba(255,255,255,0.1);border-left:3px solid var(--primary-sage);border-radius:var(--radius-md);padding:28px;height:100%;">
+                  <div style="font-family:var(--font-heading);font-size:3rem;font-weight:700;color:var(--accent-mint);line-height:1;margin-bottom:8px;">0{{ forloop.index }}</div>
+                  <div style="font-weight:700;color:#fff;font-size:0.95rem;margin-bottom:8px;">{{ parts[0] }}</div>
+                  <p style="font-size:0.88rem;color:rgba(255,255,255,0.7);line-height:1.65;margin:0;">{{ parts[1] }}</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  {% endfor %}
+
+</div>
+
+<script>
+document.querySelectorAll('.sc-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sc-tab-btn').forEach(b => { b.classList.remove('active'); b.style.background='var(--bg-light-mint)'; b.style.color='var(--primary-sage)'; });
+    document.querySelectorAll('.sc-panel').forEach(p => p.style.display='none');
+    btn.classList.add('active'); btn.style.background='var(--primary-sage)'; btn.style.color='#fff';
+    const panel = document.getElementById(btn.dataset.concern);
+    if(panel) panel.style.display='block';
+    document.getElementById('concerns').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Skin Concerns",
+  "blocks": [{
+    "type": "concern", "name": "Skin Concern",
+    "settings": [
+      { "type": "text", "id": "tab_name", "label": "Tab Name", "default": "Acne" },
+      { "type": "text", "id": "icon", "label": "Tab Icon Class", "default": "bi bi-shield-x" },
+      { "type": "image_picker", "id": "banner_image", "label": "Banner Background Image" },
+      { "type": "text", "id": "title", "label": "Panel Title", "default": "Acne & Breakouts" },
+      { "type": "textarea", "id": "description", "label": "Description", "default": "A chronic inflammatory condition requiring targeted actives." },
+      { "type": "text", "id": "symptoms", "label": "Symptoms (comma separated)", "default": "Whiteheads, Blackheads, Cystic Nodules, Enlarged Pores" },
+      { "type": "text", "id": "collection_handle", "label": "Products Collection Handle", "default": "acne" },
+      { "type": "text", "id": "products_heading", "label": "Products Section Heading", "default": "Your Acne Protocol" },
+      { "type": "textarea", "id": "tips", "label": "Expert Tips (format: Title::Description||Title::Description)", "default": "Never Pop::Squeezing forces bacteria deeper. Use a spot-treatment patch instead.||Use SPF Daily::UV exposure darkens post-acne marks. SPF 50+ is non-negotiable.||Patch Test::Introduce one new active at a time to avoid barrier damage." }
+    ]
+  }],
+  "presets": [{ "name": "Skin Concerns", "blocks": [
+    { "type": "concern", "settings": { "tab_name": "Acne", "icon": "bi bi-shield-x", "title": "Acne & Breakouts", "description": "A chronic inflammatory condition requiring targeted antibacterial and pore-clearing actives.", "symptoms": "Whiteheads, Blackheads, Cystic Nodules, Post-Acne Marks, Enlarged Pores", "collection_handle": "acne", "products_heading": "Your Acne Protocol", "tips": "Never Pop::Squeezing forces bacteria deeper. Use a spot-treatment patch instead.||SPF Non-Negotiable::UV darkens post-acne marks by 400%. Mineral SPF 50+ daily.||Patch Test::Introduce one active at a time to avoid barrier damage." }},
+    { "type": "concern", "settings": { "tab_name": "Pigmentation", "icon": "bi bi-sparkles", "title": "Hyperpigmentation", "description": "Excess melanin production causing uneven skin tone — the most common concern among South Asian skin types.", "symptoms": "Melasma, Sun Spots, Post-Inflammatory, Uneven Tone, Dullness", "collection_handle": "pigmentation", "products_heading": "Your Pigmentation Protocol", "tips": "SPF is #1::Every brightening product is wasted without daily SPF 50+.||Be Patient::Visible correction takes minimum 12 weeks. Stay consistent.||Avoid Heat::Heat triggers melasma flares. Use lukewarm water always." }},
+    { "type": "concern", "settings": { "tab_name": "Dry Skin", "icon": "bi bi-droplet", "title": "Dry & Dehydrated Skin", "description": "Compromised skin barrier resulting in moisture loss, tightness, and accelerated visible aging.", "symptoms": "Tight Feeling, Flaking, Rough Texture, Dullness, Fine Lines", "collection_handle": "hydration", "products_heading": "Your Dry Skin Protocol", "tips": "Apply on Damp Skin::HA needs water to bind. Apply serum within 60 seconds of cleansing.||Never Foam Cleanse::Foaming cleansers strip lipids from dry skin.||Layer Correctly::Hydrators → Emollients → Occlusives. Sequence is the science." }},
+    { "type": "concern", "settings": { "tab_name": "Oily Skin", "icon": "bi bi-water", "title": "Oily & Congested Skin", "description": "Overactive sebaceous glands — manageable with targeted sebum-regulating actives.", "symptoms": "Shine, Enlarged Pores, Frequent Breakouts, Thick Texture", "collection_handle": "oily-skin", "products_heading": "Your Oily Skin Protocol", "tips": "Don't Skip Moisturiser::Skipping triggers sebum rebound — more oil than before.||Cleanse Twice Only::Over-cleansing damages barrier and worsens oiliness.||BHA 4 Nights::Not every night. Recovery days prevent over-exfoliation." }},
+    { "type": "concern", "settings": { "tab_name": "Sensitive", "icon": "bi bi-shield-plus", "title": "Sensitive & Reactive Skin", "description": "An impaired barrier that over-reacts to external triggers — requiring fragrance-free formulations.", "symptoms": "Redness, Rosacea, Stinging, Flushing, Reactive to Products", "collection_handle": "sensitive", "products_heading": "Your Sensitive Skin Protocol", "tips": "Patch Test Everything::Test on inner forearm 48 hours before full application.||Fewer Products::Sensitive skin needs a minimal routine. Master basics first.||Mineral SPF Only::Chemical UV filters cause stinging in sensitive skin." }},
+    { "type": "concern", "settings": { "tab_name": "Aging", "icon": "bi bi-hourglass-split", "title": "Skin Aging & Firmness", "description": "Chronological and photo-aging processes — reversible with clinical actives.", "symptoms": "Fine Lines, Loss of Firmness, Dull Complexion, Thinning Skin, Age Spots", "collection_handle": "anti-aging", "products_heading": "Your Anti-Aging Protocol", "tips": "Start Retinol at 25::Prevention is more effective than correction. Build collagen early.||Neck and Chest Too::Extend your entire routine downward — they age faster.||Sleep Position::Side sleeping compresses skin and deepens wrinkles over time." }},
+    { "type": "concern", "settings": { "tab_name": "Wrinkles", "icon": "bi bi-flower1", "title": "Wrinkles & Expression Lines", "description": "Dynamic and static wrinkles formed by collagen loss and UV-induced dermal degradation.", "symptoms": "Expression Lines, Crow's Feet, Forehead Lines, Lip Lines, Deep Creases", "collection_handle": "anti-aging", "products_heading": "Your Wrinkle Protocol", "tips": "Consistency Over Intensity::Actives need 3–6 months to produce structural collagen changes.||Target Application::Press peptide serum into expression line zones directly.||Layer HA Last::Apply HA as final step before SPF for immediate visual plumping." }}
+  ]}]
+}
+{% endschema %}

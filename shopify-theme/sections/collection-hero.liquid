@@ -1,14 +1,166 @@
-<section style="background:linear-gradient(135deg,rgba(21,34,33,0.92),rgba(47,107,102,0.75)),{{ collection.image | img_url: 'master' | prepend: 'url(' | append: ')' }} center/cover;min-height:38vh;display:flex;align-items:center;padding-top:110px;">
+{% assign overlay_r = section.settings.overlay_color | color_extract: 'red' %}
+{% assign overlay_g = section.settings.overlay_color | color_extract: 'green' %}
+{% assign overlay_b = section.settings.overlay_color | color_extract: 'blue' %}
+{% assign overlay_a = section.settings.overlay_opacity | times: 1 %}
+{% if collection.image %}
+  {% assign hero_bg_image = collection.image | img_url: 'master' %}
+{% elsif section.settings.fallback_image != blank %}
+  {% assign hero_bg_image = section.settings.fallback_image | img_url: 'master' %}
+{% else %}
+  {% assign hero_bg_image = nil %}
+{% endif %}
+{% if overlay_a < 10 %}
+  {% assign overlay_opacity_css = '0.0' | append: overlay_a %}
+{% else %}
+  {% assign overlay_opacity_css = '0.' | append: overlay_a %}
+{% endif %}
+<section style="
+    background: linear-gradient(135deg, rgba({{ overlay_r }},{{ overlay_g }},{{ overlay_b }},{{ overlay_opacity_css }}), rgba(47,107,102,0.75)){% if hero_bg_image %}, url('{{ hero_bg_image }}') center/cover{% endif %};
+    background-color: #2F6B66;
+    min-height:{{ section.settings.min_height }}px;
+    display:flex;
+    align-items:center;
+    padding-top:{{ section.settings.padding_top }}px;">
   <div class="container relative-z2 text-center text-white py-5">
-    <span style="font-size:.72rem;font-weight:700;letter-spacing:.16em;color:var(--accent-mint);display:block;margin-bottom:14px;">COLLECTION</span>
-    <h1 class="font-serif" style="font-size:clamp(2.2rem,4vw,3.5rem);color:#fff;margin-bottom:14px;">{{ collection.title }}</h1>
-    {% if collection.description != blank %}
-      <p style="color:rgba(255,255,255,0.75);max-width:580px;margin:0 auto;font-size:1rem;line-height:1.65;">{{ collection.description }}</p>
+    {% if section.settings.show_breadcrumb %}
+      <span style="font-size:.72rem;font-weight:700;letter-spacing:.16em;color:{{ section.settings.tagline_color }};display:block;margin-bottom:14px;">COLLECTION</span>
     {% endif %}
-    <p style="color:var(--accent-mint);margin-top:12px;font-size:.85rem;font-weight:600;">{{ collection.products_count }} Formulations</p>
+    <h1 class="font-serif" style="font-size:clamp(2.2rem,4vw,3.5rem);color:{{ section.settings.heading_color }};margin-bottom:14px;">
+      {{ collection.title | default: section.settings.default_title }}
+    </h1>
+    {% if section.settings.show_description and collection.description != blank %}
+      <p style="color:{{ section.settings.text_color }};max-width:580px;margin:0 auto;font-size:1rem;line-height:1.65;">
+        {{ collection.description }}
+      </p>
+    {% endif %}
+    {% if section.settings.show_product_count %}
+      <p style="color:{{ section.settings.tagline_color }};margin-top:12px;font-size:.85rem;font-weight:600;">
+        {{ collection.products_count }} {{ section.settings.count_suffix }}
+      </p>
+    {% endif %}
   </div>
 </section>
 
 {% schema %}
-{ "name": "Collection Hero", "settings": [] }
+{
+  "name": "Collection Hero",
+  "tag": "section",
+  "class": "section-collection-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Fallback Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "fallback_image",
+      "label": "Fallback image (when collection has no image)"
+    },
+    {
+      "type": "text",
+      "id": "default_title",
+      "label": "Default title (when no collection)",
+      "default": "Our Collection"
+    },
+    {
+      "type": "header",
+      "content": "Display Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show COLLECTION label",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show collection description",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "count_suffix",
+      "label": "Product count suffix",
+      "default": "Formulations"
+    },
+    {
+      "type": "header",
+      "content": "Dimensions"
+    },
+    {
+      "type": "range",
+      "id": "min_height",
+      "label": "Minimum height",
+      "min": 200,
+      "max": 600,
+      "step": 20,
+      "unit": "px",
+      "default": 380
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top padding (for sticky header)",
+      "min": 60,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 110
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay color",
+      "default": "#152221"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 95,
+      "step": 5,
+      "unit": "%",
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Description color",
+      "default": "#d4e8e0"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline / count color",
+      "default": "#C8E6D5"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Hero"
+    }
+  ]
+}
 {% endschema %}

@@ -1,53 +1,181 @@
+<style>
+  .mobile-offcanvas-menu {
+    background-color: {{ section.settings.bg_color }};
+  }
+  .mobile-offcanvas-menu .mobile-nav-list a {
+    color: {{ section.settings.text_color }};
+  }
+  .mobile-offcanvas-menu .mobile-nav-list a:hover {
+    color: {{ section.settings.icon_color }};
+  }
+  .mobile-offcanvas-menu .bi {
+    color: {{ section.settings.icon_color }};
+  }
+</style>
+
 <div id="mobile-drawer" class="mobile-offcanvas-menu">
   <div class="d-flex align-items-center justify-content-between mb-4 pb-3 border-bottom">
     <a href="{{ routes.root_url }}" class="brand-logo">
-      <div class="logo-icon-seal">DS</div>
-      <div>
-        <span class="logo-text-title">{{ shop.name }}</span>
-        <span class="logo-text-tag">Clinical Skincare</span>
-      </div>
+      {% if section.settings.mobile_logo != blank %}
+        <img src="{{ section.settings.mobile_logo | img_url: 'master' }}"
+          alt="{{ shop.name }}"
+          style="max-height:48px;width:auto;">
+      {% else %}
+        <div class="logo-icon-seal">DS</div>
+        <div>
+          <span class="logo-text-title" style="color:{{ section.settings.text_color }};">{{ shop.name }}</span>
+          <span class="logo-text-tag">Clinical Skincare</span>
+        </div>
+      {% endif %}
     </a>
-    <button class="btn-close" onclick="document.getElementById('mobile-drawer').classList.remove('active')"></button>
+    <button class="btn-close"
+      onclick="document.getElementById('mobile-drawer').classList.remove('active')">
+    </button>
   </div>
 
-  <div class="mb-4">
-    <form action="{{ routes.search_url }}" method="get">
-      <input type="hidden" name="type" value="product">
-      <div class="input-group">
-        <span class="input-group-text bg-light border-end-0"><i class="bi bi-search text-muted"></i></span>
-        <input type="text" name="q" class="form-control bg-light border-start-0" placeholder="Search formulations...">
-      </div>
-    </form>
-  </div>
+  {% if section.settings.show_search %}
+    <div class="mb-4">
+      <form action="{{ routes.search_url }}" method="get">
+        <input type="hidden" name="type" value="product">
+        <div class="input-group">
+          <span class="input-group-text bg-light border-end-0">
+            <i class="bi bi-search" style="color:{{ section.settings.icon_color }};"></i>
+          </span>
+          <input type="text" name="q" class="form-control bg-light border-start-0"
+            placeholder="{{ section.settings.search_placeholder }}">
+        </div>
+      </form>
+    </div>
+  {% endif %}
 
   <ul class="mobile-nav-list list-unstyled mb-4">
-    <li><a href="{{ routes.root_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-house me-2 text-sage"></i> Home</a></li>
-    <li><a href="{{ routes.collections_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag me-2 text-sage"></i> Shop</a></li>
-    <li><a href="/collections/all" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-grid me-2 text-sage"></i> Collections</a></li>
-    <li><a href="/pages/skin-concerns" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-heart-pulse me-2 text-sage"></i> Skin Concerns</a></li>
-    <li><a href="/pages/about" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-person-badge me-2 text-sage"></i> About Dr. Seema</a></li>
-    <li><a href="{{ routes.cart_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag-check me-2 text-sage"></i> Cart ({{ cart.item_count }})</a></li>
-    <li><a href="#footer" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-envelope me-2 text-sage"></i> Contact</a></li>
+    {% if section.settings.menu != blank %}
+      {% for link in linklists[section.settings.menu].links %}
+        <li>
+          <a href="{{ link.url }}"
+            onclick="document.getElementById('mobile-drawer').classList.remove('active')"
+            style="color:{{ section.settings.text_color }};">
+            {{ link.title }}
+          </a>
+        </li>
+      {% endfor %}
+    {% else %}
+      <li><a href="{{ routes.root_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-house me-2"></i> Home</a></li>
+      <li><a href="{{ routes.collections_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag me-2"></i> Shop</a></li>
+      <li><a href="/pages/about" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-person-badge me-2"></i> About Dr. Seema</a></li>
+    {% endif %}
   </ul>
 
   <div class="mt-auto pt-3 border-top d-flex flex-column gap-2">
-    {% if customer %}
-      <a href="{{ routes.account_url }}" class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2">
-        <span><i class="bi bi-person me-2"></i> My Account</span>
-        <i class="bi bi-chevron-right"></i>
-      </a>
-    {% else %}
-      <a href="{{ routes.account_login_url }}" class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2">
-        <span><i class="bi bi-person me-2"></i> Login / Register</span>
-        <i class="bi bi-chevron-right"></i>
+    {% if section.settings.show_account %}
+      {% if customer %}
+        <a href="{{ routes.account_url }}" class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2"
+          style="color:{{ section.settings.text_color }};border-color:{{ section.settings.text_color }};">
+          <span><i class="bi bi-person me-2"></i> My Account</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      {% else %}
+        <a href="{{ routes.account_login_url }}" class="btn btn-outline-dark rounded-pill w-100 d-flex align-items-center justify-content-between px-3 py-2"
+          style="color:{{ section.settings.text_color }};border-color:{{ section.settings.text_color }};">
+          <span><i class="bi bi-person me-2"></i> Login / Register</span>
+          <i class="bi bi-chevron-right"></i>
+        </a>
+      {% endif %}
+    {% endif %}
+    {% if section.settings.show_cart %}
+      <a href="{{ routes.checkout_url }}" class="btn-hero-primary w-100 mt-2 d-flex align-items-center justify-content-center gap-2"
+        style="background-color:{{ section.settings.cta_color }};border-color:{{ section.settings.cta_color }};">
+        <i class="bi bi-lock-fill"></i> {{ section.settings.cta_text }}
       </a>
     {% endif %}
-    <a href="{{ routes.checkout_url }}" class="btn-hero-primary w-100 mt-2 d-flex align-items-center justify-content-center gap-2">
-      <i class="bi bi-lock-fill"></i> Secure Checkout
-    </a>
   </div>
 </div>
 
 {% schema %}
-{ "name": "Mobile Nav", "settings": [] }
+{
+  "name": "Mobile Navigation",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_logo",
+      "label": "Mobile logo"
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Mobile menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "header",
+      "content": "Features"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "search_placeholder",
+      "label": "Search placeholder",
+      "default": "Search formulations..."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show account button",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show checkout CTA",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA button text",
+      "default": "Secure Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon / accent color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "cta_color",
+      "label": "CTA button color",
+      "default": "#2F6B66"
+    }
+  ]
+}
 {% endschema %}

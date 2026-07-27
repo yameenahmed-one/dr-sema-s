@@ -1,0 +1,67 @@
+<section style="background:#fff;padding:90px 0;">
+  <div class="container px-3 px-md-5">
+    <div class="section-header-center reveal-on-scroll mb-5">
+      <span class="section-tagline">{{ section.settings.tagline }}</span>
+      <h2 class="section-main-title">{{ section.settings.heading }}</h2>
+      <p class="section-description">{{ section.settings.description }}</p>
+    </div>
+    <div style="position:relative;">
+      <div style="position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--primary-sage),var(--accent-mint));transform:translateX(-50%);"></div>
+      {% for block in section.blocks %}
+        <div class="row mb-5 align-items-center {% cycle 'reveal-fade-left', 'reveal-fade-right' %}">
+          {% if forloop.index0 == 0 or forloop.index0 == 2 or forloop.index0 == 4 %}
+            <div class="col-md-5">
+              <div style="background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-md);padding:24px 28px;box-shadow:var(--shadow-soft);">
+                <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;color:var(--primary-sage);margin-bottom:6px;">{{ block.settings.year }}</div>
+                <h4 style="font-family:var(--font-heading);font-size:1.2rem;font-weight:600;color:var(--text-dark);margin-bottom:8px;">{{ block.settings.title }}</h4>
+                <p style="font-size:0.84rem;color:var(--text-muted);line-height:1.55;margin:0;">{{ block.settings.text }}</p>
+              </div>
+            </div>
+            <div class="col-md-2 text-center d-none d-md-block">
+              <div style="background:var(--primary-sage);color:#fff;font-family:var(--font-heading);font-size:0.9rem;font-weight:700;padding:6px 16px;border-radius:999px;display:inline-block;box-shadow:0 4px 16px rgba(47,107,102,0.35);">{{ block.settings.year }}</div>
+            </div>
+            <div class="col-md-5"></div>
+          {% else %}
+            <div class="col-md-5"></div>
+            <div class="col-md-2 text-center d-none d-md-block">
+              <div style="background:var(--primary-sage);color:#fff;font-family:var(--font-heading);font-size:0.9rem;font-weight:700;padding:6px 16px;border-radius:999px;display:inline-block;box-shadow:0 4px 16px rgba(47,107,102,0.35);">{{ block.settings.year }}</div>
+            </div>
+            <div class="col-md-5">
+              <div style="background:#fff;border:1px solid var(--border-light);border-radius:var(--radius-md);padding:24px 28px;box-shadow:var(--shadow-soft);">
+                <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;color:var(--primary-sage);margin-bottom:6px;">{{ block.settings.year }}</div>
+                <h4 style="font-family:var(--font-heading);font-size:1.2rem;font-weight:600;color:var(--text-dark);margin-bottom:8px;">{{ block.settings.title }}</h4>
+                <p style="font-size:0.84rem;color:var(--text-muted);line-height:1.55;margin:0;">{{ block.settings.text }}</p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Company Timeline",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "OUR HISTORY" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Brand Timeline" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "A decade of relentless dedication to skin science." }
+  ],
+  "blocks": [{
+    "type": "milestone", "name": "Timeline Entry",
+    "settings": [
+      { "type": "text", "id": "year", "label": "Year", "default": "2005" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Clinical Foundation" },
+      { "type": "textarea", "id": "text", "label": "Description", "default": "Dr. Seema opens her first dermatology clinic in Lahore." }
+    ]
+  }],
+  "presets": [{ "name": "Timeline", "blocks": [
+    { "type": "milestone", "settings": { "year": "2005", "title": "Clinical Foundation", "text": "Dr. Seema opens her first dermatology clinic in Lahore." }},
+    { "type": "milestone", "settings": { "year": "2010", "title": "London Research Fellowship", "text": "Advanced cosmetic dermatology fellowship at King's College London." }},
+    { "type": "milestone", "settings": { "year": "2015", "title": "Barrier Research Breakthrough", "text": "Landmark published study on Ceramide NP barrier restoration." }},
+    { "type": "milestone", "settings": { "year": "2019", "title": "Brand Launch", "text": "Dr. Seema's Products officially launches. First batch sells out in 72 hours." }},
+    { "type": "milestone", "settings": { "year": "2024", "title": "50,000+ Clients · Global Expansion", "text": "Portfolio grows to 48 clinical formulations. International launch planned for 2025." }}
+  ]}]
+}
+{% endschema %}

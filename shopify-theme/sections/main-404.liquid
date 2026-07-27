@@ -1,0 +1,197 @@
+<section style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;min-height:80vh;display:flex;align-items:center;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8 text-center">
+        <div class="mb-4"
+          style="font-size:{{ section.settings.error_number_size }}rem;font-weight:700;color:{{ section.settings.accent_color }};line-height:1;font-family:'Cormorant Garamond',serif;">
+          {{ section.settings.error_number }}
+        </div>
+        <h1 class="font-serif mb-3"
+          style="font-size:clamp(2rem,4vw,3rem);color:{{ section.settings.heading_color }};">
+          {{ section.settings.heading }}
+        </h1>
+        <p class="mb-4"
+          style="color:{{ section.settings.text_color }};font-size:1.1rem;max-width:500px;margin:0 auto 1.5rem;">
+          {{ section.settings.description }}
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="{{ routes.root_url }}" class="btn-hero-primary"
+            style="background-color:{{ section.settings.primary_btn_color }};border-color:{{ section.settings.primary_btn_color }};">
+            <i class="bi bi-house me-2"></i> {{ section.settings.primary_btn_text }}
+          </a>
+          <a href="{{ routes.collections_url }}" class="btn-hero-outline"
+            style="color:{{ section.settings.accent_color }};border-color:{{ section.settings.accent_color }};">
+            {{ section.settings.secondary_btn_text }}
+          </a>
+        </div>
+
+        {% if section.settings.show_popular_links %}
+          <div class="mt-5 pt-4 border-top" style="max-width:400px;margin:0 auto;">
+            <p class="small mb-3" style="color:{{ section.settings.text_color }};">{{ section.settings.popular_links_label }}</p>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              {% for block in section.blocks %}
+                <a href="{{ block.settings.url }}" class="badge bg-light text-dark py-2 px-3" style="text-decoration:none;" {{ block.shopify_attributes }}>
+                  {{ block.settings.label }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main 404",
+  "tag": "section",
+  "class": "section-main-404",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "error_number",
+      "label": "Error number",
+      "default": "404"
+    },
+    {
+      "type": "range",
+      "id": "error_number_size",
+      "label": "Error number size",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "unit": "rem",
+      "default": 8
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Page Not Found"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "The page you're looking for doesn't exist or has been moved."
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary button text",
+      "default": "Return Home"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary button text",
+      "default": "Browse Collections"
+    },
+    {
+      "type": "header",
+      "content": "Popular Links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_popular_links",
+      "label": "Show popular links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "popular_links_label",
+      "label": "Popular links label",
+      "default": "Popular pages:"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f4f9f7"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "primary_btn_color",
+      "label": "Primary button color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 60, "max": 160, "step": 4, "unit": "px", "default": 130
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "popular_link",
+      "name": "Popular Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Link label",
+          "default": "Shop All"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main 404",
+      "blocks": [
+        { "type": "popular_link", "settings": { "label": "Shop All" } },
+        { "type": "popular_link", "settings": { "label": "About Dr. Seema" } },
+        { "type": "popular_link", "settings": { "label": "Cart" } },
+        { "type": "popular_link", "settings": { "label": "Contact" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

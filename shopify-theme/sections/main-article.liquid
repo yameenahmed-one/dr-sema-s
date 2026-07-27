@@ -1,0 +1,361 @@
+<article style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-{{ section.settings.content_width }}">
+
+        {% if section.settings.show_breadcrumb %}
+          <nav aria-label="breadcrumb" class="mb-4" style="font-size:.85rem;">
+            <a href="{{ routes.root_url }}" style="color:{{ section.settings.text_color }};">Home</a>
+            <span class="mx-2" style="color:{{ section.settings.text_color }};">/</span>
+            <a href="{{ blog.url }}" style="color:{{ section.settings.text_color }};">{{ blog.title }}</a>
+            <span class="mx-2" style="color:{{ section.settings.text_color }};">/</span>
+            <span style="color:{{ section.settings.accent_color }};">{{ article.title }}</span>
+          </nav>
+        {% endif %}
+
+        {% if section.settings.show_tags %}
+          <span class="badge bg-light text-dark py-2 px-3 mb-3" style="font-size:.75rem;font-weight:600;">
+            {{ article.tags | first }}
+          </span>
+        {% endif %}
+
+        <h1 class="font-serif mb-3" style="font-size:clamp(2rem,4vw,3rem);color:{{ section.settings.heading_color }};">
+          {{ article.title }}
+        </h1>
+
+        {% if section.settings.show_meta %}
+          <div class="d-flex align-items-center gap-3 mb-4 pb-4 border-bottom" style="font-size:.85rem;color:{{ section.settings.text_color }};">
+            {% if section.settings.show_author %}
+              <span><i class="bi bi-person-circle me-1"></i> {{ article.author }}</span>
+            {% endif %}
+            {% if section.settings.show_date %}
+              <span><i class="bi bi-calendar3 me-1"></i> {{ article.published_at | date: section.settings.date_format }}</span>
+            {% endif %}
+            {% if section.settings.show_comments and article.comments_count > 0 %}
+              <span><i class="bi bi-chat-dots me-1"></i> {{ article.comments_count }} Comments</span>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_featured_image and article.image %}
+          <img src="{{ article.image | img_url: '1200x' }}"
+            alt="{{ article.title | escape }}"
+            class="w-100 rounded-4 mb-4"
+            style="max-height:{{ section.settings.image_height }}px;object-fit:cover;">
+        {% endif %}
+
+        <div style="font-size:{{ section.settings.body_size }}px;line-height:{{ section.settings.line_height }};color:{{ section.settings.body_color }};">
+          {{ article.content }}
+        </div>
+
+        {% if section.settings.show_tags and article.tags.size > 0 %}
+          <div class="d-flex flex-wrap gap-2 mt-4 pt-4 border-top">
+            {% for tag in article.tags %}
+              <a href="{{ blog.url }}/tagged/{{ tag | handle }}"
+                class="badge bg-light text-dark py-2 px-3"
+                style="text-decoration:none;color:{{ section.settings.accent_color }};">{{ tag }}</a>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_nav %}
+          <div class="d-flex justify-content-between mt-5 pt-4 border-top flex-wrap gap-3">
+            {% if blog.previous_article %}
+              <a href="{{ blog.previous_article.url }}"
+                style="color:{{ section.settings.accent_color }};font-weight:600;text-decoration:none;">
+                <i class="bi bi-arrow-left me-1"></i> {{ section.settings.prev_text }}
+              </a>
+            {% else %}
+              <span></span>
+            {% endif %}
+            {% if blog.next_article %}
+              <a href="{{ blog.next_article.url }}"
+                style="color:{{ section.settings.accent_color }};font-weight:600;text-decoration:none;">
+                {{ section.settings.next_text }} <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.show_comments and blog.comments_enabled? %}
+          <div class="mt-5 pt-5 border-top">
+            <h3 class="font-serif mb-4" style="color:{{ section.settings.heading_color }};">
+              {{ section.settings.comments_heading }}
+            </h3>
+            {% paginate article.comments by 10 %}
+              {% for comment in article.comments %}
+                <div class="mb-4 pb-4 border-bottom">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <strong style="color:{{ section.settings.heading_color }};">{{ comment.author }}</strong>
+                    <span class="small" style="color:{{ section.settings.text_color }};">{{ comment.created_at | date: section.settings.date_format }}</span>
+                  </div>
+                  <p style="color:{{ section.settings.body_color }};margin-bottom:0;">{{ comment.content }}</p>
+                </div>
+              {% endfor %}
+              {% if paginate.pages > 1 %}{{ paginate | default_pagination }}{% endif %}
+            {% endpaginate %}
+
+            {% form 'new_comment', article %}
+              <h4 class="font-serif mb-3" style="color:{{ section.settings.heading_color }};">{{ section.settings.comment_form_heading }}</h4>
+              {% if form.posted_successfully? %}
+                <p class="alert alert-success">{{ section.settings.comment_success_message }}</p>
+              {% endif %}
+              {{ form.errors | default_errors }}
+              <div class="mb-3">
+                <label class="form-label">{{ section.settings.name_label }}</label>
+                <input type="text" name="comment[author]" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">{{ section.settings.email_label }}</label>
+                <input type="email" name="comment[email]" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">{{ section.settings.message_label }}</label>
+                <textarea name="comment[body]" class="form-control" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn-hero-primary"
+                style="background-color:{{ section.settings.accent_color }};border-color:{{ section.settings.accent_color }};">
+                {{ section.settings.comment_submit_text }}
+              </button>
+            {% endform %}
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Main Article",
+  "tag": "section",
+  "class": "section-main-article",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content column width",
+      "min": 6,
+      "max": 12,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "header",
+      "content": "Article Header"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_breadcrumb",
+      "label": "Show breadcrumb",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tags",
+      "label": "Show tags",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_meta",
+      "label": "Show author / date bar",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author name",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show publish date",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "date_format",
+      "label": "Date format",
+      "default": "%B %d, %Y"
+    },
+    {
+      "type": "header",
+      "content": "Featured Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_featured_image",
+      "label": "Show featured image",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "image_height",
+      "label": "Max image height",
+      "min": 200,
+      "max": 700,
+      "step": 20,
+      "unit": "px",
+      "default": 500
+    },
+    {
+      "type": "header",
+      "content": "Body Typography"
+    },
+    {
+      "type": "range",
+      "id": "body_size",
+      "label": "Body font size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 16,
+      "info": "In pixels"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line height",
+      "options": [
+        { "value": "1.6", "label": "Compact" },
+        { "value": "1.8", "label": "Normal" },
+        { "value": "2.0", "label": "Relaxed" }
+      ],
+      "default": "1.8"
+    },
+    {
+      "type": "header",
+      "content": "Navigation & Comments"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_nav",
+      "label": "Show prev / next navigation",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "prev_text",
+      "label": "Previous article text",
+      "default": "Previous"
+    },
+    {
+      "type": "text",
+      "id": "next_text",
+      "label": "Next article text",
+      "default": "Next"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_comments",
+      "label": "Show comments section",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "comments_heading",
+      "label": "Comments heading",
+      "default": "Comments"
+    },
+    {
+      "type": "text",
+      "id": "comment_form_heading",
+      "label": "Comment form heading",
+      "default": "Leave a Comment"
+    },
+    {
+      "type": "text",
+      "id": "name_label",
+      "label": "Name field label",
+      "default": "Name"
+    },
+    {
+      "type": "text",
+      "id": "email_label",
+      "label": "Email field label",
+      "default": "Email"
+    },
+    {
+      "type": "text",
+      "id": "message_label",
+      "label": "Comment field label",
+      "default": "Comment"
+    },
+    {
+      "type": "text",
+      "id": "comment_submit_text",
+      "label": "Submit button text",
+      "default": "Post Comment"
+    },
+    {
+      "type": "text",
+      "id": "comment_success_message",
+      "label": "Comment success message",
+      "default": "Your comment was posted successfully!"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Meta text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "body_color",
+      "label": "Body text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 60, "max": 160, "step": 4, "unit": "px", "default": 130
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Article"
+    }
+  ]
+}
+{% endschema %}

@@ -1,45 +1,223 @@
-<section class="testimonials-section">
+<section class="testimonials-section"
+  style="
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  ">
   <div class="container">
     <div class="section-header-center reveal-on-scroll">
-      <span class="section-tagline">Real Client Stories</span>
-      <h2 class="section-main-title">Loved By Thousands Across Pakistan</h2>
-      <p class="section-description">Discover how Dr. Seema's formulations transformed daily skincare into luxury holistic rituals.</p>
+      {% if section.settings.tagline != blank %}
+        <span class="section-tagline" style="color:{{ section.settings.tagline_color }};">{{ section.settings.tagline }}</span>
+      {% endif %}
+      <h2 class="section-main-title" style="color:{{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="section-description" style="color:{{ section.settings.text_color }};">{{ section.settings.description }}</p>
+      {% endif %}
     </div>
     <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
-        <div class="testimonial-card-luxury">
-          <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <div class="quote-icon-sage">"</div>
-          <p class="review-body-text">"Dr. Seema's Cellular Renewal Serum completely cured my stubborn hyperpigmentation within 3 weeks. My skin has never looked this radiant!"</p>
-          <div class="reviewer-profile">
-            <div><div class="reviewer-name">Ayesha Khan</div><div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Lahore</div></div>
+      {% for block in section.blocks %}
+        <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll" {{ block.shopify_attributes }}>
+          <div class="testimonial-card-luxury">
+            <!-- Stars -->
+            <div class="stars-sage mb-3">
+              {% assign rating = block.settings.rating %}
+              {% for i in (1..5) %}
+                {% if i <= rating %}
+                  <i class="bi bi-star-fill" style="color:{{ section.settings.star_color }};"></i>
+                {% else %}
+                  <i class="bi bi-star" style="color:{{ section.settings.star_color }};"></i>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <div class="quote-icon-sage" style="color:{{ section.settings.quote_color }};">"</div>
+            <p class="review-body-text" style="color:{{ section.settings.text_color }};">{{ block.settings.review }}</p>
+            <div class="reviewer-profile">
+              {% if block.settings.customer_image != blank %}
+                <img src="{{ block.settings.customer_image | img_url: '80x80', crop: 'center' }}"
+                  alt="{{ block.settings.customer_name }}"
+                  style="width:44px;height:44px;border-radius:50%;object-fit:cover;margin-right:12px;">
+              {% endif %}
+              <div>
+                <div class="reviewer-name" style="color:{{ section.settings.heading_color }};">{{ block.settings.customer_name }}</div>
+                <div class="reviewer-badge">
+                  <i class="bi bi-patch-check-fill text-sage"></i>
+                  {{ block.settings.designation }}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
-        <div class="testimonial-card-luxury">
-          <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <div class="quote-icon-sage">"</div>
-          <p class="review-body-text">"The Deep Moisture Barrier Cream is pure luxury. My sensitive rosacea-prone skin calmed down immediately. Truly exceptional quality."</p>
-          <div class="reviewer-profile">
-            <div><div class="reviewer-name">Fatima Zahra</div><div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Karachi</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4 reveal-on-scroll">
-        <div class="testimonial-card-luxury">
-          <div class="stars-sage mb-3"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-          <div class="quote-icon-sage">"</div>
-          <p class="review-body-text">"As a cosmetic aesthetician myself, I recommend Dr. Seema's formulations to all my post-procedure clients. World-class clinical purity."</p>
-          <div class="reviewer-profile">
-            <div><div class="reviewer-name">Dr. Zoya Mansoor</div><div class="reviewer-badge"><i class="bi bi-patch-check-fill text-sage"></i> Verified Buyer • Islamabad</div></div>
-          </div>
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
 </section>
 
 {% schema %}
-{ "name": "Testimonials", "settings": [] }
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "section-testimonials",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Real Client Stories"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Loved By Thousands Across Pakistan"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover how Dr. Seema's formulations transformed daily skincare into luxury holistic rituals."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "tagline_color",
+      "label": "Tagline color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Review text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "quote_color",
+      "label": "Quote mark color",
+      "default": "#C8E6D5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "customer_image",
+          "label": "Customer photo"
+        },
+        {
+          "type": "text",
+          "id": "customer_name",
+          "label": "Customer name",
+          "default": "Customer Name"
+        },
+        {
+          "type": "text",
+          "id": "designation",
+          "label": "Designation / location",
+          "default": "Verified Buyer • Lahore"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Star rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review",
+          "label": "Review text",
+          "default": "Dr. Seema's formulations completely transformed my skin. I have never felt more confident!"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Ayesha Khan",
+            "designation": "Verified Buyer • Lahore",
+            "rating": 5,
+            "review": "Dr. Seema's Cellular Renewal Serum completely cured my stubborn hyperpigmentation within 3 weeks. My skin has never looked this radiant!"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Fatima Zahra",
+            "designation": "Verified Buyer • Karachi",
+            "rating": 5,
+            "review": "The Deep Moisture Barrier Cream is pure luxury. My sensitive rosacea-prone skin calmed down immediately. Truly exceptional quality."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "customer_name": "Dr. Zoya Mansoor",
+            "designation": "Verified Buyer • Islamabad",
+            "rating": 5,
+            "review": "As a cosmetic aesthetician myself, I recommend Dr. Seema's formulations to all my post-procedure clients. World-class clinical purity."
+          }
+        }
+      ]
+    }
+  ]
+}
 {% endschema %}

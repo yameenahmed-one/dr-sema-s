@@ -78,5 +78,16 @@
   {{ 'theme.js' | asset_url | script_tag }}
   {{ 'chatbot.js' | asset_url | script_tag }}
 
+  <script>
+    // Failsafe: if loader JS fails, show content after 2.5s
+    setTimeout(function() {
+      var appContent = document.getElementById('app-content');
+      var loader = document.getElementById('luxury-loader');
+      if (appContent) appContent.style.opacity = '1';
+      if (loader) loader.style.opacity = '0';
+      setTimeout(function() { if (loader) loader.style.display = 'none'; }, 400);
+    }, 2500);
+  </script>
+
 </body>
 </html>

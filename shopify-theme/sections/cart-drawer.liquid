@@ -2,7 +2,9 @@
 
 <div id="cart-drawer" class="cart-drawer-panel">
   <div class="cart-drawer-header">
-    <h5 class="font-serif mb-0 fs-4">Shopping Bag (<span class="cart-badge-count">{{ cart.item_count }}</span>)</h5>
+    <h5 class="font-serif mb-0 fs-4">
+      {{ section.settings.drawer_title }} (<span class="cart-badge-count">{{ cart.item_count }}</span>)
+    </h5>
     <button class="btn-close cart-close-btn"></button>
   </div>
 
@@ -10,8 +12,8 @@
     {% if cart.item_count == 0 %}
       <div class="text-center py-5 text-muted">
         <i class="bi bi-bag-x display-4 mb-3 d-block text-secondary"></i>
-        <p class="mb-2">Your luxury bag is currently empty.</p>
-        <a href="{{ routes.collections_url }}" class="btn-hero-outline mt-3">Explore Formulations</a>
+        <p class="mb-2">{{ section.settings.empty_text }}</p>
+        <a href="{{ routes.collections_url }}" class="btn-hero-outline mt-3">{{ section.settings.empty_cta_text }}</a>
       </div>
     {% else %}
       {% for item in cart.items %}
@@ -44,24 +46,133 @@
           </div>
         </div>
       {% endfor %}
+
+      {% if section.settings.show_notes %}
+        <div class="px-3 pb-2">
+          <label class="form-label small fw-bold">{{ section.settings.notes_label }}</label>
+          <form action="{{ routes.cart_url }}" method="post">
+            <textarea name="note" class="form-control form-control-sm" rows="2" placeholder="{{ section.settings.notes_placeholder }}">{{ cart.note }}</textarea>
+            <button type="submit" class="btn btn-sm btn-outline-secondary mt-1 w-100">Save Note</button>
+          </form>
+        </div>
+      {% endif %}
     {% endif %}
   </div>
 
   <div class="cart-drawer-footer">
-    <div class="d-flex align-items-center justify-content-between mb-2">
-      <span class="text-muted">Subtotal</span>
-      <span class="fw-bold cart-subtotal-val">{{ cart.total_price | money }}</span>
-    </div>
+    {% if section.settings.show_subtotal %}
+      <div class="d-flex align-items-center justify-content-between mb-2">
+        <span class="text-muted">{{ section.settings.subtotal_label }}</span>
+        <span class="fw-bold cart-subtotal-val">{{ cart.total_price | money }}</span>
+      </div>
+    {% endif %}
     <div class="d-flex align-items-center justify-content-between mb-3 fs-5 fw-bold">
       <span>Total</span>
       <span class="text-sage cart-total-val">{{ cart.total_price | money }}</span>
     </div>
-    <a href="{{ routes.checkout_url }}" class="btn-hero-primary w-100 d-flex align-items-center justify-content-center gap-2">
-      Proceed to Checkout <i class="bi bi-lock-fill"></i>
+    {% if section.settings.show_taxes_notice %}
+      <p class="small text-muted mb-2">{{ section.settings.taxes_notice_text }}</p>
+    {% endif %}
+    <a href="{{ routes.checkout_url }}"
+      class="btn-hero-primary w-100 d-flex align-items-center justify-content-center gap-2"
+      style="background-color:{{ section.settings.checkout_btn_color }};border-color:{{ section.settings.checkout_btn_color }};">
+      {{ section.settings.checkout_btn_text }} <i class="bi bi-lock-fill"></i>
     </a>
   </div>
 </div>
 
 {% schema %}
-{ "name": "Cart Drawer", "settings": [] }
+{
+  "name": "Cart Drawer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "drawer_title",
+      "label": "Drawer title",
+      "default": "Shopping Bag"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty cart message",
+      "default": "Your luxury bag is currently empty."
+    },
+    {
+      "type": "text",
+      "id": "empty_cta_text",
+      "label": "Empty cart CTA text",
+      "default": "Explore Formulations"
+    },
+    {
+      "type": "text",
+      "id": "checkout_btn_text",
+      "label": "Checkout button text",
+      "default": "Proceed to Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Order Notes"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_notes",
+      "label": "Show order notes field",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "notes_label",
+      "label": "Notes field label",
+      "default": "Order Notes"
+    },
+    {
+      "type": "text",
+      "id": "notes_placeholder",
+      "label": "Notes placeholder",
+      "default": "Gift message, special instructions..."
+    },
+    {
+      "type": "header",
+      "content": "Totals & Notices"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_subtotal",
+      "label": "Show subtotal row",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "subtotal_label",
+      "label": "Subtotal label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_taxes_notice",
+      "label": "Show taxes/shipping notice",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "taxes_notice_text",
+      "label": "Taxes notice text",
+      "default": "Taxes and shipping calculated at checkout."
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "checkout_btn_color",
+      "label": "Checkout button color",
+      "default": "#2F6B66"
+    }
+  ]
+}
 {% endschema %}

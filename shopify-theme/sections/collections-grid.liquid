@@ -1,28 +1,43 @@
-<section id="collections" class="collections-section">
+<section id="collections" class="collections-section"
+  style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
   <div class="container">
     <div class="section-header-center reveal-on-scroll">
-      <span class="section-tagline">Curated Rituals</span>
-      <h2 class="section-main-title">Explore Our Collections</h2>
-      <p class="section-description">Targeted skincare regimens designed for specific dermatological concerns.</p>
+      {% if section.settings.tagline != blank %}
+        <span class="section-tagline">{{ section.settings.tagline }}</span>
+      {% endif %}
+      <h2 class="section-main-title">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <p class="section-description">{{ section.settings.description }}</p>
+      {% endif %}
     </div>
-    <div class="row g-4">
-      {% assign collection_handles = "serums,creams,treatment-oils,cleansers" | split: "," %}
-      {% assign collection_titles = "Cellular Serums,Barrier Creams,Treatment Oils,Gentle Cleansers" | split: "," %}
-      {% assign collection_counts = "12,8,6,9" | split: "," %}
-      {% for i in (0..3) %}
-        {% assign handle = collection_handles[i] %}
-        {% assign col = collections[handle] %}
-        <div class="col-12 col-sm-6 col-lg-3 reveal-on-scroll">
-          <div class="collection-card-luxury cursor-pointer" onclick="window.location.href='/collections/{{ handle }}'">
-            {% if col.image %}
-              <img src="{{ col.image | img_url: '600x' }}" class="collection-bg-img" alt="{{ collection_titles[i] }}">
+    <div class="row g-{{ section.settings.gap }}">
+      {% assign desktop_cols = section.settings.columns_desktop %}
+      {% assign mobile_cols = section.settings.columns_mobile %}
+      {% for block in section.blocks %}
+        {% assign col = collections[block.settings.collection] %}
+        <div class="col-{{ 12 | divided_by: mobile_cols }} col-lg-{{ 12 | divided_by: desktop_cols }} reveal-on-scroll"
+          {{ block.shopify_attributes }}>
+          <div class="collection-card-luxury cursor-pointer"
+            onclick="window.location.href='{% if col != blank %}{{ col.url }}{% else %}{{ block.settings.fallback_url }}{% endif %}'">
+            {% if col != blank and col.image %}
+              <img src="{{ col.image | img_url: '600x' }}" class="collection-bg-img" alt="{{ col.title }}">
+            {% elsif block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url: '600x' }}" class="collection-bg-img" alt="{{ block.settings.label }}">
             {% else %}
-              <img src="{{ 'placeholder-collection.jpg' | asset_url }}" class="collection-bg-img" alt="{{ collection_titles[i] }}">
+              <div class="collection-bg-img" style="background:linear-gradient(135deg,#2F6B66,#152221);"></div>
             {% endif %}
             <div class="collection-overlay-glass">
-              <span class="collection-item-count">{{ collection_counts[i] }} Formulations</span>
-              <h3 class="collection-title-text">{{ collection_titles[i] }}</h3>
-              <span class="collection-arrow-link">Explore Collection <i class="bi bi-arrow-right"></i></span>
+              {% if section.settings.show_product_count %}
+                <span class="collection-item-count">
+                  {% if col != blank %}{{ col.products_count }}{% else %}0{% endif %} Formulations
+                </span>
+              {% endif %}
+              <h3 class="collection-title-text">
+                {% if col != blank %}{{ col.title }}{% else %}{{ block.settings.label }}{% endif %}
+              </h3>
+              {% if section.settings.show_button %}
+                <span class="collection-arrow-link">{{ section.settings.button_text }} <i class="bi bi-arrow-right"></i></span>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -32,5 +47,156 @@
 </section>
 
 {% schema %}
-{ "name": "Collections Grid", "settings": [] }
+{
+  "name": "Collections Grid",
+  "tag": "section",
+  "class": "section-collections-grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Header"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Curated Rituals"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Explore Our Collections"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Targeted skincare regimens designed for specific dermatological concerns."
+    },
+    {
+      "type": "header",
+      "content": "Grid Layout"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "default": 2
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Card gap",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Card Options"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show explore button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore Collection"
+    },
+    {
+      "type": "header",
+      "content": "Colors & Spacing"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection_item",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Override image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Fallback label (if no collection)",
+          "default": "Collection Name"
+        },
+        {
+          "type": "url",
+          "id": "fallback_url",
+          "label": "Fallback URL (if no collection)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collections Grid",
+      "blocks": [
+        { "type": "collection_item", "settings": { "label": "Cellular Serums" } },
+        { "type": "collection_item", "settings": { "label": "Barrier Creams" } },
+        { "type": "collection_item", "settings": { "label": "Treatment Oils" } },
+        { "type": "collection_item", "settings": { "label": "Gentle Cleansers" } }
+      ]
+    }
+  ]
+}
 {% endschema %}
