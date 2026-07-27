@@ -1,4 +1,4 @@
-{
+﻿{
   "general": {
     "search": { "placeholder": "Search formulations..." },
     "pagination": { "previous": "Previous", "next": "Next" }
@@ -15,3 +15,4 @@
     "unavailable": "Unavailable"
   }
 }
+

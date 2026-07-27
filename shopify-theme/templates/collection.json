@@ -1,4 +1,4 @@
-{
+﻿{
   "sections": {
     "collection-hero": { "type": "collection-hero", "settings": {} },
     "collection-products": { "type": "collection-products", "settings": {} },
@@ -6,3 +6,4 @@
   },
   "order": ["collection-hero","collection-products","newsletter"]
 }
+

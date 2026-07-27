@@ -1,4 +1,4 @@
-<style>
+﻿<style>
   .mobile-offcanvas-menu {
     background-color: {{ section.settings.bg_color }};
   }
@@ -21,7 +21,7 @@
           alt="{{ shop.name }}"
           style="max-height:48px;width:auto;">
       {% else %}
-        <div class="logo-icon-seal">DS</div>
+        <div class="logo-icon-seal">KCC</div>
         <div>
           <span class="logo-text-title" style="color:{{ section.settings.text_color }};">{{ shop.name }}</span>
           <span class="logo-text-tag">Clinical Skincare</span>
@@ -62,7 +62,7 @@
     {% else %}
       <li><a href="{{ routes.root_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-house me-2"></i> Home</a></li>
       <li><a href="{{ routes.collections_url }}" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-bag me-2"></i> Shop</a></li>
-      <li><a href="/pages/about" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-person-badge me-2"></i> About Dr. Seema</a></li>
+      <li><a href="/pages/about" onclick="document.getElementById('mobile-drawer').classList.remove('active')"><i class="bi bi-person-badge me-2"></i> About Dr. Sema</a></li>
     {% endif %}
   </ul>
 
@@ -179,3 +179,4 @@
   ]
 }
 {% endschema %}
+

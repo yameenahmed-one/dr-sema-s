@@ -1,4 +1,4 @@
-<style>
+﻿<style>
   #main-header {
     background-color: {{ section.settings.bg_color }};
     {% if section.settings.transparent_header %}
@@ -40,7 +40,7 @@
               {% if section.settings.logo_width %}width="{{ section.settings.logo_width }}"{% endif %}
               style="height:auto;max-height:56px;">
           {% else %}
-            <div class="logo-icon-seal">DS</div>
+            <div class="logo-icon-seal">KCC</div>
             <div class="brand-name-group">
               <span class="logo-text-title">{{ shop.name }}</span>
               <span class="logo-text-tag">Clinical Skincare</span>
@@ -66,7 +66,7 @@
             <ul class="nav-menu-list">
               <li><a href="{{ routes.root_url }}" class="nav-link-item {% if request.path == '/' %}active{% endif %}">Home</a></li>
               <li><a href="{{ routes.collections_url }}" class="nav-link-item {% if request.path contains '/collections' %}active{% endif %}">Shop</a></li>
-              <li><a href="/pages/about" class="nav-link-item {% if request.path contains 'about' %}active{% endif %}">About Dr. Seema</a></li>
+              <li><a href="/pages/about" class="nav-link-item {% if request.path contains 'about' %}active{% endif %}">About Dr. Sema</a></li>
               <li><a href="#footer" class="nav-link-item">Contact</a></li>
             </ul>
           </nav>
@@ -254,3 +254,4 @@
   ]
 }
 {% endschema %}
+

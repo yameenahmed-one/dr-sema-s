@@ -1,7 +1,8 @@
-{
+﻿{
   "sections": {
     "cart-page": { "type": "cart-page", "settings": {} },
     "newsletter": { "type": "newsletter", "settings": {} }
   },
   "order": ["cart-page","newsletter"]
 }
+

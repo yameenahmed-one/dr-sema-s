@@ -1,4 +1,4 @@
-{
+﻿{
   "sections": {
     "hero": { "type": "hero", "settings": {} },
     "features": { "type": "features", "settings": {} },
@@ -12,3 +12,4 @@
   },
   "order": ["hero","features","new-arrivals","collections-grid","bestsellers","why-us","before-after","testimonials","newsletter"]
 }
+

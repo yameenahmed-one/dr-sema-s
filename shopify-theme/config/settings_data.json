@@ -1,8 +1,12 @@
-{
+﻿{
   "current": {
     "primary_sage": "#2F6B66",
     "dark_forest": "#152221",
-    "accent_mint": "#C8E6D5"
+    "accent_mint": "#C8E6D5",
+    "store_phone": "+92 (021) 3555-KCCI",
+    "store_email": "info@karachicosmetology.pk",
+    "store_address": "DHA Phase 6, Karachi, Pakistan",
+    "currency_symbol": "PKR"
   },
   "presets": {}
 }

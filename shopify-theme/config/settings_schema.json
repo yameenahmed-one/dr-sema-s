@@ -1,18 +1,32 @@
-[
+﻿[
   {
     "name": "theme_info",
-    "theme_name": "Dr. Seema's Clinical Skincare",
-    "theme_version": "1.0.0",
-    "theme_author": "Nova Fuxion",
-    "theme_documentation_url": "https://novafuxion.com",
-    "theme_support_url": "https://novafuxion.com"
+    "theme_name": "Karachi Cosmetology Company",
+    "theme_version": "2.0.0",
+    "theme_author": "Karachi Cosmetology Company",
+    "theme_documentation_url": "https://karachicosmetology.pk",
+    "theme_support_url": "https://karachicosmetology.pk"
   },
   {
     "name": "Colors",
     "settings": [
-      { "type": "color", "id": "primary_sage", "label": "Primary Sage", "default": "#2F6B66" },
-      { "type": "color", "id": "dark_forest", "label": "Dark Forest", "default": "#152221" },
-      { "type": "color", "id": "accent_mint", "label": "Accent Mint", "default": "#C8E6D5" }
+      { "type": "color", "id": "primary_sage", "label": "Primary Color", "default": "#2F6B66" },
+      { "type": "color", "id": "dark_forest", "label": "Dark Color", "default": "#152221" },
+      { "type": "color", "id": "accent_mint", "label": "Accent Color", "default": "#C8E6D5" }
+    ]
+  },
+  {
+    "name": "Store Info",
+    "settings": [
+      { "type": "text", "id": "store_phone", "label": "Phone Number", "default": "+92 (021) 3555-KCCI" },
+      { "type": "text", "id": "store_email", "label": "Email", "default": "info@karachicosmetology.pk" },
+      { "type": "text", "id": "store_address", "label": "Address", "default": "DHA Phase 6, Karachi, Pakistan" }
+    ]
+  },
+  {
+    "name": "Currency",
+    "settings": [
+      { "type": "text", "id": "currency_symbol", "label": "Currency Symbol", "default": "PKR" }
     ]
   }
 ]
