@@ -75,8 +75,12 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Theme JS -->
-  {{ 'theme.js' | asset_url | script_tag }}
-  {{ 'chatbot.js' | asset_url | script_tag }}
+  {% if 'theme.js' | asset_url %}
+    {{ 'theme.js' | asset_url | script_tag }}
+  {% endif %}
+  {% if 'chatbot.js' | asset_url %}
+    {{ 'chatbot.js' | asset_url | script_tag }}
+  {% endif %}
 
   <script>
     // Failsafe: if loader JS fails, show content after 2.5s
