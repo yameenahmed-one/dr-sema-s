@@ -1,0 +1,53 @@
+﻿<section style="background:var(--dark-forest);padding:90px 0;">
+  <div class="container px-3 px-md-5">
+    <div class="section-header-center reveal-on-scroll mb-5">
+      <span class="section-tagline" style="color:var(--accent-mint);">{{ section.settings.tagline }}</span>
+      <h2 class="section-main-title" style="color:#fff;">{{ section.settings.heading }}</h2>
+      <p class="section-description" style="color:rgba(255,255,255,0.65);">{{ section.settings.description }}</p>
+    </div>
+    <div class="row g-4">
+      {% for block in section.blocks %}
+        <div class="col-lg-4 col-md-6 reveal-on-scroll">
+          <div style="background:rgba(255,255,255,0.05);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:36px 28px;height:100%;transition:all 0.35s;text-align:center;">
+            <div style="width:70px;height:70px;border-radius:50%;background:rgba(200,230,213,0.12);color:var(--accent-mint);display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 22px;border:1px solid rgba(200,230,213,0.2);">
+              <i class="{{ block.settings.icon }}"></i>
+            </div>
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:#fff;margin-bottom:12px;">{{ block.settings.title }}</h3>
+            <p style="font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.65;margin:0;">{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Philosophy",
+  "settings": [
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "OUR PHILOSOPHY" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Science Meets Nature" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Every formulation built on clinical validation, botanical purity, and luxury sensoriality." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Philosophy Card",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Bootstrap Icon Class", "default": "bi bi-eyedropper" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Clinical Precision" },
+        { "type": "textarea", "id": "text", "label": "Description", "default": "Every active ingredient selected based on peer-reviewed clinical evidence." }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Philosophy", "blocks": [
+    { "type": "card", "settings": { "icon": "bi bi-eyedropper", "title": "Clinical Precision", "text": "Every active ingredient is selected based on peer-reviewed clinical evidence with optimised concentrations." } },
+    { "type": "card", "settings": { "icon": "bi bi-flower2", "title": "Botanical Purity", "text": "Cold-pressed, wildcrafted botanicals sourced from certified organic farms. No parabens or synthetic fragrances." } },
+    { "type": "card", "settings": { "icon": "bi bi-stars", "title": "Luxury Sensoriality", "text": "Skincare should feel as extraordinary as it performs — silky serums, velvet creams, weightless oils." } },
+    { "type": "card", "settings": { "icon": "bi bi-shield-check", "title": "Clean Beauty Standard", "text": "Formulated against a strict 1,400-ingredient restricted list. Certified clean and non-toxic." } },
+    { "type": "card", "settings": { "icon": "bi bi-recycle", "title": "Sustainable Luxury", "text": "Recyclable Italian glass packaging, FSC-certified paper inserts, and carbon-neutral manufacturing." } },
+    { "type": "card", "settings": { "icon": "bi bi-heart-pulse", "title": "Patient-First Formulation", "text": "Every product begins with a real patient need observed in Karachi Cosmetology clinic." } }
+  ]}]
+}
+{% endschema %}
+

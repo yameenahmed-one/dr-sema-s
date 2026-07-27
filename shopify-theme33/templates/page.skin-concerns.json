@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "skin-concerns-hero": { "type": "skin-concerns-hero", "settings": {} },
+    "skin-concerns-content": { "type": "skin-concerns-content", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["skin-concerns-hero","skin-concerns-content","newsletter"]
+}

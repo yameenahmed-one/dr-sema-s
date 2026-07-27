@@ -1,0 +1,334 @@
+﻿<section style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="container px-3 px-md-4">
+
+    {% if section.settings.show_progress %}
+      <div class="checkout-progress mb-4">
+        <div class="progress-step active" id="step-1"><div class="progress-step-circle">1</div><div class="progress-step-label">{{ section.settings.step1_label }}</div></div>
+        <div class="progress-connector"></div>
+        <div class="progress-step" id="step-2"><div class="progress-step-circle">2</div><div class="progress-step-label">{{ section.settings.step2_label }}</div></div>
+        <div class="progress-connector"></div>
+        <div class="progress-step" id="step-3"><div class="progress-step-circle"><i class="bi bi-check-lg" style="font-size:.9rem;"></i></div><div class="progress-step-label">{{ section.settings.step3_label }}</div></div>
+      </div>
+    {% endif %}
+
+    <div class="row g-4">
+      <!-- Cart Items -->
+      <div class="col-lg-8">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h2 class="section-page-title mb-0" style="color:{{ section.settings.heading_color }};">{{ section.settings.items_heading }}</h2>
+          <a href="{{ routes.collections_url }}" style="color:{{ section.settings.accent_color }};font-size:.85rem;font-weight:600;">
+            <i class="bi bi-arrow-left me-1"></i> {{ section.settings.continue_shopping_text }}
+          </a>
+        </div>
+
+        {% if cart.item_count == 0 %}
+          <div class="checkout-section text-center py-5">
+            <i class="bi bi-bag-x display-4 mb-3 d-block" style="color:var(--text-muted);"></i>
+            <h3 class="font-serif">{{ section.settings.empty_heading }}</h3>
+            <p class="text-muted mb-4">{{ section.settings.empty_text }}</p>
+            <a href="{{ routes.collections_url }}" class="btn-hero-primary" style="background-color:{{ section.settings.checkout_btn_color }};">
+              {{ section.settings.empty_cta_text }}
+            </a>
+          </div>
+        {% else %}
+          <form action="{{ routes.cart_url }}" method="post" id="cart-form">
+            {% for item in cart.items %}
+              <div class="cart-item-card mb-3">
+                <img src="{{ item.image | img_url: '150x' }}" alt="{{ item.title | escape }}" class="cart-item-img">
+                <div class="cart-item-body flex-grow-1">
+                  <div class="cart-item-name" style="color:{{ section.settings.heading_color }};">{{ item.product.title }}</div>
+                  {% unless item.variant.title == 'Default Title' %}
+                    <div class="cart-item-variant">{{ item.variant.title }}</div>
+                  {% endunless %}
+                  <div class="cart-item-price" style="color:{{ section.settings.accent_color }};">{{ item.price | money }}</div>
+                  <div class="d-flex align-items-center gap-3 mt-2 flex-wrap">
+                    <div class="qty-control">
+                      <input type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0"
+                        class="qty-input"
+                        style="width:50px;border:1px solid var(--border-light);border-radius:6px;padding:4px 8px;text-align:center;">
+                    </div>
+                    <a href="{{ routes.cart_change_url }}?id={{ item.key }}&quantity=0" class="remove-btn">
+                      <i class="bi bi-trash3"></i> {{ section.settings.remove_text }}
+                    </a>
+                  </div>
+                </div>
+                <div class="text-end" style="flex-shrink:0;">
+                  <span style="font-size:1.05rem;font-weight:700;color:{{ section.settings.accent_color }};">{{ item.line_price | money }}</span>
+                </div>
+              </div>
+            {% endfor %}
+
+            {% if section.settings.show_notes %}
+              <div class="d-flex gap-3 mt-3">
+                <input type="text" name="note" placeholder="{{ section.settings.notes_placeholder }}"
+                  class="form-control" value="{{ cart.note }}">
+                <button type="submit" name="update" class="btn btn-outline-secondary px-4" style="white-space:nowrap;">
+                  {{ section.settings.update_btn_text }}
+                </button>
+              </div>
+            {% else %}
+              <div class="mt-3">
+                <button type="submit" name="update" class="btn btn-outline-secondary px-4">{{ section.settings.update_btn_text }}</button>
+              </div>
+            {% endif %}
+          </form>
+        {% endif %}
+      </div>
+
+      <!-- Order Summary -->
+      <div class="col-lg-4">
+        <div class="order-summary">
+          <div class="order-summary-title">
+            <i class="bi bi-receipt me-2" style="color:{{ section.settings.accent_color }};"></i>{{ section.settings.summary_heading }}
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">{{ section.settings.subtotal_label }} ({{ cart.item_count }} items)</span>
+            <span class="summary-row-val">{{ cart.total_price | money }}</span>
+          </div>
+          <div class="summary-row">
+            <span class="summary-row-label">{{ section.settings.shipping_label }}</span>
+            <span class="summary-row-val">{{ section.settings.shipping_value }}</span>
+          </div>
+          <div class="summary-total-row">
+            <span>{{ section.settings.total_label }}</span>
+            <span class="summary-total-price" style="color:{{ section.settings.accent_color }};">{{ cart.total_price | money }}</span>
+          </div>
+          <a href="{{ routes.checkout_url }}" class="btn-secure-checkout mt-4 d-flex align-items-center justify-content-center gap-2"
+            style="background-color:{{ section.settings.checkout_btn_color }};border-color:{{ section.settings.checkout_btn_color }};">
+            <i class="bi bi-lock-fill"></i> {{ section.settings.checkout_btn_text }}
+          </a>
+
+          {% if section.settings.show_trust_badges %}
+            <div class="trust-badge-row">
+              <div class="trust-badge"><i class="bi bi-shield-lock-fill"></i> {{ section.settings.trust_1 }}</div>
+              <div class="trust-badge"><i class="bi bi-patch-check-fill"></i> {{ section.settings.trust_2 }}</div>
+              <div class="trust-badge"><i class="bi bi-cash-coin"></i> {{ section.settings.trust_3 }}</div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cart Page",
+  "tag": "section",
+  "class": "section-cart-page",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Progress Steps"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_progress",
+      "label": "Show progress bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "step1_label",
+      "label": "Step 1 label",
+      "default": "Your Bag"
+    },
+    {
+      "type": "text",
+      "id": "step2_label",
+      "label": "Step 2 label",
+      "default": "Checkout"
+    },
+    {
+      "type": "text",
+      "id": "step3_label",
+      "label": "Step 3 label",
+      "default": "Confirmed"
+    },
+    {
+      "type": "header",
+      "content": "Cart Items Column"
+    },
+    {
+      "type": "text",
+      "id": "items_heading",
+      "label": "Items heading",
+      "default": "Your Items"
+    },
+    {
+      "type": "text",
+      "id": "continue_shopping_text",
+      "label": "Continue shopping text",
+      "default": "Continue Shopping"
+    },
+    {
+      "type": "text",
+      "id": "remove_text",
+      "label": "Remove item text",
+      "default": "Remove"
+    },
+    {
+      "type": "text",
+      "id": "update_btn_text",
+      "label": "Update cart button text",
+      "default": "Update Cart"
+    },
+    {
+      "type": "header",
+      "content": "Empty Cart"
+    },
+    {
+      "type": "text",
+      "id": "empty_heading",
+      "label": "Empty cart heading",
+      "default": "Your bag is empty"
+    },
+    {
+      "type": "text",
+      "id": "empty_text",
+      "label": "Empty cart message",
+      "default": "Discover our clinical skincare formulations."
+    },
+    {
+      "type": "text",
+      "id": "empty_cta_text",
+      "label": "Empty cart CTA text",
+      "default": "Start Shopping"
+    },
+    {
+      "type": "header",
+      "content": "Order Notes"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_notes",
+      "label": "Show order notes field",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "notes_placeholder",
+      "label": "Notes placeholder",
+      "default": "Order notes, gift message..."
+    },
+    {
+      "type": "header",
+      "content": "Order Summary Column"
+    },
+    {
+      "type": "text",
+      "id": "summary_heading",
+      "label": "Summary heading",
+      "default": "Order Summary"
+    },
+    {
+      "type": "text",
+      "id": "subtotal_label",
+      "label": "Subtotal label",
+      "default": "Subtotal"
+    },
+    {
+      "type": "text",
+      "id": "shipping_label",
+      "label": "Shipping label",
+      "default": "Shipping"
+    },
+    {
+      "type": "text",
+      "id": "shipping_value",
+      "label": "Shipping value text",
+      "default": "Calculated at checkout"
+    },
+    {
+      "type": "text",
+      "id": "total_label",
+      "label": "Total label",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "checkout_btn_text",
+      "label": "Checkout button text",
+      "default": "Proceed to Secure Checkout"
+    },
+    {
+      "type": "header",
+      "content": "Trust Badges"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust_badges",
+      "label": "Show trust badges",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "trust_1",
+      "label": "Trust badge 1",
+      "default": "SSL Encrypted"
+    },
+    {
+      "type": "text",
+      "id": "trust_2",
+      "label": "Trust badge 2",
+      "default": "100% Authentic"
+    },
+    {
+      "type": "text",
+      "id": "trust_3",
+      "label": "Trust badge 3",
+      "default": "Cash on Delivery"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f4f9f7"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "checkout_btn_color",
+      "label": "Checkout button color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20, "max": 120, "step": 4, "unit": "px", "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Cart Page"
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "about-hero": { "type": "about-hero", "settings": {} },
+    "about-founder": { "type": "about-founder", "settings": {} },
+    "about-philosophy": { "type": "about-philosophy", "settings": {} },
+    "about-certifications": { "type": "about-certifications", "settings": {} },
+    "about-values": { "type": "about-values", "settings": {} },
+    "about-timeline": { "type": "about-timeline", "settings": {} },
+    "about-cta": { "type": "about-cta", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["about-hero","about-founder","about-philosophy","about-certifications","about-values","about-timeline","about-cta","newsletter"]
+}

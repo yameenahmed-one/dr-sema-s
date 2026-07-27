@@ -1,0 +1,136 @@
+﻿<section style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="container-fluid px-3 px-md-5">
+
+    {% if section.settings.show_sort or section.settings.show_filter_count %}
+      <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+        {% if section.settings.show_filter_count %}
+          <p class="mb-0 text-muted small">{{ collection.products_count }} {{ section.settings.count_label }}</p>
+        {% endif %}
+        {% if section.settings.show_sort %}
+          <div class="d-flex align-items-center gap-2">
+            <label class="small text-muted mb-0">{{ section.settings.sort_label }}</label>
+            <select class="form-select form-select-sm" style="width:auto;"
+              onchange="window.location=window.location.pathname+'?sort_by='+this.value;">
+              <option value="manual" {% if collection.sort_by == 'manual' %}selected{% endif %}>Featured</option>
+              <option value="price-ascending" {% if collection.sort_by == 'price-ascending' %}selected{% endif %}>Price: Low to High</option>
+              <option value="price-descending" {% if collection.sort_by == 'price-descending' %}selected{% endif %}>Price: High to Low</option>
+              <option value="title-ascending" {% if collection.sort_by == 'title-ascending' %}selected{% endif %}>A–Z</option>
+              <option value="title-descending" {% if collection.sort_by == 'title-descending' %}selected{% endif %}>Z–A</option>
+              <option value="created-descending" {% if collection.sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+              <option value="best-selling" {% if collection.sort_by == 'best-selling' %}selected{% endif %}>Best Selling</option>
+            </select>
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% paginate collection.products by section.settings.products_per_page %}
+      <div class="row g-4">
+        {% for product in collection.products %}
+          <div class="col-xl-{{ 12 | divided_by: section.settings.columns_desktop }} col-lg-{{ 12 | divided_by: section.settings.columns_desktop }} col-md-6 reveal-on-scroll">
+            {% render 'product-card', product: product %}
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if paginate.pages > 1 %}
+        <div class="d-flex justify-content-center gap-2 mt-5">
+          {{ paginate | default_pagination }}
+        </div>
+      {% endif %}
+    {% endpaginate %}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Collection Products",
+  "tag": "section",
+  "class": "section-collection-products",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Grid"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 4,
+      "max": 24,
+      "step": 2,
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Toolbar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_filter_count",
+      "label": "Show product count",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "count_label",
+      "label": "Product count label",
+      "default": "Formulations"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sort",
+      "label": "Show sort dropdown",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "sort_label",
+      "label": "Sort label",
+      "default": "Sort by:"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f4f9f7"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0, "max": 80, "step": 4, "unit": "px", "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection Products"
+    }
+  ]
+}
+{% endschema %}
+

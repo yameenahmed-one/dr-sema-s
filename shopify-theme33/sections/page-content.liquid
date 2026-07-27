@@ -1,0 +1,133 @@
+﻿<div style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;min-height:60vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-{{ section.settings.content_width }}">
+        {% if section.settings.show_title %}
+          <h1 class="font-serif mb-4"
+            style="font-size:clamp(2rem,4vw,3rem);color:{{ section.settings.heading_color }};">
+            {{ page.title }}
+          </h1>
+        {% endif %}
+        {% if section.settings.show_divider %}
+          <hr style="border-color:{{ section.settings.accent_color }};border-width:2px;width:60px;margin-bottom:2rem;">
+        {% endif %}
+        <div class="page-content-body"
+          style="color:{{ section.settings.text_color }};font-size:{{ section.settings.font_size }}px;line-height:{{ section.settings.line_height }};">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page Content",
+  "tag": "section",
+  "class": "section-page-content",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content column width (Bootstrap cols)",
+      "min": 6,
+      "max": 12,
+      "step": 1,
+      "default": 9
+    },
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show page title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show decorative divider",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Body font size",
+      "min": 12,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "default": 15,
+      "info": "In pixels"
+    },
+    {
+      "type": "select",
+      "id": "line_height",
+      "label": "Line height",
+      "options": [
+        { "value": "1.5", "label": "Compact (1.5)" },
+        { "value": "1.7", "label": "Normal (1.7)" },
+        { "value": "1.9", "label": "Relaxed (1.9)" },
+        { "value": "2.1", "label": "Spacious (2.1)" }
+      ],
+      "default": "1.7"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Divider color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 60, "max": 160, "step": 4, "unit": "px", "default": 130
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Content"
+    }
+  ]
+}
+{% endschema %}
+

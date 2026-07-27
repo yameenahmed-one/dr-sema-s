@@ -1,0 +1,374 @@
+﻿<style>
+  .footer-luxury {
+    background-color: {{ section.settings.bg_color }} !important;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  .footer-luxury p, .footer-luxury span, .footer-luxury div { color: {{ section.settings.text_color }}; }
+  .footer-luxury a { color: {{ section.settings.link_color }}; }
+  .footer-luxury a:hover { color: {{ section.settings.link_hover_color }}; }
+  .footer-luxury .footer-title { color: {{ section.settings.heading_color }}; }
+</style>
+
+<footer id="footer" class="footer-luxury">
+  <div class="container">
+    <div class="row g-4 justify-content-between">
+
+      <!-- Brand Column -->
+      <div class="col-lg-4 col-md-6">
+        <a href="{{ routes.root_url }}" class="brand-logo mb-2">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}" alt="{{ shop.name }}" style="max-height:56px;width:auto;">
+          {% else %}
+            <div class="logo-icon-seal">KCC</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title" style="color:{{ section.settings.heading_color }};">{{ shop.name }}</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          {% endif %}
+        </a>
+        {% if section.settings.brand_description != blank %}
+          <p class="small mb-3 mt-2" style="color:{{ section.settings.text_color }};font-size:0.8rem;line-height:1.5;max-width:300px;">
+            {{ section.settings.brand_description }}
+          </p>
+        {% endif %}
+        {% if section.settings.show_social %}
+          <div class="d-flex align-items-center gap-2 mt-2">
+            {% if section.settings.social_instagram != blank %}
+              <a href="{{ section.settings.social_instagram }}" class="social-icon-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            {% endif %}
+            {% if section.settings.social_facebook != blank %}
+              <a href="{{ section.settings.social_facebook }}" class="social-icon-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            {% endif %}
+            {% if section.settings.social_pinterest != blank %}
+              <a href="{{ section.settings.social_pinterest }}" class="social-icon-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            {% endif %}
+            {% if section.settings.social_tiktok != blank %}
+              <a href="{{ section.settings.social_tiktok }}" class="social-icon-btn" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            {% endif %}
+            {% if section.settings.social_youtube != blank %}
+              <a href="{{ section.settings.social_youtube }}" class="social-icon-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Menu Column 1 -->
+      {% if section.settings.menu_1 != blank %}
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">{{ section.settings.menu_1_heading }}</h5>
+          <ul class="footer-links-list">
+            {% for link in linklists[section.settings.menu_1].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <!-- Menu Column 2 -->
+      {% if section.settings.menu_2 != blank %}
+        <div class="col-lg-2 col-6">
+          <h5 class="footer-title">{{ section.settings.menu_2_heading }}</h5>
+          <ul class="footer-links-list">
+            {% for link in linklists[section.settings.menu_2].links %}
+              <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      <!-- Contact / Newsletter Column -->
+      <div class="col-lg-3 col-md-6">
+        <h5 class="footer-title">{{ section.settings.contact_heading }}</h5>
+        {% if section.settings.contact_email != blank %}
+          <div class="small mb-2" style="color:{{ section.settings.text_color }};font-size:0.8rem;"><i class="bi bi-envelope-at me-2 text-mint"></i>{{ section.settings.contact_email }}</div>
+        {% endif %}
+        {% if section.settings.contact_phone != blank %}
+          <div class="small mb-2" style="color:{{ section.settings.text_color }};font-size:0.8rem;"><i class="bi bi-telephone me-2 text-mint"></i>{{ section.settings.contact_phone }}</div>
+        {% endif %}
+        {% if section.settings.contact_address != blank %}
+          <div class="small mb-3" style="color:{{ section.settings.text_color }};font-size:0.8rem;"><i class="bi bi-geo-alt me-2 text-mint"></i>{{ section.settings.contact_address }}</div>
+        {% endif %}
+        {% if section.settings.newsletter_enable %}
+          {% form 'customer', id: 'footer-newsletter-form' %}
+            {{ form.errors | default_errors }}
+            {% if form.posted_successfully? %}
+              <p class="small" style="color:{{ section.settings.text_color }};">{{ section.settings.newsletter_success }}</p>
+            {% else %}
+              <input type="hidden" name="contact[tags]" value="newsletter">
+              <div class="input-group mt-2">
+                <input type="email" name="contact[email]"
+                  class="form-control form-control-sm"
+                  placeholder="{{ section.settings.newsletter_placeholder }}"
+                  style="background:rgba(255,255,255,0.1);color:{{ section.settings.text_color }};border-color:rgba(255,255,255,0.2);">
+                <button type="submit" class="btn btn-sm" style="background:{{ section.settings.newsletter_btn_color }};color:#fff;border:none;">
+                  {{ section.settings.newsletter_btn_text }}
+                </button>
+              </div>
+            {% endif %}
+          {% endform %}
+        {% endif %}
+      </div>
+
+    </div>
+
+    <div class="footer-bottom-bar">
+      <div style="color:{{ section.settings.text_color }};">
+        {% if section.settings.copyright_text != blank %}
+          &copy; {{ 'now' | date: '%Y' }} {{ section.settings.copyright_text }}
+        {% else %}
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.
+        {% endif %}
+      </div>
+      {% if section.settings.show_policy_links %}
+        <div class="d-flex align-items-center gap-2">
+          <a href="/policies/privacy-policy" style="color:{{ section.settings.link_color }};">Privacy Policy</a>
+          <span style="color:{{ section.settings.text_color }};">•</span>
+          <a href="/policies/terms-of-service" style="color:{{ section.settings.link_color }};">Terms</a>
+          <span style="color:{{ section.settings.text_color }};">•</span>
+          <a href="/policies/refund-policy" style="color:{{ section.settings.link_color }};">Returns</a>
+        </div>
+      {% endif %}
+      {% if section.settings.show_payment_icons %}
+        <div class="d-flex align-items-center gap-2 fs-6" style="color:{{ section.settings.text_color }};">
+          <i class="bi bi-credit-card-2-front"></i>
+          <i class="bi bi-cash-coin"></i>
+          <i class="bi bi-shield-check"></i>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="footer-credits-bar">
+      <span class="footer-credits-text">Prepared by Karachi Cosmetology Company</span>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
+    {
+      "type": "textarea",
+      "id": "brand_description",
+      "label": "Brand description",
+      "default": "Dermatologist-developed clinical skincare formulated with pure botanical actives to restore, protect, and illuminate every skin type."
+    },
+    {
+      "type": "header",
+      "content": "Navigation Columns"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_heading",
+      "label": "Column 1 heading",
+      "default": "Quick Links"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Column 1 menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_heading",
+      "label": "Column 2 heading",
+      "default": "Collections"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Column 2 menu"
+    },
+    {
+      "type": "header",
+      "content": "Contact Info"
+    },
+    {
+      "type": "text",
+      "id": "contact_heading",
+      "label": "Contact column heading",
+      "default": "Customer Care"
+    },
+    {
+      "type": "text",
+      "id": "contact_email",
+      "label": "Email address",
+      "default": ""
+    },
+    {
+      "type": "text",
+      "id": "contact_phone",
+      "label": "Phone number",
+      "default": "+92 (021) 3555-KCCI"
+    },
+    {
+      "type": "text",
+      "id": "contact_address",
+      "label": "Address",
+      "default": "DHA Phase 6, Karachi"
+    },
+    {
+      "type": "header",
+      "content": "Footer Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Show newsletter form in footer",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Email placeholder",
+      "default": "Your email address"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_btn_text",
+      "label": "Subscribe button text",
+      "default": "Subscribe"
+    },
+    {
+      "type": "color",
+      "id": "newsletter_btn_color",
+      "label": "Subscribe button color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_success",
+      "label": "Success message",
+      "default": "Thank you for subscribing!"
+    },
+    {
+      "type": "header",
+      "content": "Social Media"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social icons",
+      "default": true
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "social_pinterest",
+      "label": "Pinterest URL"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "url",
+      "id": "social_youtube",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "info": "Leave blank to use default. Does not support {{year}} variable — year is added automatically.",
+      "default": ""
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy_links",
+      "label": "Show policy links",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payment_icons",
+      "label": "Show payment icons",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#9ab5b2"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#9ab5b2"
+    },
+    {
+      "type": "color",
+      "id": "link_hover_color",
+      "label": "Link hover color",
+      "default": "#C8E6D5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 20,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,113 @@
+﻿<div id="search-overlay" class="modal-overlay-custom">
+  <div class="bg-white p-4 p-md-5 rounded-4 shadow-lg w-100" style="max-width:{{ section.settings.max_width }}px;">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <h4 class="font-serif mb-0">{{ section.settings.heading }}</h4>
+      <button class="btn-close search-close-btn"></button>
+    </div>
+    <form action="{{ routes.search_url }}" method="get">
+      {% if section.settings.show_products %}<input type="hidden" name="type" value="product">{% endif %}
+      <div class="input-group mb-3">
+        <span class="input-group-text bg-transparent border-end-0 fs-5"><i class="bi bi-search"></i></span>
+        <input id="search-input" type="text" name="q" class="form-control border-start-0 py-3"
+          placeholder="{{ section.settings.placeholder }}">
+      </div>
+      <button type="submit" class="btn-hero-primary w-100"
+        style="background-color:{{ section.settings.btn_color }};border-color:{{ section.settings.btn_color }};">
+        {{ section.settings.btn_text }}
+      </button>
+    </form>
+    {% if section.settings.show_trending %}
+      <div class="small text-muted mt-3">
+        {{ section.settings.trending_label }}
+        {% assign trending_items = section.settings.trending_tags | split: ',' %}
+        {% for tag in trending_items %}
+          <a href="{{ routes.search_url }}?q={{ tag | strip | url_encode }}&type=product"
+            class="badge bg-light text-dark me-1">{{ tag | strip }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Search Overlay",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Search Formulations"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Search placeholder",
+      "default": "Search by skin concern, ingredient or formulation..."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Search button text",
+      "default": "Search"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "label": "Panel max width",
+      "min": 400,
+      "max": 900,
+      "step": 20,
+      "unit": "px",
+      "default": 680
+    },
+    {
+      "type": "header",
+      "content": "Search Scope"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_products",
+      "label": "Search products",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Trending Tags"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trending",
+      "label": "Show trending tags",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "trending_label",
+      "label": "Trending label",
+      "default": "Trending:"
+    },
+    {
+      "type": "text",
+      "id": "trending_tags",
+      "label": "Trending tags (comma-separated)",
+      "default": "Bio-Retinol,Vitamin C,Moisturizer"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button color",
+      "default": "#2F6B66"
+    }
+  ]
+}
+{% endschema %}
+

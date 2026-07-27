@@ -1,0 +1,257 @@
+﻿<style>
+  #main-header {
+    background-color: {{ section.settings.bg_color }};
+    {% if section.settings.transparent_header %}
+      background-color: transparent;
+      position: absolute;
+      top: 0; left: 0; right: 0; z-index: 100;
+    {% endif %}
+  }
+  #main-header .nav-link-item { color: {{ section.settings.text_color }}; }
+  #main-header .nav-link-item:hover { color: {{ section.settings.hover_color }}; }
+  #main-header .action-btn { color: {{ section.settings.text_color }}; }
+  #main-header .action-btn:hover { color: {{ section.settings.hover_color }}; }
+  #main-header .logo-text-title { color: {{ section.settings.text_color }}; }
+  {% if section.settings.logo_width %}
+    #main-header .brand-logo img { width: {{ section.settings.logo_width }}px; }
+  {% endif %}
+</style>
+
+{% if section.settings.announcement_bar_enable and section.settings.announcement_text != blank %}
+  <div class="announcement-bar" style="background-color:{{ section.settings.announcement_bg_color }};color:{{ section.settings.announcement_text_color }};text-align:center;padding:8px 16px;font-size:.82rem;font-weight:600;letter-spacing:.04em;">
+    {% if section.settings.announcement_link != blank %}
+      <a href="{{ section.settings.announcement_link }}" style="color:{{ section.settings.announcement_text_color }};text-decoration:none;">{{ section.settings.announcement_text }}</a>
+    {% else %}
+      {{ section.settings.announcement_text }}
+    {% endif %}
+  </div>
+{% endif %}
+
+<header class="header-wrapper {% if section.settings.sticky_header %}header-sticky{% endif %}" id="main-header">
+  <div class="nav-main-bar">
+    <div class="container-fluid px-3 px-md-5">
+      <div class="d-flex align-items-center justify-content-between">
+
+        <!-- Brand Logo -->
+        <a href="{{ routes.root_url }}" class="brand-logo">
+          {% if section.settings.logo != blank %}
+            <img src="{{ section.settings.logo | img_url: 'master' }}"
+              alt="{{ shop.name }}"
+              {% if section.settings.logo_width %}width="{{ section.settings.logo_width }}"{% endif %}
+              style="height:auto;max-height:56px;">
+          {% else %}
+            <div class="logo-icon-seal">KCC</div>
+            <div class="brand-name-group">
+              <span class="logo-text-title">{{ shop.name }}</span>
+              <span class="logo-text-tag">Clinical Skincare</span>
+            </div>
+          {% endif %}
+        </a>
+
+        <!-- Desktop Navigation -->
+        {% if section.settings.menu != blank %}
+          <nav class="d-none d-xl-block" style="text-align:{{ section.settings.menu_alignment }};">
+            <ul class="nav-menu-list">
+              {% for link in linklists[section.settings.menu].links %}
+                <li>
+                  <a href="{{ link.url }}" class="nav-link-item {% if link.active %}active{% endif %}">
+                    {{ link.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </nav>
+        {% else %}
+          <nav class="d-none d-xl-block">
+            <ul class="nav-menu-list">
+              <li><a href="{{ routes.root_url }}" class="nav-link-item {% if request.path == '/' %}active{% endif %}">Home</a></li>
+              <li><a href="{{ routes.collections_url }}" class="nav-link-item {% if request.path contains '/collections' %}active{% endif %}">Shop</a></li>
+              <li><a href="/pages/about" class="nav-link-item {% if request.path contains 'about' %}active{% endif %}">About Dr. Sema</a></li>
+              <li><a href="#footer" class="nav-link-item">Contact</a></li>
+            </ul>
+          </nav>
+        {% endif %}
+
+        <!-- Header Actions -->
+        <div class="header-actions">
+          {% if section.settings.show_search %}
+            <button class="action-btn search-trigger-btn" title="Search"><i class="bi bi-search"></i></button>
+          {% endif %}
+
+          <a href="/wishlist" class="action-btn" title="Wishlist"><i class="bi bi-heart"></i></a>
+
+          {% if section.settings.show_cart %}
+            <button class="action-btn cart-trigger-btn" title="Shopping Bag">
+              <i class="bi bi-bag"></i>
+              <span class="badge-count cart-badge-count">{{ cart.item_count }}</span>
+            </button>
+          {% endif %}
+
+          {% if section.settings.show_account %}
+            {% if customer %}
+              <a href="{{ routes.account_url }}" class="action-btn d-none d-sm-flex" title="My Account">
+                <i class="bi bi-person-fill"></i>
+              </a>
+            {% else %}
+              <a href="{{ routes.account_login_url }}" class="action-btn d-none d-sm-flex" title="Login">
+                <i class="bi bi-person"></i>
+              </a>
+            {% endif %}
+          {% endif %}
+
+          <a href="{{ routes.collections_url }}" class="btn-header-cta d-none d-md-inline-flex">
+            Shop Now <i class="bi bi-arrow-right-short ms-1"></i>
+          </a>
+
+          <button class="action-btn mobile-nav-toggle d-xl-none" title="Menu"
+            onclick="document.getElementById('mobile-drawer').classList.add('active')">
+            <i class="bi bi-list fs-2"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "label": "Logo width",
+      "min": 60,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "default": 140
+    },
+    {
+      "type": "header",
+      "content": "Navigation"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Desktop menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Menu alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Announcement Bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "announcement_bar_enable",
+      "label": "Show announcement bar",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement text",
+      "default": "Free shipping on orders over PKR 12,000"
+    },
+    {
+      "type": "url",
+      "id": "announcement_link",
+      "label": "Announcement link"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bg_color",
+      "label": "Announcement background",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "announcement_text_color",
+      "label": "Announcement text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Header Behavior"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky_header",
+      "label": "Sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Transparent header (homepage only)",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_cart",
+      "label": "Show cart icon",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show account icon",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "hover_color",
+      "label": "Hover color",
+      "default": "#2F6B66"
+    }
+  ]
+}
+{% endschema %}
+

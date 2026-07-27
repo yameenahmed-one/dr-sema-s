@@ -1,0 +1,219 @@
+﻿<section style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;min-height:80vh;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <h1 class="font-serif mb-4 text-center"
+          style="font-size:clamp(2rem,4vw,3rem);color:{{ section.settings.heading_color }};">
+          {{ section.settings.heading }}
+        </h1>
+
+        <form action="{{ routes.search_url }}" method="get" class="mb-5">
+          <input type="hidden" name="type" value="product">
+          <div class="input-group" style="max-width:{{ section.settings.search_width }}px;margin:0 auto;">
+            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search"></i></span>
+            <input type="text" name="q" value="{{ search.terms | escape }}"
+              class="form-control border-start-0 py-3"
+              placeholder="{{ section.settings.placeholder }}"
+              aria-label="{{ section.settings.placeholder }}">
+            <button type="submit" class="btn-hero-primary px-4"
+              style="background-color:{{ section.settings.btn_color }};border-color:{{ section.settings.btn_color }};">
+              {{ section.settings.btn_text }}
+            </button>
+          </div>
+        </form>
+
+        {% if search.performed %}
+          {% if search.results_count > 0 %}
+            <p class="text-center mb-4" style="color:{{ section.settings.text_color }};">
+              {{ section.settings.results_prefix }}
+              <strong>{{ search.results_count }}</strong>
+              {% if search.results_count > 1 %}{{ section.settings.results_suffix_plural }}{% else %}{{ section.settings.results_suffix_singular }}{% endif %}
+              {{ section.settings.results_for_text }} "<strong>{{ search.terms }}</strong>"
+            </p>
+            <div class="row g-4">
+              {% for item in search.results %}
+                {% if item.object_type == 'product' %}
+                  <div class="col-lg-4 col-md-6">
+                    {% render 'product-card', product: item %}
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% else %}
+            <div class="text-center py-5">
+              <i class="bi bi-search display-1 mb-3 d-block" style="color:{{ section.settings.empty_icon_color }};"></i>
+              <h3 class="font-serif mb-3" style="color:{{ section.settings.heading_color }};">
+                {{ section.settings.no_results_text }} &ldquo;{{ search.terms }}&rdquo;
+              </h3>
+              <p class="mb-4" style="color:{{ section.settings.text_color }};">{{ section.settings.no_results_subtext }}</p>
+              <a href="{{ routes.collections_url }}" class="btn-hero-primary"
+                style="background-color:{{ section.settings.btn_color }};">
+                {{ section.settings.browse_cta_text }}
+              </a>
+            </div>
+          {% endif %}
+        {% else %}
+          <div class="text-center py-5">
+            <i class="bi bi-search display-1 mb-3 d-block" style="color:{{ section.settings.empty_icon_color }};"></i>
+            <p style="color:{{ section.settings.text_color }};">{{ section.settings.start_search_text }}</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Main Search",
+  "tag": "section",
+  "class": "section-main-search",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Page heading",
+      "default": "Search Results"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Search placeholder",
+      "default": "Search formulations..."
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Search button text",
+      "default": "Search"
+    },
+    {
+      "type": "range",
+      "id": "search_width",
+      "label": "Search bar max width",
+      "min": 300,
+      "max": 800,
+      "step": 20,
+      "unit": "px",
+      "default": 600
+    },
+    {
+      "type": "header",
+      "content": "Results Text"
+    },
+    {
+      "type": "text",
+      "id": "results_prefix",
+      "label": "Results prefix",
+      "default": "Found"
+    },
+    {
+      "type": "text",
+      "id": "results_suffix_singular",
+      "label": "Result (singular)",
+      "default": "result"
+    },
+    {
+      "type": "text",
+      "id": "results_suffix_plural",
+      "label": "Results (plural)",
+      "default": "results"
+    },
+    {
+      "type": "text",
+      "id": "results_for_text",
+      "label": "\"for\" text",
+      "default": "for"
+    },
+    {
+      "type": "header",
+      "content": "Empty State"
+    },
+    {
+      "type": "text",
+      "id": "no_results_text",
+      "label": "No results heading",
+      "info": "Use [terms] as a placeholder — it will be replaced with the search term",
+      "default": "No results found"
+    },
+    {
+      "type": "text",
+      "id": "no_results_subtext",
+      "label": "No results subtext",
+      "default": "Try different keywords or browse our collections."
+    },
+    {
+      "type": "text",
+      "id": "browse_cta_text",
+      "label": "Browse CTA text",
+      "default": "Browse Collections"
+    },
+    {
+      "type": "text",
+      "id": "start_search_text",
+      "label": "Prompt text (before search)",
+      "default": "Enter a search term to find products"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#f4f9f7"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "btn_color",
+      "label": "Button color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "color",
+      "id": "empty_icon_color",
+      "label": "Empty state icon color",
+      "default": "#c8e6d5"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 60, "max": 160, "step": 4, "unit": "px", "default": 130
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Main Search"
+    }
+  ]
+}
+{% endschema %}
+

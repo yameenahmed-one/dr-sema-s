@@ -1,0 +1,33 @@
+﻿<section style="min-height:55vh;background:linear-gradient(135deg,rgba(15,26,25,0.93),rgba(33,79,75,0.82)),url('{{ section.settings.bg_image | img_url: "master" }}') center/cover no-repeat fixed;display:flex;align-items:center;padding-top:110px;overflow:hidden;">
+  <div class="container relative-z2 py-5">
+    <div class="col-lg-8 reveal-fade-left">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:rgba(200,230,213,0.15);border:1px solid rgba(200,230,213,0.3);color:var(--accent-mint);padding:6px 18px;border-radius:999px;font-size:0.72rem;font-weight:700;letter-spacing:0.16em;margin-bottom:20px;">
+        <i class="bi bi-patch-check-fill"></i> {{ section.settings.tag }}
+      </div>
+      <h1 style="font-family:var(--font-heading);font-size:clamp(3rem,5.5vw,5rem);color:#fff;line-height:1.05;font-weight:500;margin-bottom:16px;">
+        {{ section.settings.heading }}<br><em style="font-style:italic;color:var(--accent-mint);">{{ section.settings.heading_italic }}</em>
+      </h1>
+      <p style="font-size:1rem;color:rgba(255,255,255,0.75);max-width:560px;line-height:1.7;margin-bottom:36px;">{{ section.settings.description }}</p>
+      <div class="d-flex flex-wrap gap-3">
+        <a href="#concerns" class="btn-hero-primary">{{ section.settings.btn1 }} <i class="bi bi-arrow-down ms-1"></i></a>
+        <a href="{{ routes.collections_url }}" class="btn-hero-outline">{{ section.settings.btn2 }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Skin Concerns Hero",
+  "settings": [
+    { "type": "image_picker", "id": "bg_image", "label": "Background Image" },
+    { "type": "text", "id": "tag", "label": "Tag", "default": "CLINICAL DERMATOLOGY GUIDE" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Find Your" },
+    { "type": "text", "id": "heading_italic", "label": "Heading Italic", "default": "Skin Solution" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Karachi Cosmetology dermatologist-formulated treatments target every skin concern with clinically validated actives." },
+    { "type": "text", "id": "btn1", "label": "Button 1", "default": "Explore Concerns" },
+    { "type": "text", "id": "btn2", "label": "Button 2", "default": "Shop All Treatments" }
+  ]
+}
+{% endschema %}
+

@@ -1,0 +1,173 @@
+﻿<section style="padding-top:120px;padding-bottom:80px;background:#fff;">
+  <div class="container px-3 px-md-5">
+
+    <!-- Breadcrumb -->
+    <nav style="font-size:0.82rem;color:var(--text-muted);margin-bottom:24px;">
+      <a href="{{ routes.root_url }}" style="color:var(--text-muted);">Home</a>
+      <span class="mx-2">/</span>
+      {% if product.collections.first %}
+        <a href="{{ product.collections.first.url }}" style="color:var(--text-muted);">{{ product.collections.first.title }}</a>
+        <span class="mx-2">/</span>
+      {% endif %}
+      <span style="color:var(--primary-sage);">{{ product.title }}</span>
+    </nav>
+
+    <div class="row g-5 align-items-start">
+
+      <!-- LEFT: Gallery -->
+      <div class="col-lg-6">
+        <!-- Main Image -->
+        <div id="main-img-wrap" style="background:var(--bg-light-mint);border-radius:24px;border:1px solid var(--border-light);overflow:hidden;aspect-ratio:1/1;position:relative;cursor:zoom-in;">
+          {% if product.featured_image %}
+            <img id="main-product-img"
+              src="{{ product.featured_image | img_url: '800x' }}"
+              alt="{{ product.title | escape }}"
+              style="width:100%;height:100%;object-fit:cover;display:block;">
+          {% endif %}
+          {% if product.compare_at_price > product.price %}
+            <span style="position:absolute;top:18px;left:18px;background:var(--dark-forest);color:var(--accent-mint);font-size:0.65rem;font-weight:700;letter-spacing:0.1em;padding:5px 12px;border-radius:4px;">SALE</span>
+          {% endif %}
+        </div>
+
+        <!-- Thumbnails -->
+        {% if product.images.size > 1 %}
+          <div style="display:flex;gap:12px;margin-top:16px;overflow-x:auto;padding-bottom:6px;scrollbar-width:none;">
+            {% for image in product.images %}
+              <div onclick="document.getElementById('main-product-img').src='{{ image | img_url: "800x" }}'"
+                style="width:80px;height:80px;border-radius:14px;border:2px solid var(--border-light);overflow:hidden;cursor:pointer;flex-shrink:0;transition:all 0.2s;">
+                <img src="{{ image | img_url: '150x' }}" alt="{{ image.alt | escape }}" style="width:100%;height:100%;object-fit:cover;">
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- RIGHT: Product Info -->
+      <div class="col-lg-6">
+
+        <!-- Category + Title -->
+        <span style="font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:4px;display:block;">{{ product.type }}</span>
+        <h1 style="font-family:var(--font-heading);font-size:clamp(1.9rem,3vw,2.8rem);color:var(--text-dark);margin-bottom:10px;line-height:1.15;">{{ product.title }}</h1>
+
+        <!-- Rating -->
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+          <div style="color:var(--primary-sage);font-size:0.85rem;">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <span style="font-size:0.78rem;color:var(--text-muted);">Dermatologist Verified</span>
+        </div>
+
+        <!-- Price -->
+        <div style="margin-bottom:20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+          <span style="font-family:var(--font-heading);font-size:2.2rem;font-weight:700;color:var(--primary-sage);line-height:1.2;">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span style="font-size:1.2rem;color:var(--text-muted);text-decoration:line-through;">{{ product.compare_at_price | money }}</span>
+            <span style="background:rgba(220,53,69,0.1);color:#dc3545;font-weight:700;font-size:0.8rem;padding:4px 12px;border-radius:999px;">
+              {{ product.compare_at_price | minus: product.price | times: 100 | divided_by: product.compare_at_price }}% OFF
+            </span>
+          {% endif %}
+        </div>
+
+        <!-- Short Description -->
+        {% if product.description != blank %}
+          <p style="font-size:0.95rem;color:var(--text-muted);line-height:1.7;margin-bottom:24px;">{{ product.description | strip_html | truncate: 180 }}</p>
+        {% endif %}
+
+        <!-- Add to Cart Form -->
+        {% form 'product', product, id: 'product-form', data-type: 'add-to-cart-form' %}
+          {% unless product.has_only_default_variant %}
+            {% for option in product.options_with_values %}
+              <div style="margin-bottom:16px;">
+                <label style="font-size:0.8rem;font-weight:700;letter-spacing:0.08em;color:var(--text-muted);display:block;margin-bottom:8px;text-transform:uppercase;">
+                  {{ option.name }}
+                </label>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  {% for value in option.values %}
+                    <label style="cursor:pointer;">
+                      <input type="radio" name="option-{{ forloop.parentloop.index }}" value="{{ value }}" style="display:none;"
+                        {% if forloop.first %}checked{% endif %}>
+                      <span style="display:inline-block;padding:8px 18px;border:1.5px solid var(--border-light);border-radius:999px;font-size:0.85rem;font-weight:600;color:var(--text-dark);transition:all 0.2s;cursor:pointer;">
+                        {{ value }}
+                      </span>
+                    </label>
+                  {% endfor %}
+                </div>
+              </div>
+            {% endfor %}
+          {% endunless %}
+          <input type="hidden" name="id" id="product-variant-id" value="{{ product.variants.first.id }}">
+
+          <!-- Quantity -->
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;flex-wrap:wrap;">
+            <div style="display:inline-flex;align-items:center;background:var(--bg-cream);border:1px solid var(--border-light);border-radius:999px;padding:4px 8px;">
+              <button type="button" onclick="let q=document.getElementById('qty-field');q.value=Math.max(1,parseInt(q.value)-1)"
+                style="width:38px;height:38px;border-radius:50%;border:none;background:#fff;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">-</button>
+              <input type="number" id="qty-field" name="quantity" value="1" min="1"
+                style="width:44px;border:none;background:transparent;text-align:center;font-weight:700;font-size:0.95rem;">
+              <button type="button" onclick="let q=document.getElementById('qty-field');q.value=parseInt(q.value)+1"
+                style="width:38px;height:38px;border-radius:50%;border:none;background:#fff;cursor:pointer;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.05);">+</button>
+            </div>
+            {% if product.variants.first.available %}
+              <span style="font-size:0.8rem;font-weight:600;color:#22a06b;"><i class="bi bi-check-circle-fill me-1"></i>In Stock</span>
+            {% else %}
+              <span style="font-size:0.8rem;font-weight:600;color:#dc3545;"><i class="bi bi-x-circle-fill me-1"></i>Sold Out</span>
+            {% endif %}
+          </div>
+
+          <!-- Buttons -->
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+            <button type="submit" name="add"
+              {% unless product.variants.first.available %}disabled{% endunless %}
+              style="width:100%;background:linear-gradient(135deg,var(--primary-sage),var(--primary-sage-hover));color:#fff;font-size:1rem;font-weight:700;padding:16px;border-radius:999px;border:none;cursor:pointer;box-shadow:0 8px 24px rgba(47,107,102,0.35);display:flex;align-items:center;justify-content:center;gap:10px;transition:all 0.3s;">
+              <i class="bi bi-bag-plus"></i>
+              {% if product.variants.first.available %}Add to Bag{% else %}Sold Out{% endif %}
+            </button>
+            {% if product.variants.first.available %}
+              <a href="/cart?checkout=true"
+                style="width:100%;background:transparent;color:var(--primary-sage);font-size:0.95rem;font-weight:700;padding:14px;border-radius:999px;border:2px solid var(--primary-sage);display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;transition:all 0.25s;">
+                <i class="bi bi-lock-fill"></i> Buy Now
+              </a>
+            {% endif %}
+          </div>
+        {% endform %}
+
+        <!-- Trust Perks -->
+        <div style="background:var(--bg-light-mint);border-radius:16px;padding:16px 20px;border:1px solid rgba(47,107,102,0.15);">
+          <div style="display:flex;flex-wrap:wrap;gap:16px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:600;color:var(--dark-forest);">
+              <i class="bi bi-patch-check-fill" style="color:var(--primary-sage);"></i> Dermatologist Certified
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:600;color:var(--dark-forest);">
+              <i class="bi bi-heart-fill" style="color:var(--primary-sage);"></i> Cruelty Free
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:600;color:var(--dark-forest);">
+              <i class="bi bi-arrow-return-left" style="color:var(--primary-sage);"></i> 7-Day Returns
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:0.82rem;font-weight:600;color:var(--dark-forest);">
+              <i class="bi bi-shield-lock" style="color:var(--primary-sage);"></i> Secure Payment
+            </div>
+          </div>
+        </div>
+
+        <!-- Full Description Accordion -->
+        {% if product.description != blank %}
+          <div style="margin-top:24px;border:1px solid var(--border-light);border-radius:16px;overflow:hidden;">
+            <button onclick="this.nextElementSibling.style.display=this.nextElementSibling.style.display=='none'?'block':'none'"
+              style="width:100%;padding:16px 20px;background:var(--bg-cream);border:none;text-align:left;font-weight:700;font-size:0.92rem;color:var(--text-dark);cursor:pointer;display:flex;justify-content:space-between;align-items:center;">
+              Full Description <i class="bi bi-chevron-down"></i>
+            </button>
+            <div style="display:none;padding:18px 20px;font-size:0.88rem;color:var(--text-muted);line-height:1.7;">
+              {{ product.description }}
+            </div>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Product Details", "settings": [] }
+{% endschema %}
+

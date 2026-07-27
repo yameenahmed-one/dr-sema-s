@@ -1,0 +1,230 @@
+﻿<section id="why-us" class="why-us-section"
+  style="background-color:{{ section.settings.bg_color }};padding-top:{{ section.settings.padding_top }}px;padding-bottom:{{ section.settings.padding_bottom }}px;">
+  <div class="container">
+    <div class="row align-items-center g-4 g-lg-5">
+
+      <!-- Image Column -->
+      <div class="col-lg-5 reveal-fade-left">
+        <div class="why-us-image-card">
+          {% if section.settings.image != blank %}
+            <img src="{{ section.settings.image | img_url: 'master' }}" class="why-main-img" alt="{{ section.settings.heading }}">
+          {% endif %}
+          <div class="why-card-badge">
+            <div class="why-badge-text">
+              <i class="bi bi-shield-check text-mint fs-5"></i>
+              <span>{{ section.settings.badge_text }}</span>
+            </div>
+            <span class="badge bg-sage text-white rounded-pill px-2 py-1 small">{{ section.settings.badge_pill }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-lg-7 reveal-fade-right">
+        <span class="section-tagline" style="color:{{ section.settings.accent_color }};">{{ section.settings.tagline }}</span>
+        <h2 class="section-main-title" style="color:{{ section.settings.heading_color }};">{{ section.settings.heading }}</h2>
+        <p class="section-description mb-3" style="color:{{ section.settings.text_color }};">{{ section.settings.description }}</p>
+
+        <div class="why-feature-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'feature' %}
+              <div class="why-feature-item" {{ block.shopify_attributes }}>
+                <div class="why-icon-box" style="color:{{ section.settings.accent_color }};"><i class="bi bi-{{ block.settings.icon }}"></i></div>
+                <div>
+                  <h4 class="why-item-title" style="color:{{ section.settings.heading_color }};">{{ block.settings.title }}</h4>
+                  <p class="why-item-desc" style="color:{{ section.settings.text_color }};">{{ block.settings.description }}</p>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        {% if section.settings.show_counters %}
+          <div class="counters-grid">
+            {% for block in section.blocks %}
+              {% if block.type == 'counter' %}
+                <div class="counter-card" {{ block.shopify_attributes }}>
+                  <div class="counter-number" data-target="{{ block.settings.number }}" data-suffix="{{ block.settings.suffix }}">0</div>
+                  <div class="counter-label" style="color:{{ section.settings.text_color }};">{{ block.settings.label }}</div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Why Us",
+  "tag": "section",
+  "class": "section-why-us",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Section image"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Image badge text",
+      "default": "Dermatologist Formulated"
+    },
+    {
+      "type": "text",
+      "id": "badge_pill",
+      "label": "Image badge pill label",
+      "default": "18+ Yrs Clinical"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "WHY CHOOSE DR. SEEMA'S"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Art & Science of Botanical Elegance"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "For over 18 years, Dr. Sema has fused board-certified clinical dermatology with cold-pressed organic botanicals to craft clean, high-performance skincare rituals."
+    },
+    {
+      "type": "header",
+      "content": "Counters"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_counters",
+      "label": "Show stat counters",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#152221"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#4a4a4a"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent / icon color",
+      "default": "#2F6B66"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0, "max": 120, "step": 4, "unit": "px", "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Bootstrap icon name",
+          "default": "shield-check"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Feature Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Brief description of this benefit."
+        }
+      ]
+    },
+    {
+      "type": "counter",
+      "name": "Stat Counter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Target number",
+          "default": "50000"
+        },
+        {
+          "type": "text",
+          "id": "suffix",
+          "label": "Suffix (e.g. +, %)",
+          "default": "+"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Counter label",
+          "default": "Satisfied Clients"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Us",
+      "blocks": [
+        { "type": "feature", "settings": { "icon": "shield-check", "title": "Patented Micro-Encapsulation", "description": "Delivers active vitamins deep into skin layers for slow, sustained release without surface irritation." } },
+        { "type": "feature", "settings": { "icon": "flower1", "title": "Ethically Harvested Botanicals", "description": "Pure wildcrafted extracts sourced directly from organic sustainable fair-trade farms across Asia and Europe." } },
+        { "type": "feature", "settings": { "icon": "heart-pulse", "title": "Clinical Barrier Restoration", "description": "Rebuilds lipid barriers and restores healthy skin biome balance for long-term luminous resilience." } },
+        { "type": "counter", "settings": { "number": "50000", "suffix": "+", "label": "Satisfied Clients" } },
+        { "type": "counter", "settings": { "number": "48", "suffix": "+", "label": "Formulations" } },
+        { "type": "counter", "settings": { "number": "98", "suffix": "%", "label": "Clinical Satisfaction" } },
+        { "type": "counter", "settings": { "number": "18", "suffix": "+", "label": "Years Experience" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

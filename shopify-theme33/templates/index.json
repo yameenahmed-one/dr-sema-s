@@ -1,0 +1,25 @@
+﻿{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "heading_1": "Pure Clinical Science.",
+        "subheading_1": "Uncompromising Radiance.",
+        "text_1": "Engineered with cold-pressed organic botanicals and bio-peptides to nourish, restore, and illuminate skin.",
+        "heading_2": "Cellular Renewal.",
+        "subheading_2": "Without Irritation.",
+        "text_2": "Natural botanical retinol alternatives that smooth fine lines and correct hyperpigmentation gently.",
+        "heading_3": "Deep Ceramide Hydration.",
+        "subheading_3": "Intensive Repair.",
+        "text_3": "Ceramide-3 and Sacred Lotus Extract to lock in deep hydration and restore damaged barrier lipids."
+      }
+    },
+    "features": { "type": "features", "settings": {} },
+    "collections-grid": { "type": "collections-grid", "settings": {} },
+    "why-us": { "type": "why-us", "settings": {} },
+    "before-after": { "type": "before-after", "settings": {} },
+    "testimonials": { "type": "testimonials", "settings": {} },
+    "newsletter": { "type": "newsletter", "settings": {} }
+  },
+  "order": ["hero","features","collections-grid","why-us","before-after","testimonials","newsletter"]
+}
